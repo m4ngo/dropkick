@@ -56,20 +56,19 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Demos\PlayerHosted\Scripts\Player\CameraController.cs" />
-    <Compile Include="Assets\Demos\PlayerHosted\Scripts\LobbyManager.cs" />
-    <Compile Include="Assets\Demos\PlayerHosted\Scripts\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\Demos\PlayerHosted\Scripts\NetworkManager.cs" />
-    <Compile Include="Assets\Demos\PlayerHosted\Scripts\Player\PlayerUIManager.cs" />
-    <Compile Include="Assets\Demos\PlayerHosted\Scripts\Player\ServerPlayer.cs" />
-    <Compile Include="Assets\Demos\PlayerHosted\Scripts\UIManager.cs" />
-    <Compile Include="Assets\SteamTransport\SteamClient.cs" />
-    <Compile Include="Assets\Demos\PlayerHosted\Scripts\Player\ClientPlayer.cs" />
-    <Compile Include="Assets\Demos\PlayerHosted\Scripts\Player\PlayerInput.cs" />
-    <Compile Include="Assets\SteamTransport\SteamConnection.cs" />
-    <Compile Include="Assets\SteamTransport\SteamPeer.cs" />
-    <Compile Include="Assets\SteamTransport\SteamServer.cs" />
-    <Compile Include="Assets\Demos\SteamManager.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
+    <Compile Include="Assets\Scripts\SteamTransport\SteamPeer.cs" />
+    <Compile Include="Assets\Scripts\LobbyManager.cs" />
+    <Compile Include="Assets\Scripts\SteamTransport\SteamClient.cs" />
+    <Compile Include="Assets\Scripts\NetworkManager.cs" />
+    <Compile Include="Assets\Scripts\Player\ClientPlayer.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerUIManager.cs" />
+    <Compile Include="Assets\Scripts\SteamTransport\SteamManager.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
+    <Compile Include="Assets\Scripts\Player\ServerPlayer.cs" />
+    <Compile Include="Assets\Scripts\SteamTransport\SteamServer.cs" />
+    <Compile Include="Assets\Scripts\SteamTransport\SteamConnection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -681,14 +680,26 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.6f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="RiptideNetworking">
+      <HintPath>Library\ScriptAssemblies\RiptideNetworking.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Sysroot.Linux_x86_64">
+      <HintPath>Library\ScriptAssemblies\Unity.Sysroot.Linux_x86_64.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Toolchain.Win-x86_64-Linux-x86_64">
+      <HintPath>Library\ScriptAssemblies\Unity.Toolchain.Win-x86_64-Linux-x86_64.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="com.rlabrecque.steamworks.net.editor">
+      <HintPath>Library\ScriptAssemblies\com.rlabrecque.steamworks.net.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
@@ -699,14 +710,11 @@
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="RiptideNetworking">
-      <HintPath>Library\ScriptAssemblies\RiptideNetworking.dll</HintPath>
-    </Reference>
-    <Reference Include="com.rlabrecque.steamworks.net.editor">
-      <HintPath>Library\ScriptAssemblies\com.rlabrecque.steamworks.net.editor.dll</HintPath>
-    </Reference>
     <Reference Include="com.rlabrecque.steamworks.net">
       <HintPath>Library\ScriptAssemblies\com.rlabrecque.steamworks.net.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.SysrootPackage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
