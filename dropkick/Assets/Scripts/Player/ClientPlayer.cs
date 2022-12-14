@@ -13,7 +13,7 @@ public class ClientPlayer : MonoBehaviour
     private Animator anim;
     private Vector2 targetPos;
 
-    private void Start()
+    private void Awake()
     {
         anim = GetComponent<Animator>();
     }
