@@ -6,6 +6,7 @@ public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private Transform cam;
     [SerializeField] private float camSpeed = 2.5f;
+    bool jump = false;
     Vector2 moveDir;
 
     private void Start()
@@ -17,6 +18,7 @@ public class PlayerInput : MonoBehaviour
     {
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical");
+        jump = Input.GetKey(KeyCode.Space);
     }
 
     private void FixedUpdate()
@@ -32,6 +34,7 @@ public class PlayerInput : MonoBehaviour
     {
         Message message = Message.Create(MessageSendMode.Unreliable, ClientToServerId.PlayerInput);
         message.AddVector2(moveDir);
+        message.AddBool(jump);
         NetworkManager.Singleton.Client.Send(message);
     }
     #endregion

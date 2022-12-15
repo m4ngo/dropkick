@@ -66,7 +66,7 @@ public class ServerPlayer : MonoBehaviour
     private static void PlayerInput(ushort fromClientId, Message message)
     {
         ServerPlayer player = List[fromClientId];
-        player.movement.SetMoveDir(message.GetVector2());
+        player.movement.SetMoveDir(message.GetVector2(), message.GetBool());
     }
     #endregion
 }

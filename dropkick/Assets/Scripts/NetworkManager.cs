@@ -50,6 +50,7 @@ public class NetworkManager : MonoBehaviour
     private void Awake()
     {
         Singleton = this;
+        Application.targetFrameRate = 60;
     }
 
     private void Start()

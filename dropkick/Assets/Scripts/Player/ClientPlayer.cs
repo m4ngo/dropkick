@@ -25,7 +25,7 @@ public class ClientPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = Vector2.Lerp(transform.position, targetPos, Time.deltaTime * 25f);
+        transform.position = Vector2.Lerp(transform.position, targetPos, Time.deltaTime * 10f);
     }
 
     public static void Spawn(ushort id, string username, Vector3 position)
@@ -62,15 +62,15 @@ public class ClientPlayer : MonoBehaviour
 
         Vector2 moveDir = message.GetVector2();
         if (moveDir == Vector2.zero)
-        {
             player.anim.SetBool("Run", false);
-            return;
-        }
         else
+        {
             player.anim.SetBool("Run", true);
-
-        player.anim.SetFloat("X", moveDir.x);
-        player.anim.SetFloat("Y", moveDir.y);
+            player.anim.SetFloat("X", moveDir.x);
+            player.anim.SetFloat("Y", moveDir.y);
+        }
+        if (message.GetBool() && !player.anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+            player.anim.SetTrigger("Jump");
     }
     #endregion
 }
