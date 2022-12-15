@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6555072466789446783}
   - component: {fileID: 41682541033897877}
   - component: {fileID: 5658866567924812446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ServerPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   airSpeed: 7.5
-  jumpTime: 0.5
   acceleration: 12.5
-  airAcceleration: 2.35
+  airAcceleration: 6.35
+  jumpTime: 0.5
+  coyoteTime: 0.1
