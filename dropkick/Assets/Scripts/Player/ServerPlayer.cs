@@ -26,7 +26,7 @@ public class ServerPlayer : MonoBehaviour
 
     public static void Spawn(ushort id, string username)
     {
-        ServerPlayer player = Instantiate(NetworkManager.Singleton.ServerPlayerPrefab, new Vector3(0f, 1f, 0f), Quaternion.identity).GetComponent<ServerPlayer>();
+        ServerPlayer player = Instantiate(NetworkManager.Singleton.ServerPlayerPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity).GetComponent<ServerPlayer>();
         player.name = $"Server Player {id} ({(username == "" ? "Guest" : username)})";
         player.Id = id;
         player.Username = username;
@@ -66,7 +66,7 @@ public class ServerPlayer : MonoBehaviour
     private static void PlayerInput(ushort fromClientId, Message message)
     {
         ServerPlayer player = List[fromClientId];
-        player.movement.SetMoveDir(message.GetVector2(), message.GetBool());
+        player.movement.SetMoveDir(message.GetVector2(), message.GetFloat());
     }
     #endregion
 }

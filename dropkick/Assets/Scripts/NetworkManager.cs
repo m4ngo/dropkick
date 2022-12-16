@@ -8,7 +8,9 @@ using UnityEngine;
 public enum ServerToClientId : ushort
 {
     SpawnPlayer = 1,
-    PlayerTick,
+    PlayerJump,
+    PlayerDeath,
+    PlayerRespawn,
 }
 public enum ClientToServerId : ushort
 {

@@ -10,22 +10,21 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private ushort id;
     [SerializeField] private string username;
 
+    [SerializeField] private ParticleSystem checkpointParticle;
+    private Transform checkpoint;
+
     private Animator anim;
-    private Vector2 targetPos;
+    private Rigidbody2D rb;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void OnDestroy()
     {
         list.Remove(id);
-    }
-
-    private void FixedUpdate()
-    {
-        transform.position = Vector2.Lerp(transform.position, targetPos, Time.deltaTime * 10f);
     }
 
     public static void Spawn(ushort id, string username, Vector3 position)
@@ -45,6 +44,32 @@ public class ClientPlayer : MonoBehaviour
         list.Add(player.id, player);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Checkpoint") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            if (checkpoint != collision.transform)
+            {
+                checkpoint = collision.transform;
+                checkpointParticle.transform.position = checkpoint.position;
+                checkpointParticle.Play();
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Checkpoint") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        {
+            if (checkpoint != collision.transform)
+            {
+                checkpoint = collision.transform;
+                checkpointParticle.transform.position = checkpoint.position;
+                checkpointParticle.Play();
+            }
+        }
+    }
+
     #region Messages
     [MessageHandler((ushort)ServerToClientId.SpawnPlayer, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void SpawnPlayer(Message message)
@@ -52,25 +77,41 @@ public class ClientPlayer : MonoBehaviour
         Spawn(message.GetUShort(), message.GetString(), message.GetVector3());
     }
 
-    [MessageHandler((ushort)ServerToClientId.PlayerTick, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
-    private static void PlayerTick(Message message)
+    [MessageHandler((ushort)ServerToClientId.PlayerJump, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void PlayerJump(Message message)
     {
         ushort playerId = message.GetUShort(); //get player id
         if (!list.TryGetValue(playerId, out ClientPlayer player))
             return;
-        player.targetPos = message.GetVector2(); //update player position
+        player.transform.position = message.GetVector2(); //update player position
+        Vector2 dir = message.GetVector2();
+        player.rb.velocity = dir * message.GetFloat();
 
-        Vector2 moveDir = message.GetVector2();
-        if (moveDir == Vector2.zero)
-            player.anim.SetBool("Run", false);
-        else
-        {
-            player.anim.SetBool("Run", true);
-            player.anim.SetFloat("X", moveDir.x);
-            player.anim.SetFloat("Y", moveDir.y);
-        }
-        if (message.GetBool() && !player.anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        bool anim = message.GetBool();
+        if(anim)
             player.anim.SetTrigger("Jump");
+
+        player.anim.SetFloat("X", Mathf.RoundToInt(dir.x));
+        player.anim.SetFloat("Y", Mathf.RoundToInt(dir.y));
+    }
+
+    [MessageHandler((ushort)ServerToClientId.PlayerDeath, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void PlayerDeath(Message message)
+    {
+        ushort playerId = message.GetUShort(); //get player id
+        if (!list.TryGetValue(playerId, out ClientPlayer player))
+            return;
+        player.rb.velocity = Vector2.zero;
+        player.anim.SetTrigger("Death");
+    }
+
+    [MessageHandler((ushort)ServerToClientId.PlayerRespawn, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void PlayerRespawn(Message message)
+    {
+        ushort playerId = message.GetUShort(); //get player id
+        if (!list.TryGetValue(playerId, out ClientPlayer player))
+            return;
+        player.transform.position = message.GetVector2(); //update player position
     }
     #endregion
 }
