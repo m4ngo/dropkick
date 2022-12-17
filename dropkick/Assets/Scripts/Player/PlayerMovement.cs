@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = true;
             transform.position = checkpoint;
+            rb.velocity = Vector2.zero;
             PlayerRespawn();
         }
     }
@@ -52,14 +53,15 @@ public class PlayerMovement : MonoBehaviour
             if(jumpTimer <= 0)
             {
                 //landed
-                /*Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, landRadius, mask);
+                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, landRadius, mask);
                 if(hits.Length > 0)
                 {
                     foreach (Collider2D hit in hits)
                     {
-                        hit.GetComponent<PlayerMovement>().Hit((transform.position - hit.transform.position).normalized, knockback);
+                        if(hit.CompareTag("ServerPlayer") && hit.gameObject != this.gameObject)
+                            hit.GetComponent<PlayerMovement>().Hit((hit.transform.position - transform.position).normalized, knockback);
                     }
-                }*/
+                }
             }
         }
         if (!isGrounded && jumpTimer <= 0 && deathTimer <= 0)
@@ -68,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetMoveDir(Vector2 jumpDir, float jumpForce)
     {
-        if (jumpTimer > 0 || !isGrounded)
+        if (jumpTimer > 0 || !isGrounded || deathTimer > 0)
             return;
 
         jumpForce = Mathf.Clamp(jumpForce, minJumpForceMultiplier, 1.0f);
@@ -82,6 +84,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Hit(Vector2 dir, float knockback)
     {
+        if (jumpTimer > 0)
+            return;
+
         rb.velocity = dir * knockback;
         PlayerJump(dir, knockback, false);
     }

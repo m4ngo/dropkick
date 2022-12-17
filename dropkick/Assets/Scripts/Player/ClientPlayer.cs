@@ -112,6 +112,7 @@ public class ClientPlayer : MonoBehaviour
         if (!list.TryGetValue(playerId, out ClientPlayer player))
             return;
         player.transform.position = message.GetVector2(); //update player position
+        player.rb.velocity = Vector2.zero;
     }
     #endregion
 }

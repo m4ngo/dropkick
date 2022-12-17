@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5658866567924812446}
   m_Layer: 6
   m_Name: ServerPlayer
-  m_TagString: Untagged
+  m_TagString: ServerPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,3 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxJumpForce: 25
   minJumpForceMultiplier: 0.2
+  knockback: 7.5
+  landRadius: 0.75
+  mask:
+    serializedVersion: 2
+    m_Bits: 64
