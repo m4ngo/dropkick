@@ -10,6 +10,11 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private ushort id;
     [SerializeField] private string username;
 
+    [SerializeField] private Transform playerSprite;
+    private float verticalVelocity;
+    public bool isJumping { get; private set; }  = false;
+    private Vector2 startPos;
+
     [SerializeField] private ParticleSystem checkpointParticle;
     private Transform checkpoint;
 
@@ -20,6 +25,7 @@ public class ClientPlayer : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        startPos = playerSprite.position;
     }
 
     private void OnDestroy()
@@ -44,9 +50,34 @@ public class ClientPlayer : MonoBehaviour
         list.Add(player.id, player);
     }
 
+    private void FixedUpdate()
+    {
+        if (!isJumping)
+        {
+            rb.drag = PlayerMovement.DefaultDrag;
+            return;
+        }
+
+        rb.drag = PlayerMovement.AirDrag;
+        verticalVelocity += PlayerMovement.Gravity * Time.fixedDeltaTime;
+        playerSprite.localPosition += new Vector3(0, verticalVelocity, 0) * Time.fixedDeltaTime;
+        if(playerSprite.localPosition.y <= startPos.y)
+        {
+            isJumping = false;
+            playerSprite.localPosition = startPos;
+            rb.velocity *= PlayerMovement.LandingFactor;
+        }
+    }
+
+    void Jump(float force) //the higher the force, the higher the jump
+    {
+        verticalVelocity = Mathf.Pow(PlayerMovement.Pow, (force * PlayerMovement.JumpForceFactor)) + PlayerMovement.JumpOffset;
+        isJumping = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Checkpoint") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        if (collision.CompareTag("Checkpoint") && !isJumping)
         {
             if (checkpoint != collision.transform)
             {
@@ -59,7 +90,7 @@ public class ClientPlayer : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Checkpoint") && !anim.GetCurrentAnimatorStateInfo(0).IsName("Jump"))
+        if (collision.CompareTag("Checkpoint") && !isJumping)
         {
             if (checkpoint != collision.transform)
             {
@@ -85,11 +116,12 @@ public class ClientPlayer : MonoBehaviour
             return;
         player.transform.position = message.GetVector2(); //update player position
         Vector2 dir = message.GetVector2();
-        player.rb.velocity = dir * message.GetFloat();
+        float force = message.GetFloat();
+        player.rb.velocity = dir * force;
 
         bool anim = message.GetBool();
-        if(anim)
-            player.anim.SetTrigger("Jump");
+        if (anim)
+            player.Jump(force);
 
         player.anim.SetFloat("X", Mathf.RoundToInt(dir.x));
         player.anim.SetFloat("Y", Mathf.RoundToInt(dir.y));

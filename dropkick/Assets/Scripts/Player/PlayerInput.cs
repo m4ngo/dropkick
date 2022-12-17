@@ -11,17 +11,22 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float holdTime = 0f;
     [SerializeField] private float chargeSpeed;
 
+    private ClientPlayer player;
+
     bool up = true;
     Vector2 dir;
 
     private void Start()
     {
+        player = GetComponent<ClientPlayer>();
         cam.SetParent(null);
     }
 
     private void Update()
     {
-        pointer.localScale = new Vector2(1f, holdTime + 0.2f);
+        pointer.gameObject.SetActive(!player.isJumping && Input.GetMouseButton(0));
+
+        pointer.localScale = new Vector2(1f, Mathf.Clamp(holdTime, .2f, 1.0f));
         if (Input.GetMouseButton(0))
         {
             if (up)

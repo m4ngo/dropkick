@@ -4,6 +4,14 @@ using Riptide;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public const float Gravity = -75f;
+    public const float DefaultDrag = 5.5f;
+    public const float AirDrag = 0f;
+    public const float Pow = 1.15f;
+    public const float JumpForceFactor = 1.1f;
+    public const float JumpOffset = 10f;
+    public const float LandingFactor = 0.5f;
+
     [SerializeField] private float maxJumpForce;
     [SerializeField] private float minJumpForceMultiplier = 0.2f;
 
@@ -11,27 +19,63 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float landRadius;
     [SerializeField] private LayerMask mask;
 
+    private float verticalVelocity;
+    private bool isJumping = false;
+    private float proxyY = 0f;
+
     private ServerPlayer player;
     private Rigidbody2D rb;
 
     Vector2 checkpoint = Vector2.zero;
 
     float deathTimer = 0;
-    float jumpTimer = 0;
     bool isGrounded = false;
 
     private void Awake()
-    {
+    {   
         player = GetComponent<ServerPlayer>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+        if (!isJumping)
+            rb.drag = DefaultDrag;
+        else
+        {
+            rb.drag = AirDrag;
+            verticalVelocity += Gravity * Time.fixedDeltaTime;
+            proxyY += verticalVelocity * Time.fixedDeltaTime;
+            if (proxyY <= 0f) //landed
+            {
+                isJumping = false;
+                proxyY = 0f;
+                rb.velocity *= LandingFactor;
+
+                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, landRadius, mask);
+                if (hits.Length > 0)
+                {
+                    foreach (Collider2D hit in hits)
+                    {
+                        if (hit.CompareTag("ServerPlayer") && hit.gameObject != this.gameObject)
+                            hit.GetComponent<PlayerMovement>().Hit((hit.transform.position - transform.position).normalized, knockback);
+                    }
+                }
+            }
+        }
+
+
+        //movement code
+        if (deathTimer > 0)
+            rb.velocity = Vector2.zero;
+
+        if (!isGrounded && !isJumping && deathTimer <= 0)
+            Death(0);
+
         if (deathTimer <= 0)
             return;
 
-        deathTimer -= Time.deltaTime;
+        deathTimer -= Time.fixedDeltaTime;
         if (deathTimer <= 0)
         {
             isGrounded = true;
@@ -41,54 +85,34 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void Jump(float force) //the higher the force, the higher the jump
     {
-        //movement code
-        if (deathTimer > 0)
-            rb.velocity = Vector2.zero;
-
-        if(jumpTimer > 0)
-        {
-            jumpTimer -= Time.deltaTime;
-            if(jumpTimer <= 0)
-            {
-                //landed
-                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, landRadius, mask);
-                if(hits.Length > 0)
-                {
-                    foreach (Collider2D hit in hits)
-                    {
-                        if(hit.CompareTag("ServerPlayer") && hit.gameObject != this.gameObject)
-                            hit.GetComponent<PlayerMovement>().Hit((hit.transform.position - transform.position).normalized, knockback);
-                    }
-                }
-            }
-        }
-        if (!isGrounded && jumpTimer <= 0 && deathTimer <= 0)
-            Death(0);
+        verticalVelocity = Mathf.Pow(Pow, (force * JumpForceFactor)) + JumpOffset;
+        isJumping = true;
     }
 
     public void SetMoveDir(Vector2 jumpDir, float jumpForce)
     {
-        if (jumpTimer > 0 || !isGrounded || deathTimer > 0)
+        if (isJumping || !isGrounded || deathTimer > 0)
             return;
 
         jumpForce = Mathf.Clamp(jumpForce, minJumpForceMultiplier, 1.0f);
         jumpForce *= maxJumpForce;
 
         rb.velocity = jumpDir.normalized * jumpForce;
-        jumpTimer = 0.5f;
+        Jump(jumpForce);
 
         PlayerJump(jumpDir.normalized, jumpForce, true);
     }
 
     private void Hit(Vector2 dir, float knockback)
     {
-        if (jumpTimer > 0)
+        if (isJumping || deathTimer > 0)
             return;
 
         rb.velocity = dir * knockback;
-        PlayerJump(dir, knockback, false);
+        Jump(knockback);
+        PlayerJump(dir, knockback, true);
     }
 
     void Death(int deathType)
@@ -103,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Ground"))
             isGrounded = true;
-        if (collision.CompareTag("Checkpoint") && jumpTimer <= 0)
+        if (collision.CompareTag("Checkpoint") && !isJumping)
             checkpoint = collision.transform.position;
     }
 
@@ -111,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Ground"))
             isGrounded = true;
-        if (collision.CompareTag("Checkpoint") && jumpTimer <= 0)
+        if (collision.CompareTag("Checkpoint") && !isJumping)
             checkpoint = collision.transform.position;
     }
 
