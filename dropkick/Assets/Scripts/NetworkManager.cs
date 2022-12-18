@@ -11,6 +11,7 @@ public enum ServerToClientId : ushort
     PlayerJump,
     PlayerDeath,
     PlayerRespawn,
+    DungeonGenerate,
 }
 public enum ClientToServerId : ushort
 {
@@ -42,6 +43,10 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject localPlayerPrefab;
 
+    [field:SerializeField] public DungeonGenerator clientGen { get; private set; }
+    private DungeonGenerator gen;
+    private string dungeonSeed;
+
     public GameObject ServerPlayerPrefab => serverPlayerPrefab;
     public GameObject PlayerPrefab => playerPrefab;
     public GameObject LocalPlayerPrefab => localPlayerPrefab;
@@ -53,6 +58,7 @@ public class NetworkManager : MonoBehaviour
     {
         Singleton = this;
         Application.targetFrameRate = 60;
+        gen = GetComponent<DungeonGenerator>();
     }
 
     private void Start()
@@ -118,6 +124,10 @@ public class NetworkManager : MonoBehaviour
 
     private void NewPlayerConnected(object sender, ServerConnectedEventArgs e)
     {
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.DungeonGenerate);
+        message.AddString(dungeonSeed);
+        Server.Send(message, e.Client.Id);
+
         foreach (ServerPlayer player in ServerPlayer.List.Values)
         {
             if (player.Id != e.Client.Id)
@@ -155,6 +165,14 @@ public class NetworkManager : MonoBehaviour
         ClientPlayer.list.Clear();
 
         UIManager.Singleton.BackToMain();
+    }
+
+    public void GenerateDungeon()
+    {
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.DungeonGenerate);
+        dungeonSeed = gen.StartGenerator();
+        message.AddString(dungeonSeed);
+        Server.SendToAll(message);
     }
 }
 

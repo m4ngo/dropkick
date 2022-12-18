@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ClientPlayer
+    - DungeonGenerator
     - LobbyManager
     - NetworkManager
     - PlayerInput
@@ -14,10 +15,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -120,6 +119,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3340}
     - Class: 114
       Script: {instanceID: 3474}
+    - Class: 114
+      Script: {instanceID: 21092}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -141,6 +142,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 331
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -301,7 +304,7 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
-      Hash: 11351662d518191e8986407f805bf616
+      Hash: ddff4f98c7da8d5c9a199f344e9a0d12
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkManager
@@ -539,6 +542,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: e4013af6c2d08dfbb4a2fcf2b73454b7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DungeonGenerator
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

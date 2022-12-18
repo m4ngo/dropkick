@@ -335,7 +335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &251567536
 Transform:
   m_ObjectHideFlags: 0
@@ -361,7 +361,7 @@ Transform:
   - {fileID: 1631393988}
   - {fileID: 667623558}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &321996037
 GameObject:
@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 327629297}
   - component: {fileID: 327629296}
   - component: {fileID: 327629295}
+  - component: {fileID: 327629298}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -488,6 +489,7 @@ MonoBehaviour:
   serverPlayerPrefab: {fileID: 41682541033897874, guid: 4f53c28d6b8a0b84c9dad1045e7b86a0, type: 3}
   playerPrefab: {fileID: 6296381778400844037, guid: 5a6a86990adef69479093350a83ee83e, type: 3}
   localPlayerPrefab: {fileID: 9086514984413201294, guid: 8a2b46d9af4d6ea42a6a0c69e9c6d860, type: 3}
+  <clientGen>k__BackingField: {fileID: 2083716307}
 --- !u!4 &327629297
 Transform:
   m_ObjectHideFlags: 0
@@ -503,6 +505,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &327629298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327629294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b467728f0344a054292d2ffdf56a2e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 
+  randomSeed: 1
+  room: {fileID: 8394608999040008022, guid: 017dfe30ba33eee4ebfa498743263075, type: 3}
+  hall: {fileID: 0}
+  dungeonLength: 12
+  roomSize: {x: 11, y: 11}
 --- !u!1 &339382138
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +652,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &392490967
 RectTransform:
   m_ObjectHideFlags: 0
@@ -854,7 +874,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &502374437
@@ -2398,7 +2418,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1232043452
 GameObject:
@@ -3058,7 +3078,7 @@ RectTransform:
   - {fileID: 1774155860}
   - {fileID: 1576898936}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3412,6 +3432,56 @@ Transform:
   m_Father: {fileID: 1891978360}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2083716305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2083716306}
+  - component: {fileID: 2083716307}
+  m_Layer: 0
+  m_Name: ClientDungeonGenerator
+  m_TagString: ClientDungeonGenerator
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2083716306
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083716305}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2083716307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083716305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b467728f0344a054292d2ffdf56a2e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seed: 
+  randomSeed: 0
+  room: {fileID: 8394608999040008022, guid: 3c111755f4a04a94192f4ae34f272504, type: 3}
+  hall: {fileID: 8741110923776031698, guid: bd8b22821219b9640b5762d548109a98, type: 3}
+  dungeonLength: 12
+  roomSize: {x: 11, y: 11}
 --- !u!1 &2089125763
 GameObject:
   m_ObjectHideFlags: 0

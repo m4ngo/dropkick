@@ -77,16 +77,5 @@ public class UIManager : MonoBehaviour
     {
         mainMenu.SetActive(true);
         lobbyMenu.SetActive(false);
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
-
-    internal void UpdateUIVisibility()
-    {
-        if (Cursor.lockState == CursorLockMode.None)
-            lobbyMenu.SetActive(true);
-        else
-            lobbyMenu.SetActive(false);
     }
 }

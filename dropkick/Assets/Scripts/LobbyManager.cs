@@ -64,6 +64,7 @@ public class LobbyManager : MonoBehaviour
 
         NetworkManager.Singleton.Server.Start(0, 5, NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
         NetworkManager.Singleton.Client.Connect("127.0.0.1", messageHandlerGroupId: NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
+        NetworkManager.Singleton.GenerateDungeon();
     }
 
     internal void JoinLobby(ulong lobbyId)

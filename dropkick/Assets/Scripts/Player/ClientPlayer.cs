@@ -89,7 +89,7 @@ public class ClientPlayer : MonoBehaviour
         if (NetworkManager.Singleton.Client.Id != id)
             return;
 
-        if (collision.CompareTag("Checkpoint") && !isJumping)
+        if (collision.CompareTag("ClientCheckpoint") && !isJumping)
         {
             if (checkpoint != collision.transform)
             {
