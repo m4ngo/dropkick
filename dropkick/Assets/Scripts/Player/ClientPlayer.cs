@@ -15,7 +15,9 @@ public class ClientPlayer : MonoBehaviour
     public bool isJumping { get; private set; }  = false;
     private Vector2 startPos;
 
+    [SerializeField] private ParticleSystem jumpParticle;
     [SerializeField] private ParticleSystem checkpointParticle;
+    [SerializeField] private ParticleSystem landParticle;
     private Transform checkpoint;
 
     private Animator anim;
@@ -61,11 +63,17 @@ public class ClientPlayer : MonoBehaviour
         rb.drag = PlayerMovement.AirDrag;
         verticalVelocity += PlayerMovement.Gravity * Time.fixedDeltaTime;
         playerSprite.localPosition += new Vector3(0, verticalVelocity, 0) * Time.fixedDeltaTime;
-        if(playerSprite.localPosition.y <= startPos.y)
+
+        anim.SetBool("Jump", verticalVelocity > 0);
+        anim.SetBool("Fall", verticalVelocity <= 0);
+
+        if (playerSprite.localPosition.y <= startPos.y)
         {
             isJumping = false;
             playerSprite.localPosition = startPos;
             rb.velocity *= PlayerMovement.LandingFactor;
+            landParticle.Play();
+            anim.SetTrigger("Land");
         }
     }
 
@@ -73,28 +81,22 @@ public class ClientPlayer : MonoBehaviour
     {
         verticalVelocity = Mathf.Pow(PlayerMovement.Pow, (force * PlayerMovement.JumpForceFactor)) + PlayerMovement.JumpOffset;
         isJumping = true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Checkpoint") && !isJumping)
-        {
-            if (checkpoint != collision.transform)
-            {
-                checkpoint = collision.transform;
-                checkpointParticle.transform.position = checkpoint.position;
-                checkpointParticle.Play();
-            }
-        }
+        jumpParticle.Play();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (NetworkManager.Singleton.Client.Id != id)
+            return;
+
         if (collision.CompareTag("Checkpoint") && !isJumping)
         {
             if (checkpoint != collision.transform)
             {
+                if (checkpoint != null)
+                    checkpoint.GetChild(0).GetComponent<ParticleSystem>().Stop();
                 checkpoint = collision.transform;
+                checkpoint.GetChild(0).GetComponent<ParticleSystem>().Play();
                 checkpointParticle.transform.position = checkpoint.position;
                 checkpointParticle.Play();
             }

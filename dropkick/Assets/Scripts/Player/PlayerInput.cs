@@ -7,7 +7,10 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Transform cam;
     [SerializeField] private float camSpeed = 2.5f;
 
+    [SerializeField] private Color pointerStart;
+    [SerializeField] private Color pointerEnd;
     [SerializeField] private Transform pointer;
+    [SerializeField] private SpriteRenderer pointerSprite;
     [SerializeField] private float holdTime = 0f;
     [SerializeField] private float chargeSpeed;
 
@@ -26,13 +29,14 @@ public class PlayerInput : MonoBehaviour
     {
         pointer.gameObject.SetActive(!player.isJumping && Input.GetMouseButton(0));
 
-        pointer.localScale = new Vector2(1f, Mathf.Clamp(holdTime, .2f, 1.0f));
+        pointer.localScale = new Vector2(1f, Mathf.Clamp(holdTime, 0.2f, 1.0f));
+        pointerSprite.color = Color.Lerp(pointerStart, pointerEnd, Mathf.Clamp(holdTime, 0.2f, 1.0f));
         if (Input.GetMouseButton(0))
         {
             if (up)
             {
                 holdTime += Time.deltaTime * chargeSpeed;
-                if (holdTime > 1.2f)
+                if (holdTime > 1.1f)
                     up = false;
             } else
             {
