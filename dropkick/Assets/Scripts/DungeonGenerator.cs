@@ -16,13 +16,17 @@ public class DungeonGenerator : MonoBehaviour
 
     [SerializeField] private Vector2 roomSize;
     private Vector2 prevDir = Vector2.zero;
+    private Vector2 pos;
 
     public void SetSeed(string seed) { this.seed = seed; }
 
     public string StartGenerator()
     {
+        pos = Vector2.zero;
+
         if (randomSeed)
         {
+            seed = "";
             for (int i = 0; i < dungeonLength; i++)
                 seed += Random.Range(0, 3);
         }
@@ -37,10 +41,10 @@ public class DungeonGenerator : MonoBehaviour
     {
         for (int i = 0; i < dungeonLength; i++)
         {
-            GameObject r = Instantiate(room, transform.position, Quaternion.identity);
+            GameObject r = Instantiate(room, pos, Quaternion.identity, transform);
 
             //get the random movement
-            Vector3 dir = Vector3.zero;
+            Vector2 dir = Vector2.zero;
             dir.y = (int.Parse(seed.Substring(i, 1)) - 1) * roomSize.x;
             if (prevDir.y + dir.y == 0)
                 dir.y = 0;
@@ -52,11 +56,11 @@ public class DungeonGenerator : MonoBehaviour
                 if (i < dungeonLength - 1)
                 {
                     float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    Instantiate(hall, transform.position, Quaternion.identity).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+                    Instantiate(hall, pos, Quaternion.identity, transform).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
                 }
             }
 
-            transform.position += dir;
+            pos += dir;
             prevDir = dir;
         }
     }

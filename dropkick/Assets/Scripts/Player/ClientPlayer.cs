@@ -10,6 +10,9 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private ushort id;
     [SerializeField] private string username;
 
+    [SerializeField] private Transform cam;
+    [SerializeField] private float camSpeed = 2.5f;
+
     [SerializeField] private Transform playerSprite;
     private float verticalVelocity;
     public bool isJumping { get; private set; }  = false;
@@ -28,10 +31,13 @@ public class ClientPlayer : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         startPos = playerSprite.position;
+        if(cam != null)
+            cam.SetParent(null);
     }
 
     private void OnDestroy()
     {
+        Destroy(cam.gameObject);
         list.Remove(id);
     }
 
@@ -54,6 +60,9 @@ public class ClientPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (cam != null)
+            cam.position = Vector3.Lerp(cam.position, new Vector3(transform.position.x, transform.position.y, -10), Time.deltaTime * camSpeed);
+
         if (!isJumping)
         {
             rb.drag = PlayerMovement.DefaultDrag;

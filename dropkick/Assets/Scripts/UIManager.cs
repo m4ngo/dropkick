@@ -77,5 +77,9 @@ public class UIManager : MonoBehaviour
     {
         mainMenu.SetActive(true);
         lobbyMenu.SetActive(false);
+        foreach (Transform child in NetworkManager.Singleton.transform)
+            Destroy(child.gameObject);
+        foreach (Transform child in NetworkManager.Singleton.clientGen.transform)
+            Destroy(child.gameObject); 
     }
 }

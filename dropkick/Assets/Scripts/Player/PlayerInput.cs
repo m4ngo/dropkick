@@ -4,9 +4,6 @@ using Riptide;
 
 public class PlayerInput : MonoBehaviour
 {
-    [SerializeField] private Transform cam;
-    [SerializeField] private float camSpeed = 2.5f;
-
     [SerializeField] private Color pointerStart;
     [SerializeField] private Color pointerEnd;
     [SerializeField] private Transform pointer;
@@ -22,7 +19,6 @@ public class PlayerInput : MonoBehaviour
     private void Start()
     {
         player = GetComponent<ClientPlayer>();
-        cam.SetParent(null);
     }
 
     private void Update()
@@ -55,12 +51,6 @@ public class PlayerInput : MonoBehaviour
         dir = mousePos - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         pointer.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
-    }
-
-    private void FixedUpdate()
-    {
-        //camera follow
-        cam.position = Vector3.Lerp(cam.position, new Vector3(transform.position.x, transform.position.y, -10), Time.deltaTime * camSpeed);
     }
 
     #region Messages

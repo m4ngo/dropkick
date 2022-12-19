@@ -30,6 +30,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
+    - UnityEngine.UI.Mask
     - UnityEngine.UI.Text
   serializedClasses:
     UnityEngine.CoreModule:
@@ -104,6 +105,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2372}
     - Class: 114
+      Script: {instanceID: 2428}
+    - Class: 114
       Script: {instanceID: 2500}
     - Class: 114
       Script: {instanceID: 2680}
@@ -118,9 +121,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3340}
     - Class: 114
-      Script: {instanceID: 3474}
+      Script: {instanceID: 3372}
     - Class: 114
-      Script: {instanceID: 21092}
+      Script: {instanceID: 3476}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -184,7 +187,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: c5bae6e95600318c7a598c2d84367651
+      Hash: ff46bf5b4a55db7f6a760dc066d96ddc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerInput
@@ -346,7 +349,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 5f2308a050d31dca64a14d087844cf71
+      Hash: 1314f8a20f3a6168f9cf6a7601b97ccf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientPlayer
@@ -496,6 +499,12 @@ ScriptsOnlyBuild:
     className: Scrollbar
   - hash:
       serializedVersion: 2
+      Hash: e4013af6c2d08dfbb4a2fcf2b73454b7
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DungeonGenerator
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -542,12 +551,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: e4013af6c2d08dfbb4a2fcf2b73454b7
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DungeonGenerator
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
