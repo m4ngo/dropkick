@@ -10,7 +10,10 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField] private bool randomSeed = true;
 
     [SerializeField] private GameObject room;
-    [SerializeField] private GameObject hall;
+    [SerializeField] private GameObject[] roomLayouts;
+
+    [SerializeField] private GameObject startRoom;
+    [SerializeField] private GameObject endRoom;
 
     [SerializeField] private int dungeonLength = 12;
 
@@ -41,7 +44,7 @@ public class DungeonGenerator : MonoBehaviour
     {
         for (int i = 0; i < dungeonLength; i++)
         {
-            GameObject r = Instantiate(room, pos, Quaternion.identity, transform);
+            //GameObject r = Instantiate(room, pos, Quaternion.identity, transform);
 
             //get the random movement
             Vector2 dir = Vector2.zero;
@@ -51,14 +54,13 @@ public class DungeonGenerator : MonoBehaviour
             if (dir.y == 0)
                 dir.x = roomSize.x;
 
-            if(hall != null)
-            {
-                if (i < dungeonLength - 1)
-                {
-                    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-                    Instantiate(hall, pos, Quaternion.identity, transform).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
-                }
-            }
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            if (i == 0)
+                Instantiate(startRoom, pos, Quaternion.identity, transform);
+            else if (i == dungeonLength - 1)
+                Instantiate(endRoom, pos, Quaternion.identity, transform);
+            else
+                Instantiate(roomLayouts[Random.Range(0, roomLayouts.Length)], pos, Quaternion.identity, transform).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
 
             pos += dir;
             prevDir = dir;

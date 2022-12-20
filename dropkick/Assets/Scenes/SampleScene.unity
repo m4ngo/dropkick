@@ -512,7 +512,10 @@ MonoBehaviour:
   seed: 
   randomSeed: 1
   room: {fileID: 8394608999040008022, guid: 017dfe30ba33eee4ebfa498743263075, type: 3}
-  hall: {fileID: 0}
+  roomLayouts:
+  - {fileID: 8394608999040008022, guid: 017dfe30ba33eee4ebfa498743263075, type: 3}
+  startRoom: {fileID: 6063519041722284968, guid: d70f3dc7d76a3fd4497e75661bb9a914, type: 3}
+  endRoom: {fileID: 5135521135241271723, guid: e54040ea537267244b05720c03bfa927, type: 3}
   dungeonLength: 12
   roomSize: {x: 11, y: 11}
 --- !u!1 &392490966
@@ -11946,7 +11949,10 @@ MonoBehaviour:
   seed: 
   randomSeed: 0
   room: {fileID: 8394608999040008022, guid: 3c111755f4a04a94192f4ae34f272504, type: 3}
-  hall: {fileID: 8741110923776031698, guid: bd8b22821219b9640b5762d548109a98, type: 3}
+  roomLayouts:
+  - {fileID: 8394608999040008022, guid: 3c111755f4a04a94192f4ae34f272504, type: 3}
+  startRoom: {fileID: 2228203811783591057, guid: 5177b2ce441b4ef4eae3f4ef631ca57f, type: 3}
+  endRoom: {fileID: 6203567133810536349, guid: b60245503ec9eb04e89b7803c08c144e, type: 3}
   dungeonLength: 12
   roomSize: {x: 11, y: 11}
 --- !u!1 &2089125763
