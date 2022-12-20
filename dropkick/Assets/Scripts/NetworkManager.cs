@@ -120,6 +120,7 @@ public class NetworkManager : MonoBehaviour
         Client.Disconnect();
         foreach (ClientPlayer player in ClientPlayer.list.Values)
             Destroy(player.gameObject);
+        Destroy(Camera.main.gameObject);
     }
 
     private void NewPlayerConnected(object sender, ServerConnectedEventArgs e)

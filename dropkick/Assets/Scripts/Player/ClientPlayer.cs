@@ -15,6 +15,8 @@ public class ClientPlayer : MonoBehaviour
 
     [SerializeField] private Transform playerSprite;
     private float verticalVelocity;
+    private float gravity;
+
     public bool isJumping { get; private set; }  = false;
     private Vector2 startPos;
 
@@ -30,14 +32,13 @@ public class ClientPlayer : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        startPos = playerSprite.position;
+        startPos = playerSprite.localPosition;
         if(cam != null)
             cam.SetParent(null);
     }
 
     private void OnDestroy()
     {
-        Destroy(cam.gameObject);
         list.Remove(id);
     }
 
@@ -70,7 +71,7 @@ public class ClientPlayer : MonoBehaviour
         }
 
         rb.drag = PlayerMovement.AirDrag;
-        verticalVelocity += PlayerMovement.Gravity * Time.fixedDeltaTime;
+        verticalVelocity += gravity * Time.fixedDeltaTime;
         playerSprite.localPosition += new Vector3(0, verticalVelocity, 0) * Time.fixedDeltaTime;
 
         anim.SetBool("Jump", verticalVelocity > 0);
@@ -88,7 +89,8 @@ public class ClientPlayer : MonoBehaviour
 
     void Jump(float force) //the higher the force, the higher the jump
     {
-        verticalVelocity = Mathf.Pow(PlayerMovement.Pow, (force * PlayerMovement.JumpForceFactor)) + PlayerMovement.JumpOffset;
+        verticalVelocity = force * PlayerMovement.JumpForceFactor + PlayerMovement.JumpOffset;
+        gravity = PlayerMovement.Gravity * Mathf.Pow(PlayerMovement.GravityPow, verticalVelocity);
         isJumping = true;
         jumpParticle.Play();
     }

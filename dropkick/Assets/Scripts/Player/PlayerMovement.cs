@@ -5,12 +5,12 @@ using Riptide;
 public class PlayerMovement : MonoBehaviour
 {
     public const float Gravity = -75f;
-    public const float DefaultDrag = 5.5f;
-    public const float AirDrag = 0f;
-    public const float Pow = 1.15f;
-    public const float JumpForceFactor = 1.1f;
+    public const float GravityPow = 1.025f;
+    public const float JumpForceFactor = 1.75f;
     public const float JumpOffset = 10f;
     public const float LandingFactor = 0.5f;
+    public const float DefaultDrag = 5.5f;
+    public const float AirDrag = 0f;
 
     [SerializeField] private float maxJumpForce;
     [SerializeField] private float minJumpForceMultiplier = 0.2f;
@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask mask;
 
     private float verticalVelocity;
+    private float gravity;
     private bool isJumping = false;
     private float proxyY = 0f;
 
@@ -44,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             rb.drag = AirDrag;
-            verticalVelocity += Gravity * Time.fixedDeltaTime;
+            verticalVelocity += gravity * Time.fixedDeltaTime;
             proxyY += verticalVelocity * Time.fixedDeltaTime;
             if (proxyY <= 0f) //landed
             {
@@ -87,7 +88,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump(float force) //the higher the force, the higher the jump
     {
-        verticalVelocity = Mathf.Pow(Pow, (force * JumpForceFactor)) + JumpOffset;
+        verticalVelocity = force * JumpForceFactor + JumpOffset;
+        gravity = Gravity * Mathf.Pow(GravityPow, verticalVelocity);
         isJumping = true;
     }
 
