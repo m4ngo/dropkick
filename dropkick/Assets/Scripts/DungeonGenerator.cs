@@ -14,6 +14,7 @@ public class DungeonGenerator : MonoBehaviour
 
     [SerializeField] private GameObject startRoom;
     [SerializeField] private GameObject endRoom;
+    [SerializeField] private GameObject checkpointRoom;
 
     [SerializeField] private int dungeonLength = 12;
 
@@ -32,6 +33,8 @@ public class DungeonGenerator : MonoBehaviour
             seed = "";
             for (int i = 0; i < dungeonLength; i++)
                 seed += Random.Range(0, 3);
+            for (int i = 0; i < dungeonLength - 2; i++)
+                seed += Random.Range(0, roomLayouts.Length);
         }
 
         //generate the dungeon here
@@ -59,9 +62,11 @@ public class DungeonGenerator : MonoBehaviour
                 Instantiate(startRoom, pos, Quaternion.identity, transform);
             else if (i == dungeonLength - 1)
                 Instantiate(endRoom, pos, Quaternion.identity, transform);
+            else if (i == (dungeonLength - 1 )/2)
+                Instantiate(checkpointRoom, pos, Quaternion.identity, transform);
             else
-                Instantiate(roomLayouts[Random.Range(0, roomLayouts.Length)], pos, Quaternion.identity, transform).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
-
+                Instantiate(roomLayouts[int.Parse(seed.Substring(dungeonLength + i - 1, 1))], pos, Quaternion.identity, transform).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
+            
             pos += dir;
             prevDir = dir;
         }

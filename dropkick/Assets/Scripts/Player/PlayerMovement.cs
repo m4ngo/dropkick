@@ -31,11 +31,20 @@ public class PlayerMovement : MonoBehaviour
 
     float deathTimer = 0;
     bool isGrounded = false;
+    float groundTimer = 0;
 
     private void Awake()
     {   
         player = GetComponent<ServerPlayer>();
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        if (isGrounded)
+            groundTimer = 0;
+        else
+            groundTimer += Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -70,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         if (deathTimer > 0)
             rb.velocity = Vector2.zero;
 
-        if (!isGrounded && !isJumping && deathTimer <= 0)
+        if (groundTimer > 0.05 && !isJumping && deathTimer <= 0)
             Death(0);
 
         if (deathTimer <= 0)
@@ -95,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetMoveDir(Vector2 jumpDir, float jumpForce)
     {
-        if (isJumping || !isGrounded || deathTimer > 0)
+        if (isJumping || groundTimer > 0.05 || deathTimer > 0)
             return;
 
         jumpForce = Mathf.Clamp(jumpForce, minJumpForceMultiplier, 1.0f);
