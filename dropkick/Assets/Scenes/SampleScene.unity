@@ -511,15 +511,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: 
   randomSeed: 1
-  room: {fileID: 8394608999040008022, guid: 017dfe30ba33eee4ebfa498743263075, type: 3}
-  roomLayouts:
-  - {fileID: 8394608999040008022, guid: 017dfe30ba33eee4ebfa498743263075, type: 3}
-  - {fileID: 5258631463911545322, guid: f376417ea3ebd9b4fbd23b4e2ca5b7db, type: 3}
-  startRoom: {fileID: 6063519041722284968, guid: d70f3dc7d76a3fd4497e75661bb9a914, type: 3}
-  endRoom: {fileID: 5135521135241271723, guid: e54040ea537267244b05720c03bfa927, type: 3}
-  checkpointRoom: {fileID: 6063519041722284968, guid: d70f3dc7d76a3fd4497e75661bb9a914, type: 3}
-  dungeonLength: 12
-  roomSize: {x: 11, y: 11}
+  checkpoint: {fileID: 3231364700612569505, guid: 6e58fb9be01a97447a55aa962b437574, type: 3}
+  endRoom: {fileID: 9052210939139120742, guid: f9a1a5ae4fb71c84f9693e5c15250580, type: 3}
+  leftRightRooms:
+  - {fileID: 5053451027951002745, guid: a2cb3e88b7aec7842a6916a8f65421b7, type: 3}
+  - {fileID: 6900981288665858056, guid: c45cf66e7b522ed439d8507df0314b5d, type: 3}
+  leftUpRooms:
+  - {fileID: 8614060034258240411, guid: c1b9faf02acfdd847a0202e1e9c1945b, type: 3}
+  - {fileID: 8614060034258240411, guid: c1b9faf02acfdd847a0202e1e9c1945b, type: 3}
+  leftDownRooms:
+  - {fileID: 765786156510199216, guid: f430ecffe2535fb43ad548e182e4f15c, type: 3}
+  - {fileID: 765786156510199216, guid: f430ecffe2535fb43ad548e182e4f15c, type: 3}
+  upDownRooms:
+  - {fileID: 3836400921425191142, guid: eee065926ca43324e8965b6d8b5b5665, type: 3}
+  - {fileID: 5030026785358675083, guid: 5e8a98e212061b0409893ecb7048d1cb, type: 3}
+  upRightRooms:
+  - {fileID: 3577281218394101946, guid: 377cfba8283bc8d4c98a800714e215cb, type: 3}
+  - {fileID: 3577281218394101946, guid: 377cfba8283bc8d4c98a800714e215cb, type: 3}
+  downUpRooms:
+  - {fileID: 2052432084138413500, guid: 542d5e4a2a68b844ebcfc0d016539ed6, type: 3}
+  - {fileID: 781054226040650505, guid: f8f1c268e2fe19e4795f222da9980bdf, type: 3}
+  downRightRooms:
+  - {fileID: 5566223300010033644, guid: 527d6dbaf5ebd3f4788d5a331809eb51, type: 3}
+  - {fileID: 5566223300010033644, guid: 527d6dbaf5ebd3f4788d5a331809eb51, type: 3}
+  dungeonLength: 13
+  roomSize: {x: 24, y: 24}
+  dirs: []
 --- !u!1 &392490966
 GameObject:
   m_ObjectHideFlags: 0
@@ -11950,15 +11967,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: 
   randomSeed: 0
-  room: {fileID: 8394608999040008022, guid: 3c111755f4a04a94192f4ae34f272504, type: 3}
-  roomLayouts:
-  - {fileID: 8394608999040008022, guid: 3c111755f4a04a94192f4ae34f272504, type: 3}
-  - {fileID: 8654495394315842560, guid: 392387b3aad0f354f8bd5df9c1799349, type: 3}
-  startRoom: {fileID: 2228203811783591057, guid: 5177b2ce441b4ef4eae3f4ef631ca57f, type: 3}
-  endRoom: {fileID: 6203567133810536349, guid: b60245503ec9eb04e89b7803c08c144e, type: 3}
-  checkpointRoom: {fileID: 2228203811783591057, guid: 5177b2ce441b4ef4eae3f4ef631ca57f, type: 3}
-  dungeonLength: 12
-  roomSize: {x: 11, y: 11}
+  checkpoint: {fileID: 410493944837561735, guid: a45519e72ab095340985916c6bf6fbc6, type: 3}
+  endRoom: {fileID: 1439562937276444785, guid: fba106c959c24284dbc0c64bfb8886ab, type: 3}
+  leftRightRooms:
+  - {fileID: 1333406085570285371, guid: 48dda30873568d549bc98341c6aa4f10, type: 3}
+  - {fileID: 2016640826796709889, guid: aac5bbaa8644da54c9cc7ec7ce24e67d, type: 3}
+  leftUpRooms:
+  - {fileID: 2366128337503583507, guid: 3a6c8065dc53e524ea5d60d504c4f234, type: 3}
+  - {fileID: 2366128337503583507, guid: 3a6c8065dc53e524ea5d60d504c4f234, type: 3}
+  leftDownRooms:
+  - {fileID: 1350722991040461878, guid: 59420aa257a91de46b9a695d34e9cb41, type: 3}
+  - {fileID: 1350722991040461878, guid: 59420aa257a91de46b9a695d34e9cb41, type: 3}
+  upDownRooms:
+  - {fileID: 699264566381094220, guid: 8c06487426f8a484a9596c624cf35ddd, type: 3}
+  - {fileID: 6976474608357563116, guid: 621ba165a4f636d4cb5a708b8df0fbad, type: 3}
+  upRightRooms:
+  - {fileID: 5361205299480853357, guid: ffe7c4e9c6e60cc428f6d234cea28f01, type: 3}
+  - {fileID: 5361205299480853357, guid: ffe7c4e9c6e60cc428f6d234cea28f01, type: 3}
+  downUpRooms:
+  - {fileID: 6705497426978811239, guid: 9228952211c5a054bb3c115d5d51af54, type: 3}
+  - {fileID: 3670946121340485669, guid: 3a8c3012f9def7a469e1c4e750e34528, type: 3}
+  downRightRooms:
+  - {fileID: 8116239524006880604, guid: 78884f2b478360346a37cc698b99a0de, type: 3}
+  - {fileID: 8116239524006880604, guid: 78884f2b478360346a37cc698b99a0de, type: 3}
+  dungeonLength: 13
+  roomSize: {x: 24, y: 24}
+  dirs: []
 --- !u!1 &2089125763
 GameObject:
   m_ObjectHideFlags: 0

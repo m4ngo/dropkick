@@ -9,17 +9,20 @@ public class DungeonGenerator : MonoBehaviour
     [SerializeField] private string seed;
     [SerializeField] private bool randomSeed = true;
 
-    [SerializeField] private GameObject room;
-    [SerializeField] private GameObject[] roomLayouts;
-
-    [SerializeField] private GameObject startRoom;
+    [SerializeField] private GameObject checkpoint;
     [SerializeField] private GameObject endRoom;
-    [SerializeField] private GameObject checkpointRoom;
+    [SerializeField] private GameObject[] leftRightRooms;
+    [SerializeField] private GameObject[] leftUpRooms;
+    [SerializeField] private GameObject[] leftDownRooms;
+    [SerializeField] private GameObject[] upDownRooms;
+    [SerializeField] private GameObject[] upRightRooms;
+    [SerializeField] private GameObject[] downUpRooms;
+    [SerializeField] private GameObject[] downRightRooms;
 
     [SerializeField] private int dungeonLength = 12;
 
     [SerializeField] private Vector2 roomSize;
-    private Vector2 prevDir = Vector2.zero;
+    [SerializeField] private List<Vector2> dirs = new List<Vector2>();
     private Vector2 pos;
 
     public void SetSeed(string seed) { this.seed = seed; }
@@ -33,8 +36,10 @@ public class DungeonGenerator : MonoBehaviour
             seed = "";
             for (int i = 0; i < dungeonLength; i++)
                 seed += Random.Range(0, 3);
-            for (int i = 0; i < dungeonLength - 2; i++)
-                seed += Random.Range(0, roomLayouts.Length);
+            seed += "0";
+            for (int i = 0; i < dungeonLength - 1; i++)
+                //seed += i == dungeonLength / 2 ? 2 : Random.Range(0, leftRightRooms.Length);
+                seed += Random.Range(1, leftRightRooms.Length);
         }
 
         //generate the dungeon here
@@ -45,31 +50,64 @@ public class DungeonGenerator : MonoBehaviour
 
     void GenerateMainBranch()
     {
+        dirs.Clear();
+
         for (int i = 0; i < dungeonLength; i++)
         {
-            //GameObject r = Instantiate(room, pos, Quaternion.identity, transform);
-
-            //get the random movement
             Vector2 dir = Vector2.zero;
             dir.y = (int.Parse(seed.Substring(i, 1)) - 1) * roomSize.x;
-            if (prevDir.y + dir.y == 0)
-                dir.y = 0;
+
+            if (i > 0)
+            {
+                if (dirs[i - 1].y + dir.y == 0)
+                    dir.y = 0;
+            }
+
             if (dir.y == 0)
                 dir.x = roomSize.x;
 
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            if (i == 0)
-                Instantiate(startRoom, pos, Quaternion.identity, transform);
-            else if (i == dungeonLength - 1)
-                Instantiate(endRoom, pos, Quaternion.identity, transform);
-            else if (i == (dungeonLength - 1 )/2)
-                Instantiate(checkpointRoom, pos, Quaternion.identity, transform);
-            else
-                Instantiate(roomLayouts[int.Parse(seed.Substring(dungeonLength + i - 1, 1))], pos, Quaternion.identity, transform).transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + 90));
-            
-            pos += dir;
-            prevDir = dir;
+            dirs.Add(dir);
         }
+
+        for (int i = 0; i < dungeonLength - 1; i++)
+        {
+            Vector2 dir = dirs[i];
+            Vector2 prevDir = dirs[i <= 0 ? 0 : i - 1];
+
+            //AAAAA THIS CODE IS DOGSHIT
+            //hehehehe code dupliction go BRRRR
+
+            if (prevDir.x > 0)
+            {
+                if (dir.y > 0)
+                    Instantiate(leftUpRooms[int.Parse(seed.Substring(dungeonLength + i, 1))], pos, Quaternion.identity, transform);
+                else if (dir.y < 0)
+                    Instantiate(leftDownRooms[int.Parse(seed.Substring(dungeonLength + i, 1))], pos, Quaternion.identity, transform);
+                else
+                    Instantiate(leftRightRooms[int.Parse(seed.Substring(dungeonLength + i, 1))], pos, Quaternion.identity, transform);
+            }
+            else if (prevDir.y > 0)
+            {
+                if (dir.y > 0)
+                    Instantiate(downUpRooms[int.Parse(seed.Substring(dungeonLength + i, 1))], pos, Quaternion.identity, transform);
+                else
+                    Instantiate(downRightRooms[int.Parse(seed.Substring(dungeonLength + i, 1))], pos, Quaternion.identity, transform);
+            }
+            else
+            {
+                if (dir.y < 0)
+                    Instantiate(upDownRooms[int.Parse(seed.Substring(dungeonLength + i, 1))], pos, Quaternion.identity, transform);
+                else
+                    Instantiate(upRightRooms[int.Parse(seed.Substring(dungeonLength + i, 1))], pos, Quaternion.identity, transform);
+            }
+
+            if(i == dungeonLength / 2)
+                Instantiate(checkpoint, pos, Quaternion.identity, transform);
+
+            pos += dir;
+        }
+
+        Instantiate(endRoom, pos, Quaternion.identity, transform);
     }
 
     [MessageHandler((ushort)ServerToClientId.DungeonGenerate, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
