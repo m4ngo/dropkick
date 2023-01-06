@@ -13,27 +13,29 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private Transform cam;
     [SerializeField] private float camSpeed = 2.5f;
 
-    [SerializeField] private Transform playerSprite;
+    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private SpriteRenderer faceSprite;
+    [SerializeField] private Transform shadowSprite;
     private float verticalVelocity;
     private float gravity;
 
     public bool isJumping { get; private set; }  = false;
     private Vector2 startPos;
+    private Vector2 defaultScale;
 
     [SerializeField] private ParticleSystem jumpParticle;
     [SerializeField] private ParticleSystem checkpointParticle;
     [SerializeField] private ParticleSystem landParticle;
     private Transform checkpoint;
 
-    private Animator anim;
     private Rigidbody2D rb;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        startPos = playerSprite.localPosition;
-        if(cam != null)
+        startPos = playerSprite.transform.localPosition;
+        defaultScale = playerSprite.transform.localScale;
+        if (cam != null)
             cam.SetParent(null);
     }
 
@@ -42,7 +44,7 @@ public class ClientPlayer : MonoBehaviour
         list.Remove(id);
     }
 
-    public static void Spawn(ushort id, string username, Vector3 position)
+    public static void Spawn(ushort id, string username, int face, int color, Vector3 position)
     {
         ClientPlayer player;
         if (id == NetworkManager.Singleton.Client.Id)
@@ -55,6 +57,9 @@ public class ClientPlayer : MonoBehaviour
 
         player.name = $"Client Player {id} ({username})";
         player.id = id;
+        player.faceSprite.sprite = UIManager.Singleton.faces[face].sprite;
+        player.faceSprite.color = UIManager.Singleton.faces[face].color;
+        player.playerSprite.color = UIManager.Singleton.colors[color];
         player.username = username;
         list.Add(player.id, player);
     }
@@ -64,6 +69,11 @@ public class ClientPlayer : MonoBehaviour
         if (cam != null)
             cam.position = Vector3.Lerp(cam.position, new Vector3(transform.position.x, transform.position.y, -10), Time.deltaTime * camSpeed);
 
+        float x = defaultScale.x - Mathf.Log10(Mathf.Clamp(rb.velocity.magnitude * .1f, 1f, 3f));
+        Vector2 scale = new Vector2(x, defaultScale.y*defaultScale.y / x);
+        playerSprite.transform.localScale = scale;
+        shadowSprite.localScale = scale;
+
         if (!isJumping)
         {
             rb.drag = PlayerMovement.DefaultDrag;
@@ -72,18 +82,14 @@ public class ClientPlayer : MonoBehaviour
 
         rb.drag = PlayerMovement.AirDrag;
         verticalVelocity += gravity * Time.fixedDeltaTime;
-        playerSprite.localPosition += new Vector3(0, verticalVelocity, 0) * Time.fixedDeltaTime;
+        playerSprite.transform.localPosition += new Vector3(0, verticalVelocity, 0) * Time.fixedDeltaTime;
 
-        anim.SetBool("Jump", verticalVelocity > 0);
-        anim.SetBool("Fall", verticalVelocity <= 0);
-
-        if (playerSprite.localPosition.y <= startPos.y)
+        if (playerSprite.transform.localPosition.y <= startPos.y)
         {
             isJumping = false;
-            playerSprite.localPosition = startPos;
+            playerSprite.transform.localPosition = startPos;
             rb.velocity *= PlayerMovement.LandingFactor;
             landParticle.Play();
-            anim.SetTrigger("Land");
         }
     }
 
@@ -118,7 +124,7 @@ public class ClientPlayer : MonoBehaviour
     [MessageHandler((ushort)ServerToClientId.SpawnPlayer, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void SpawnPlayer(Message message)
     {
-        Spawn(message.GetUShort(), message.GetString(), message.GetVector3());
+        Spawn(message.GetUShort(), message.GetString(), message.GetInt(), message.GetInt(), message.GetVector3());
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerJump, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -136,8 +142,9 @@ public class ClientPlayer : MonoBehaviour
         if (anim)
             player.Jump(force);
 
-        player.anim.SetFloat("X", Mathf.RoundToInt(dir.x));
-        player.anim.SetFloat("Y", Mathf.RoundToInt(dir.y));
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+        player.playerSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        player.shadowSprite.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerDeath, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -147,7 +154,6 @@ public class ClientPlayer : MonoBehaviour
         if (!list.TryGetValue(playerId, out ClientPlayer player))
             return;
         player.rb.velocity = Vector2.zero;
-        player.anim.SetTrigger("Death");
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerRespawn, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

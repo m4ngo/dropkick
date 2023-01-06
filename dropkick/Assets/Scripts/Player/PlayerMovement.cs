@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public const float JumpOffset = 10f;
     public const float LandingFactor = 0.5f;
     public const float DefaultDrag = 5.5f;
-    public const float AirDrag = 0f;
+    public const float AirDrag = 1f;
 
     [SerializeField] private float maxJumpForce;
     [SerializeField] private float minJumpForceMultiplier = 0.2f;

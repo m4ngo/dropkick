@@ -31,12 +31,18 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Text
+    - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
+    Assembly-CSharp:
+    - Face
     UnityEngine.CoreModule:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
+    - UnityEngine.RectOffset
     UnityEngine.UI:
     - UnityEngine.UI.AnimationTriggers
     - UnityEngine.UI.Button/ButtonClickedEvent
@@ -47,17 +53,76 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.InputField/SubmitEvent
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
+    - UnityEngine.UI.Scrollbar/ScrollEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: LeaveClicked
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
+    methodName: SetPlayerFace
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
     methodName: HostClicked
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerFace
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
     methodName: JoinClicked
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: EnableMain
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerFace
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerFace
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerFace
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerColor
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: SetPlayerFace
+  - assembly: Assembly-CSharp
+    fullTypeName: UIManager
+    methodName: CustomizeCharacterClicked
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -95,6 +160,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1692}
     - Class: 114
+      Script: {instanceID: 1758}
+    - Class: 114
       Script: {instanceID: 1770}
     - Class: 114
       Script: {instanceID: 2152}
@@ -109,6 +176,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2500}
     - Class: 114
+      Script: {instanceID: 2600}
+    - Class: 114
       Script: {instanceID: 2680}
     - Class: 114
       Script: {instanceID: 2840}
@@ -120,6 +189,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3110}
     - Class: 114
       Script: {instanceID: 3340}
+    - Class: 114
+      Script: {instanceID: 3356}
     - Class: 114
       Script: {instanceID: 3372}
     - Class: 114
@@ -347,7 +418,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 1314f8a20f3a6168f9cf6a7601b97ccf
+      Hash: a64ddff00a2ba262ffbfa2af6d930175
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientPlayer
@@ -383,7 +454,7 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
-      Hash: c981d51285da15ac0bde068cc4551c71
+      Hash: 4a8782d358c86c1bef386af19281a769
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -497,7 +568,7 @@ ScriptsOnlyBuild:
     className: Scrollbar
   - hash:
       serializedVersion: 2
-      Hash: ea949195e2ef79dda0548cd7eef5b4cb
+      Hash: dd12a527c76aa36433e89ea1d662ef4e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DungeonGenerator

@@ -11,6 +11,9 @@ public class ServerPlayer : MonoBehaviour
     public ushort Id { get; private set; }
     public string Username { get; private set; }
 
+    private int face;
+    private int color;
+
     [SerializeField] private PlayerMovement movement;
 
     private void OnValidate()
@@ -24,10 +27,12 @@ public class ServerPlayer : MonoBehaviour
         List.Remove(Id);
     }
 
-    public static void Spawn(ushort id, string username)
+    public static void Spawn(ushort id, string username, int face, int color)
     {
         ServerPlayer player = Instantiate(NetworkManager.Singleton.ServerPlayerPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity).GetComponent<ServerPlayer>();
         player.name = $"Server Player {id} ({(username == "" ? "Guest" : username)})";
+        player.face = face;
+        player.color = color;
         player.Id = id;
         player.Username = username;
 
@@ -52,6 +57,8 @@ public class ServerPlayer : MonoBehaviour
     {
         message.AddUShort(Id);
         message.AddString(Username);
+        message.AddInt(face);
+        message.AddInt(color);
         message.AddVector3(transform.position);
         return message;
     }
@@ -59,7 +66,7 @@ public class ServerPlayer : MonoBehaviour
     [MessageHandler((ushort)ClientToServerId.PlayerName, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void PlayerName(ushort fromClientId, Message message)
     {
-        Spawn(fromClientId, message.GetString());
+        Spawn(fromClientId, message.GetString(), message.GetInt(), message.GetInt());
     }
 
     [MessageHandler((ushort)ClientToServerId.PlayerInput, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

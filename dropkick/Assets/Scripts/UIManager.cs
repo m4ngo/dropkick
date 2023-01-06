@@ -21,9 +21,18 @@ public class UIManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject customMenu;
     [SerializeField] private GameObject lobbyMenu;
     [SerializeField] private InputField roomIdField;
     [SerializeField] private InputField roomIdDisplayField;
+
+    [SerializeField] private Image proxyPlayer;
+    [SerializeField] private Image proxyPlayerFace;
+
+    [field: SerializeField] public Face[] faces { get; private set; }
+    [field: SerializeField] public Color[] colors { get; private set; }
+    public int face { get; private set; }
+    public int color { get; private set; }
 
     private void Awake()
     {
@@ -73,13 +82,44 @@ public class UIManager : MonoBehaviour
         BackToMain();
     }
 
-    internal void BackToMain()
+    public void CustomizeCharacterClicked()
+    {
+        customMenu.SetActive(true);
+        mainMenu.SetActive(false);
+    }
+
+    public void EnableMain()
     {
         mainMenu.SetActive(true);
         lobbyMenu.SetActive(false);
+        customMenu.SetActive(false);
+    }
+
+    public void SetPlayerColor(int i)
+    {
+        proxyPlayer.color = colors[i];
+        color = i;
+    }
+    public void SetPlayerFace(int i)
+    {
+        proxyPlayerFace.sprite = faces[i].sprite;
+        proxyPlayerFace.color = faces[i].color;
+        face = i;
+    }
+
+    internal void BackToMain()
+    {
+        EnableMain();
         foreach (Transform child in NetworkManager.Singleton.transform)
             Destroy(child.gameObject);
         foreach (Transform child in NetworkManager.Singleton.clientGen.transform)
             Destroy(child.gameObject); 
     }
+}
+
+[System.Serializable]
+public class Face
+{
+    public Sprite sprite;
+    public Color color;
 }

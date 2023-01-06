@@ -145,6 +145,8 @@ public class NetworkManager : MonoBehaviour
     {
         Message message = Message.Create(MessageSendMode.Reliable, ClientToServerId.PlayerName);
         message.AddString(Steamworks.SteamFriends.GetPersonaName());
+        message.AddInt(UIManager.Singleton.face);
+        message.AddInt(UIManager.Singleton.color);
         Client.Send(message);
     }
 
