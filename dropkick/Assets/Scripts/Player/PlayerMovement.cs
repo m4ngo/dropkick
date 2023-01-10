@@ -113,7 +113,7 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = jumpDir.normalized * jumpForce;
         Jump(jumpForce);
 
-        PlayerJump(jumpDir.normalized, jumpForce, true);
+        PlayerJump(jumpDir.normalized, jumpForce, false);
     }
 
     private void Hit(Vector2 dir, float knockback)
@@ -157,14 +157,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #region Messages
-    private void PlayerJump(Vector2 dir, float force, bool jump)
+    private void PlayerJump(Vector2 dir, float force, bool hit)
     {
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.PlayerJump);
         message.AddUShort(player.Id);
         message.AddVector2(transform.position);
         message.AddVector2(dir);
         message.AddFloat(force);
-        message.AddBool(jump);
+        message.AddBool(hit);
         NetworkManager.Singleton.Server.SendToAll(message);
     }
 

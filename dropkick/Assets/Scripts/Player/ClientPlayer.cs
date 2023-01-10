@@ -28,6 +28,7 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private ParticleSystem landParticle;
     private Transform checkpoint;
 
+    [SerializeField] private Color color;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -59,7 +60,8 @@ public class ClientPlayer : MonoBehaviour
         player.id = id;
         player.faceSprite.sprite = UIManager.Singleton.faces[face].sprite;
         player.faceSprite.color = UIManager.Singleton.faces[face].color;
-        player.playerSprite.color = UIManager.Singleton.colors[color];
+        player.color = UIManager.Singleton.colors[color];
+        player.playerSprite.color = player.color;
         player.username = username;
         list.Add(player.id, player);
     }
@@ -73,6 +75,11 @@ public class ClientPlayer : MonoBehaviour
         Vector2 scale = new Vector2(x, defaultScale.y*defaultScale.y / x);
         playerSprite.transform.localScale = scale;
         shadowSprite.localScale = scale;
+
+
+        if (playerSprite.color != color)
+            playerSprite.color = new Color(Mathf.MoveTowards(playerSprite.color.r, color.r, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.g, color.g, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.b, color.b, Time.deltaTime * 2f), 1);
+
 
         if (!isJumping)
         {
@@ -138,9 +145,10 @@ public class ClientPlayer : MonoBehaviour
         float force = message.GetFloat();
         player.rb.velocity = dir * force;
 
-        bool anim = message.GetBool();
-        if (anim)
-            player.Jump(force);
+        if (message.GetBool()) //check if the player was hit, or if they jumped willingly
+            player.playerSprite.color = Color.white;
+
+        player.Jump(force);
 
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
         player.playerSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
