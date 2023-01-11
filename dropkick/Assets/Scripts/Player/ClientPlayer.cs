@@ -26,9 +26,11 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private ParticleSystem jumpParticle;
     [SerializeField] private ParticleSystem checkpointParticle;
     [SerializeField] private ParticleSystem landParticle;
+    [SerializeField] private ParticleSystem hitParticle;
     private Transform checkpoint;
 
     [SerializeField] private Color color;
+    private float colorDelay = 0f;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -77,8 +79,9 @@ public class ClientPlayer : MonoBehaviour
         shadowSprite.localScale = scale;
 
 
-        if (playerSprite.color != color)
+        if (playerSprite.color != color && colorDelay <= 0)
             playerSprite.color = new Color(Mathf.MoveTowards(playerSprite.color.r, color.r, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.g, color.g, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.b, color.b, Time.deltaTime * 2f), 1);
+        colorDelay -= Time.deltaTime;
 
 
         if (!isJumping)
@@ -146,7 +149,11 @@ public class ClientPlayer : MonoBehaviour
         player.rb.velocity = dir * force;
 
         if (message.GetBool()) //check if the player was hit, or if they jumped willingly
+        {
             player.playerSprite.color = Color.white;
+            player.colorDelay = 0.1f;
+            player.hitParticle.Play();
+        }
 
         player.Jump(force);
 
