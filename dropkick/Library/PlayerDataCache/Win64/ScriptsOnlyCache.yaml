@@ -9,14 +9,17 @@ ScriptsOnlyBuild:
     - PlayerMovement
     - PlayerUIManager
     - ServerPlayer
+    - SpriteOutline
     - UIManager
     Unity.2D.Sprite.Editor.dll:
     - UnityEditor.U2D.Sprites.SpriteEditorWindow
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -124,7 +127,7 @@ ScriptsOnlyBuild:
     fullTypeName: UIManager
     methodName: CustomizeCharacterClicked
   sceneClasses:
-    Assets/Scenes/SampleScene.unity:
+    Assets/Scenes/Main.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -195,6 +198,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 3372}
     - Class: 114
       Script: {instanceID: 3476}
+    - Class: 114
+      Script: {instanceID: 22104}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -418,7 +423,7 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 68bc358af0ada1ef9fc286afda210fdc
+      Hash: 41097d434ac8b4f5094139a12632468e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientPlayer
@@ -620,7 +625,13 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: cd92891db284c9742365b507fa556b40
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpriteOutline
   platform: 19
   scenePathNames:
-  - Assets/Scenes/SampleScene.unity
+  - Assets/Scenes/Main.unity
   playerPath: C:/Users/arik4/Documents/GitHub/dropkick_builds/dropkick.exe

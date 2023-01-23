@@ -38,7 +38,6 @@ public class DungeonGenerator : MonoBehaviour
                 seed += Random.Range(0, 3);
             seed += "0";
             for (int i = 0; i < dungeonLength - 1; i++)
-                //seed += i == dungeonLength / 2 ? 2 : Random.Range(0, leftRightRooms.Length);
                 seed += Random.Range(1, leftRightRooms.Length);
         }
 
