@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float maxJumpForce;
     [SerializeField] private float minJumpForceMultiplier = 0.2f;
-
     [SerializeField] private float knockback;
     [SerializeField] private float landRadius;
     [SerializeField] private LayerMask mask;

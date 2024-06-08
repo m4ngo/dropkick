@@ -87,7 +87,6 @@ public class ClientPlayer : MonoBehaviour
             playerSprite.color = new Color(Mathf.MoveTowards(playerSprite.color.r, color.r, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.g, color.g, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.b, color.b, Time.deltaTime * 2f), 1);
         colorDelay -= Time.deltaTime;
 
-
         if (!isJumping)
         {
             rb.drag = PlayerMovement.DefaultDrag;
@@ -116,13 +115,13 @@ public class ClientPlayer : MonoBehaviour
     {
         shadowSprite.localScale = Vector2.zero;
         playerSprite.transform.localScale = defaultScale;
-        for (int i = 0; i < 30; i++)
-        {
+        while(playerSprite.transform.localScale.x > 0.05f){
             playerSprite.transform.Rotate(0,0, 500 * Time.deltaTime);
             Vector2 scale = playerSprite.transform.localScale;
-            playerSprite.transform.localScale = new Vector2(scale.x - 1.2f * Time.deltaTime, scale.y - 1.2f * Time.deltaTime);
+            playerSprite.transform.localScale = new Vector2(scale.x - 1.4f * Time.deltaTime, scale.y - 1.4f * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
+        playerSprite.transform.localScale = Vector2.zero;
     }
 
     void Jump(float force) //the higher the force, the higher the jump
