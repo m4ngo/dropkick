@@ -19,8 +19,8 @@ public class SpriteOutline : MonoBehaviour
         outline.sortingOrder = -1;
         outline.color = Color.black;
     }
-
-    private void Update()
+    
+    private void LateUpdate()
     {
         outline.transform.localScale = new Vector2(rend.transform.localScale.x + outlineThickness * 2, rend.transform.localScale.y + outlineThickness * 2);
         outline.transform.localPosition = rend.transform.localPosition;

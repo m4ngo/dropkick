@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using Riptide;
-
+using Steamworks;
 
 public class ClientPlayer : MonoBehaviour
 {
@@ -73,10 +74,13 @@ public class ClientPlayer : MonoBehaviour
         if (cam != null)
             cam.position = Vector3.Lerp(cam.position, new Vector3(transform.position.x, transform.position.y, -10), Time.deltaTime * camSpeed);
 
-        float x = defaultScale.x - Mathf.Log10(Mathf.Clamp(rb.velocity.magnitude * .1f, 1f, 3f));
-        Vector2 scale = new Vector2(x, defaultScale.y*defaultScale.y / x);
-        playerSprite.transform.localScale = scale;
-        shadowSprite.localScale = scale;
+        if(rb.velocity.sqrMagnitude > 1)
+        {
+            float x = defaultScale.x - Mathf.Log10(Mathf.Clamp(rb.velocity.magnitude * .1f, 1f, 3f));
+            Vector2 scale = new Vector2(x, defaultScale.y * defaultScale.y / x);
+            playerSprite.transform.localScale = scale;
+            shadowSprite.localScale = scale;
+        }
 
 
         if (playerSprite.color != color && colorDelay <= 0)
@@ -100,6 +104,24 @@ public class ClientPlayer : MonoBehaviour
             playerSprite.transform.localPosition = startPos;
             rb.velocity *= PlayerMovement.LandingFactor;
             landParticle.Play();
+        }
+    }
+
+    void DeathAnim()
+    {
+        StartCoroutine(_DeathAnim());
+    }
+
+    private IEnumerator _DeathAnim()
+    {
+        shadowSprite.localScale = Vector2.zero;
+        playerSprite.transform.localScale = defaultScale;
+        for (int i = 0; i < 30; i++)
+        {
+            playerSprite.transform.Rotate(0,0, 500 * Time.deltaTime);
+            Vector2 scale = playerSprite.transform.localScale;
+            playerSprite.transform.localScale = new Vector2(scale.x - 1.2f * Time.deltaTime, scale.y - 1.2f * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
         }
     }
 
@@ -169,6 +191,7 @@ public class ClientPlayer : MonoBehaviour
         if (!list.TryGetValue(playerId, out ClientPlayer player))
             return;
         player.rb.velocity = Vector2.zero;
+        player.DeathAnim();
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerRespawn, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -179,6 +202,7 @@ public class ClientPlayer : MonoBehaviour
             return;
         player.transform.position = message.GetVector2(); //update player position
         player.rb.velocity = Vector2.zero;
+        player.playerSprite.transform.localScale = player.defaultScale;
     }
     #endregion
 }
