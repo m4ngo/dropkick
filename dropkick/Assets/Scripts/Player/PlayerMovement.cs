@@ -6,13 +6,15 @@ public class PlayerMovement : MonoBehaviour
 {
     public const float Gravity = -75f;
     public const float GravityPow = 1.025f;
-    public const float JumpForceFactor = 1.75f;
+    public const float JumpForceFactor = 1.65f;
     public const float JumpOffset = 10f;
     public const float LandingFactor = 1.0f;
     public const float DefaultDrag = 5.5f;
     public const float AirDrag = 1f;
     public const float MaxJumpForce = 18f;
     public const float MinJumpForceMultiplier = 0.25f;
+    public const float AirControlSpeed = 5.25f;
+    public const float AirControlScale = 7f;
 
     [SerializeField] private float knockbackScale;
     [SerializeField] private float landRadius;
@@ -74,6 +76,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        //check resync
+        if(isGrounded && rb.velocity.sqrMagnitude > 0.2f){
+            SendResync();
+        }
 
         //movement code
         if (deathTimer > 0)
@@ -101,6 +107,12 @@ public class PlayerMovement : MonoBehaviour
         verticalVelocity = force * JumpForceFactor + JumpOffset;
         gravity = Gravity * Mathf.Pow(GravityPow, verticalVelocity);
         isJumping = true;
+    }
+
+    public void AirControl(Vector2 dir){
+        if(!isJumping || deathTimer > 0) return;
+        rb.velocity += Time.fixedDeltaTime * dir * AirControlSpeed * (rb.velocity.magnitude / AirControlScale);
+        SendAirControl();
     }
 
     public void SetMoveDir(Vector2 jumpDir, float jumpForce)
@@ -180,6 +192,19 @@ public class PlayerMovement : MonoBehaviour
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.PlayerRespawn);
         message.AddUShort(player.Id);
         message.AddVector2(transform.position);
+        NetworkManager.Singleton.Server.SendToAll(message);
+    }
+
+    void SendResync(){
+        Message message = Message.Create(MessageSendMode.Unreliable, ServerToClientId.ResyncPosition);
+        message.AddVector2(transform.position);
+        message.AddVector2(rb.velocity);
+        NetworkManager.Singleton.Server.Send(message, player.Id);
+    }
+
+    void SendAirControl(){
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.ResyncAirControl);
+        message.AddVector2(rb.velocity);
         NetworkManager.Singleton.Server.SendToAll(message);
     }
     #endregion

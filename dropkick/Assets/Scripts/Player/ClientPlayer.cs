@@ -122,9 +122,22 @@ public class ClientPlayer : MonoBehaviour
         }
     }
 
+    void AirControl(Vector2 vel)
+    {
+        rb.velocity = vel;
+        RotateSprite(rb.velocity.normalized);
+    }
+
     void DeathAnim()
     {
         StartCoroutine(_DeathAnim());
+    }
+
+    void RotateSprite(Vector2 dir)
+    {
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+        playerSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        shadowSprite.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     private IEnumerator _DeathAnim()
@@ -181,10 +194,20 @@ public class ClientPlayer : MonoBehaviour
         ushort playerId = message.GetUShort(); //get player id
         if (!list.TryGetValue(playerId, out ClientPlayer player))
             return;
-        if (playerId == NetworkManager.Singleton.Client.Id)
-            return;
-        player.transform.position = message.GetVector2(); //update player position
-        player.ClientJump(message.GetVector2(), message.GetFloat(), message.GetBool());
+
+        Vector2 pos = message.GetVector2();
+        Vector2 dir = message.GetVector2();
+        float force = message.GetFloat();
+        bool hit = message.GetBool();
+
+        if (!hit)
+        {
+            if (playerId == NetworkManager.Singleton.Client.Id)
+                return;
+        }
+
+        player.transform.position = pos; //update player position
+        player.ClientJump(dir, force, hit);
     }
 
     public void ClientJump(Vector2 dir, float force, bool hit)
@@ -199,10 +222,7 @@ public class ClientPlayer : MonoBehaviour
             colorDelay = 0.1f;
             hitParticle.Play();
         }
-
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
-        playerSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        shadowSprite.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        RotateSprite(dir);
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerDeath, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -226,6 +246,23 @@ public class ClientPlayer : MonoBehaviour
         player.rb.velocity = Vector2.zero;
         player.playerSprite.transform.localScale = player.defaultScale;
         player.dead = false;
+    }
+
+    [MessageHandler((ushort)ServerToClientId.ResyncPosition, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void ReceiveResync(Message message)
+    {
+        if (!list.TryGetValue(NetworkManager.Singleton.Client.Id, out ClientPlayer player))
+            return;
+        player.transform.position = message.GetVector2(); //update player position
+        player.rb.velocity = message.GetVector2();
+    }
+
+    [MessageHandler((ushort)ServerToClientId.ResyncAirControl, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void ReceiveAirControl(Message message)
+    {
+        if (!list.TryGetValue(NetworkManager.Singleton.Client.Id, out ClientPlayer player))
+            return;
+        player.AirControl(message.GetVector2());
     }
     #endregion
 }

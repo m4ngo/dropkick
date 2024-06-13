@@ -14,7 +14,9 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private float holdTime = 0f;
     [SerializeField] private float chargeSpeed;
     [SerializeField] private float jumpCooldown = 0.25f;
+    [SerializeField] private float clickQueueTime = 0.1f;
 
+    private float jumpQueue = 0f;
     private float currentJumpCooldown = 0f;
     private ClientPlayer player;
 
@@ -47,9 +49,21 @@ public class PlayerInput : MonoBehaviour
         //may need to add checks later on serverside to prevent memory manipulation to hack the cooldown
         if (currentJumpCooldown > 0)
             currentJumpCooldown -= Time.deltaTime;
+        
+        //queuing inputs for better responsiveness
+        if(jumpQueue > 0)
+            jumpQueue -= Time.deltaTime;
+        if(Input.GetMouseButtonUp(0)){
+            jumpQueue = clickQueueTime;
+        }
 
+        //don't execute movement logic if the player is dead
         if (player.dead || currentJumpCooldown > 0)
             return;
+
+        if(player.isJumping){
+            SendAirControl();
+        }
 
         if (Input.GetMouseButton(0))
         {
@@ -66,7 +80,7 @@ public class PlayerInput : MonoBehaviour
                     up = true;
             }
         }
-        else if (Input.GetMouseButtonUp(0))
+        else if (jumpQueue > 0)
         {
             if (player.isJumping)
             {
@@ -80,6 +94,7 @@ public class PlayerInput : MonoBehaviour
                 player.ClientJump(dir.normalized, clientSideForce, false);
 
                 holdTime = 0;
+                jumpQueue = 0;
             }
         }
     }
@@ -93,6 +108,12 @@ public class PlayerInput : MonoBehaviour
         NetworkManager.Singleton.Client.Send(message);
     }
 
+    private void SendAirControl()
+    {
+        Message message = Message.Create(MessageSendMode.Unreliable, ClientToServerId.PlayerAirControl);
+        message.AddVector2(dir);
+        NetworkManager.Singleton.Client.Send(message);
+    }
 
     private void SendAirDash(float spriteDist, float velocity)
     {

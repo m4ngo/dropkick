@@ -11,12 +11,15 @@ public enum ServerToClientId : ushort
     PlayerJump,
     PlayerDeath,
     PlayerRespawn,
+    ResyncPosition,
+    ResyncAirControl,
     DungeonGenerate,
 }
 public enum ClientToServerId : ushort
 {
     PlayerName = 1,
     PlayerInput,
+    PlayerAirControl,
 }
 
 public class NetworkManager : MonoBehaviour

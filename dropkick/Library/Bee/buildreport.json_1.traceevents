@@ -1,383 +1,500 @@
 { "pid": 0, "tid": -1, "ph": "M", "name": "process_name", "args": { "name": "BeeDriver" } },
 { "pid": 0, "tid": -1, "ph": "M", "name": "process_sort_index", "args": { "sort_index": "-2" } },
 { "pid": 0, "tid": 1, "ph": "M", "name": "thread_name", "args": { "name": "" } },
-{ "pid": 0, "tid": 1, "ts": 1718305152840499, "dur": 447777, "ph": "X", "name": "Build ScriptAssemblies", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305152842032, "dur": 22744, "ph": "X", "name": "WriteBuildProgramData", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305152865078, "dur": 413175, "ph": "X", "name": "Run Backend", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305153278269, "dur": 10006, "ph": "X", "name": "Finish", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305157540533, "dur": 249445, "ph": "X", "name": "Build Player", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305157540780, "dur": 16826, "ph": "X", "name": "WriteBuildProgramData", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305157557608, "dur": 229844, "ph": "X", "name": "Run Backend", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305157787455, "dur": 2522, "ph": "X", "name": "Finish", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305816376462, "dur": 103668, "ph": "X", "name": "Build ScriptAssemblies", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305816376481, "dur": 10144, "ph": "X", "name": "WriteBuildProgramData", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305816386628, "dur": 83542, "ph": "X", "name": "Run Backend", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305816470172, "dur": 9956, "ph": "X", "name": "Finish", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305825765764, "dur": 77371, "ph": "X", "name": "Build ScriptAssemblies", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305825765784, "dur": 10169, "ph": "X", "name": "WriteBuildProgramData", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305825775954, "dur": 57188, "ph": "X", "name": "Run Backend", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305825833144, "dur": 9990, "ph": "X", "name": "Finish", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305828437902, "dur": 215697, "ph": "X", "name": "Build Player", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305828437939, "dur": 11464, "ph": "X", "name": "WriteBuildProgramData", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305828449405, "dur": 190350, "ph": "X", "name": "Run Backend", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305828639757, "dur": 13841, "ph": "X", "name": "Finish", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305828654239, "dur": 58, "ph": "X", "name": "", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314328412535, "dur": 711505, "ph": "X", "name": "Build ScriptAssemblies", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314328414506, "dur": 24955, "ph": "X", "name": "WriteBuildProgramData", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314328439763, "dur": 674495, "ph": "X", "name": "Run Backend", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314329114273, "dur": 9765, "ph": "X", "name": "Finish", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314333849978, "dur": 1703023, "ph": "X", "name": "Build Player", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314333850171, "dur": 16756, "ph": "X", "name": "WriteBuildProgramData", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314333866930, "dur": 47381, "ph": "X", "name": "Run Backend", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314333914400, "dur": 1222940, "ph": "X", "name": "BuildProgram", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314335137342, "dur": 405335, "ph": "X", "name": "Run Backend", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314335542679, "dur": 10322, "ph": "X", "name": "Finish", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314335553741, "dur": 16, "ph": "X", "name": "", "args": {} },
+{ "pid": 35942, "tid": -1, "ph": "M", "name": "process_name", "args": { "name": "netcorerun.dll" } },
+{ "pid": 35942, "tid": -1, "ph": "M", "name": "process_sort_index", "args": { "sort_index": "-1" } },
+{ "pid": 35942, "tid": 1, "ph": "M", "name": "thread_name", "args": { "name": "" } },
+{ "pid": 35942, "tid": 1, "ts": 1718314334943824, "dur": 156498, "ph": "X", "name": "BuildProgram", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718314334944625, "dur": 47278, "ph": "X", "name": "BuildProgramContextConstructor", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718314335084413, "dur": 4221, "ph": "X", "name": "OutputData.Write", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718314335088638, "dur": 11667, "ph": "X", "name": "Backend.Write", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718314335089297, "dur": 9859, "ph": "X", "name": "JsonToString", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718314335104878, "dur": 1055, "ph": "X", "name": "", "args": {} },
+{ "pid": 35942, "tid": 1, "ts": 1718314335103798, "dur": 2185, "ph": "X", "name": "Write chrome-trace events", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314335553828, "dur": 168, "ph": "X", "name": "buildprogram0.traceevents", "args": {} },
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
-,{ "pid":12345, "tid":0, "ts":1718305828485298, "dur":1993, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828487301, "dur":210, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
-,{ "pid":12345, "tid":0, "ts":1718305828487534, "dur":10, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
-,{ "pid":12345, "tid":0, "ts":1718305828487545, "dur":2323, "ph":"X", "name": "Tundra",  "args": { "detail":"BuildQueueInit" }}
-,{ "pid":12345, "tid":0, "ts":1718305828490110, "dur":480, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828490590, "dur":1, "ph":"X", "name": "SortWorkingStack",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828625633, "dur":690, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626323, "dur":60, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626383, "dur":4, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626387, "dur":8, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626395, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626397, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626402, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626403, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626408, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626409, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626414, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626415, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626420, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626421, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626426, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626427, "dur":7, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626434, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626435, "dur":24, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626459, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626461, "dur":28, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626489, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626490, "dur":22, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626512, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626514, "dur":48, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626562, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626563, "dur":47, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626610, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626612, "dur":22, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626634, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626637, "dur":46, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626683, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626685, "dur":47, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626732, "dur":0, "ph":"X", "name": "SharedResourceDestroy",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626741, "dur":1, "ph":"X", "name": "BuildQueueDestroyTail",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828626743, "dur":1167, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
-,{ "pid":12345, "tid":1, "ts":1718305828492127, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828492128, "dur":3301, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828495429, "dur":167, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
-,{ "pid":12345, "tid":1, "ts":1718305828495597, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828495653, "dur":86, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.XRModule.dll" }}
-,{ "pid":12345, "tid":1, "ts":1718305828495740, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828495808, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.VehiclesModule.dll" }}
-,{ "pid":12345, "tid":1, "ts":1718305828495875, "dur":49, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828495924, "dur":106, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UIModule.dll" }}
-,{ "pid":12345, "tid":1, "ts":1718305828496031, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828496101, "dur":86, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.TerrainModule.dll" }}
-,{ "pid":12345, "tid":1, "ts":1718305828496187, "dur":178, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828496365, "dur":148, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
-,{ "pid":12345, "tid":1, "ts":1718305828496513, "dur":345, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828496859, "dur":44, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Xml.Linq.dll" }}
-,{ "pid":12345, "tid":1, "ts":1718305828496903, "dur":43, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828496946, "dur":73, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Data.dll" }}
-,{ "pid":12345, "tid":1, "ts":1718305828497019, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828497072, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Plugins/x86_64/steam_api64.dll" }}
-,{ "pid":12345, "tid":1, "ts":1718305828497151, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1718305828497209, "dur":128422, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828491309, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828491309, "dur":4115, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828495425, "dur":165, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
-,{ "pid":12345, "tid":2, "ts":1718305828495590, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828495644, "dur":181, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/UnityPlayer.dll" }}
-,{ "pid":12345, "tid":2, "ts":1718305828495825, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828495892, "dur":142, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UNETModule.dll" }}
-,{ "pid":12345, "tid":2, "ts":1718305828496034, "dur":45, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828496080, "dur":45, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
-,{ "pid":12345, "tid":2, "ts":1718305828496125, "dur":43, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828496168, "dur":184, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
-,{ "pid":12345, "tid":2, "ts":1718305828496352, "dur":124, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828496477, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
-,{ "pid":12345, "tid":2, "ts":1718305828496535, "dur":314, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828496849, "dur":75099, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/Unity.Timeline.dll" }}
-,{ "pid":12345, "tid":2, "ts":1718305828571949, "dur":75, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1718305828572026, "dur":53631, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1718305828491696, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1718305828491697, "dur":3730, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1718305828495430, "dur":121, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
-,{ "pid":12345, "tid":3, "ts":1718305828495551, "dur":266, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1718305828495818, "dur":87, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
-,{ "pid":12345, "tid":3, "ts":1718305828495905, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1718305828495956, "dur":98629, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UI.dll" }}
-,{ "pid":12345, "tid":3, "ts":1718305828594586, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1718305828594657, "dur":31004, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828489371, "dur":1229, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828490603, "dur":4795, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828495407, "dur":1, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"WriteText Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info" }}
-,{ "pid":12345, "tid":4, "ts":1718305828495408, "dur":120, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828495541, "dur":5, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/app.info" }}
-,{ "pid":12345, "tid":4, "ts":1718305828495546, "dur":94, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828495642, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
-,{ "pid":12345, "tid":4, "ts":1718305828495705, "dur":114, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828495820, "dur":225, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1718305828496046, "dur":141, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828496187, "dur":164, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.PhysicsModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1718305828496351, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828496407, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.GIModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1718305828496473, "dur":39, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828496513, "dur":28, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.AudioModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1718305828496541, "dur":336, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828496877, "dur":90, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Runtime.Serialization.dll" }}
-,{ "pid":12345, "tid":4, "ts":1718305828496968, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828497026, "dur":77, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.ComponentModel.Composition.dll" }}
-,{ "pid":12345, "tid":4, "ts":1718305828497103, "dur":45, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828497149, "dur":1033, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/RuntimeInitializeOnLoads.json" }}
-,{ "pid":12345, "tid":4, "ts":1718305828498182, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1718305828498254, "dur":127379, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828489472, "dur":1149, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828490622, "dur":4784, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828495407, "dur":137, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.5/web.config" }}
-,{ "pid":12345, "tid":5, "ts":1718305828495545, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828495618, "dur":60, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/browscap.ini" }}
-,{ "pid":12345, "tid":5, "ts":1718305828495679, "dur":155, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828495835, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1718305828495906, "dur":130, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496038, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.TilemapModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496120, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496172, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496236, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496289, "dur":135, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496425, "dur":115, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496541, "dur":311, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.AnimationModule.dll" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496852, "dur":42, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496895, "dur":87, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Net.Http.dll" }}
-,{ "pid":12345, "tid":5, "ts":1718305828496982, "dur":48, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828497031, "dur":115, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/netstandard.dll" }}
-,{ "pid":12345, "tid":5, "ts":1718305828497146, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828497206, "dur":117, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/boot.config" }}
-,{ "pid":12345, "tid":5, "ts":1718305828497324, "dur":38, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1718305828497362, "dur":128273, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828490554, "dur":112, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828490666, "dur":4765, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828495433, "dur":256, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
-,{ "pid":12345, "tid":6, "ts":1718305828495689, "dur":48, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828495738, "dur":168, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.VFXModule.dll" }}
-,{ "pid":12345, "tid":6, "ts":1718305828495906, "dur":136, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828496044, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
-,{ "pid":12345, "tid":6, "ts":1718305828496120, "dur":102, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828496223, "dur":115, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
-,{ "pid":12345, "tid":6, "ts":1718305828496338, "dur":110, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828496449, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
-,{ "pid":12345, "tid":6, "ts":1718305828496514, "dur":344, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828496859, "dur":98, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Xml.dll" }}
-,{ "pid":12345, "tid":6, "ts":1718305828496957, "dur":49, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828497007, "dur":47, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Data.DataSetExtensions.dll" }}
-,{ "pid":12345, "tid":6, "ts":1718305828497054, "dur":48, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828497103, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/sharedassets0.assets" }}
-,{ "pid":12345, "tid":6, "ts":1718305828497267, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1718305828497612, "dur":3945, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/sharedassets0.assets" }}
-,{ "pid":12345, "tid":6, "ts":1718305828501629, "dur":124045, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828490966, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828490966, "dur":4455, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828495423, "dur":211, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.0/web.config" }}
-,{ "pid":12345, "tid":7, "ts":1718305828495634, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828495688, "dur":125, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.VRModule.dll" }}
-,{ "pid":12345, "tid":7, "ts":1718305828495813, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828495868, "dur":41, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
-,{ "pid":12345, "tid":7, "ts":1718305828495909, "dur":37, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828495947, "dur":128, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UIElementsModule.dll" }}
-,{ "pid":12345, "tid":7, "ts":1718305828496075, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828496134, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
-,{ "pid":12345, "tid":7, "ts":1718305828496209, "dur":262, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828496472, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.CoreModule.dll" }}
-,{ "pid":12345, "tid":7, "ts":1718305828496523, "dur":340, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828496864, "dur":60, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Security.dll" }}
-,{ "pid":12345, "tid":7, "ts":1718305828496925, "dur":140, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828497066, "dur":128354, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/com.rlabrecque.steamworks.net.dll" }}
-,{ "pid":12345, "tid":7, "ts":1718305828625421, "dur":149, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":7, "ts":1718305828625573, "dur":1, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"Player" }}
-,{ "pid":12345, "tid":7, "ts":1718305828625574, "dur":0, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828492540, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828492540, "dur":2899, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828495440, "dur":135, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
-,{ "pid":12345, "tid":8, "ts":1718305828495576, "dur":88, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828495665, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.WindModule.dll" }}
-,{ "pid":12345, "tid":8, "ts":1718305828495730, "dur":122, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828495853, "dur":186, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496039, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496107, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496174, "dur":92, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496267, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496342, "dur":91, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496434, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.DirectorModule.dll" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496486, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496553, "dur":341, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496895, "dur":46, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496944, "dur":46, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.dll" }}
-,{ "pid":12345, "tid":8, "ts":1718305828496990, "dur":81, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828497072, "dur":75126, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/Assembly-CSharp.dll" }}
-,{ "pid":12345, "tid":8, "ts":1718305828572199, "dur":76, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":8, "ts":1718305828572276, "dur":53391, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828492863, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828492864, "dur":2570, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828495437, "dur":112, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
-,{ "pid":12345, "tid":9, "ts":1718305828495549, "dur":100, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828495650, "dur":242, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/UnityCrashHandler64.exe" }}
-,{ "pid":12345, "tid":9, "ts":1718305828495893, "dur":48, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828495942, "dur":111, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
-,{ "pid":12345, "tid":9, "ts":1718305828496054, "dur":132, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828496187, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.ProfilerModule.dll" }}
-,{ "pid":12345, "tid":9, "ts":1718305828496250, "dur":94, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828496345, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
-,{ "pid":12345, "tid":9, "ts":1718305828496424, "dur":76, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828496502, "dur":359, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
-,{ "pid":12345, "tid":9, "ts":1718305828496861, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828496920, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.IO.Compression.dll" }}
-,{ "pid":12345, "tid":9, "ts":1718305828496972, "dur":90, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828497063, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/Mono.Security.dll" }}
-,{ "pid":12345, "tid":9, "ts":1718305828497119, "dur":41, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828497161, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/globalgamemanagers.assets" }}
-,{ "pid":12345, "tid":9, "ts":1718305828497274, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":9, "ts":1718305828497573, "dur":3778, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/globalgamemanagers.assets" }}
-,{ "pid":12345, "tid":9, "ts":1718305828501407, "dur":124258, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828489400, "dur":1207, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828490607, "dur":4797, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828495407, "dur":178, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
-,{ "pid":12345, "tid":10, "ts":1718305828495585, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828495641, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
-,{ "pid":12345, "tid":10, "ts":1718305828495720, "dur":113, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828495834, "dur":217, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
-,{ "pid":12345, "tid":10, "ts":1718305828496051, "dur":73, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828496125, "dur":133, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.SubstanceModule.dll" }}
-,{ "pid":12345, "tid":10, "ts":1718305828496258, "dur":91, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828496350, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.IMGUIModule.dll" }}
-,{ "pid":12345, "tid":10, "ts":1718305828496424, "dur":420, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828496844, "dur":45, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
-,{ "pid":12345, "tid":10, "ts":1718305828496890, "dur":33, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828496924, "dur":72, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.EnterpriseServices.dll" }}
-,{ "pid":12345, "tid":10, "ts":1718305828496996, "dur":40, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828497037, "dur":39, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/mscorlib.dll" }}
-,{ "pid":12345, "tid":10, "ts":1718305828497076, "dur":76, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828497153, "dur":72, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/level0" }}
-,{ "pid":12345, "tid":10, "ts":1718305828497281, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":10, "ts":1718305828497594, "dur":3768, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/level0" }}
-,{ "pid":12345, "tid":10, "ts":1718305828501424, "dur":124247, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828490150, "dur":504, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828490654, "dur":4756, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828495410, "dur":133, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
-,{ "pid":12345, "tid":11, "ts":1718305828495544, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828495616, "dur":38, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/config" }}
-,{ "pid":12345, "tid":11, "ts":1718305828495654, "dur":33, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828495689, "dur":45, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1718305828495734, "dur":93, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828495831, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1718305828495928, "dur":114, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496043, "dur":114, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496157, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496220, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.Physics2DModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496279, "dur":120, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496399, "dur":37, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.GridModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496436, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496505, "dur":41, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.ClothModule.dll" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496547, "dur":312, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496860, "dur":38, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Transactions.dll" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496898, "dur":40, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828496939, "dur":99, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Drawing.dll" }}
-,{ "pid":12345, "tid":11, "ts":1718305828497038, "dur":106, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828497145, "dur":204, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/ScriptingAssemblies.json" }}
-,{ "pid":12345, "tid":11, "ts":1718305828497349, "dur":34, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":11, "ts":1718305828497384, "dur":128253, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828489525, "dur":1105, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828490630, "dur":4802, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828495433, "dur":375, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/2.0/web.config" }}
-,{ "pid":12345, "tid":12, "ts":1718305828495808, "dur":99, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828495908, "dur":151, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UmbraModule.dll" }}
-,{ "pid":12345, "tid":12, "ts":1718305828496059, "dur":103, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828496163, "dur":73, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
-,{ "pid":12345, "tid":12, "ts":1718305828496236, "dur":107, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828496344, "dur":43, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.InputModule.dll" }}
-,{ "pid":12345, "tid":12, "ts":1718305828496387, "dur":42, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828496429, "dur":94, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.dll" }}
-,{ "pid":12345, "tid":12, "ts":1718305828496523, "dur":339, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828496863, "dur":103, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.ServiceModel.Internals.dll" }}
-,{ "pid":12345, "tid":12, "ts":1718305828496967, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828497026, "dur":82095, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/RiptideNetworking.dll" }}
-,{ "pid":12345, "tid":12, "ts":1718305828579121, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":12, "ts":1718305828579193, "dur":46467, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828489630, "dur":1007, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828490637, "dur":4771, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828495408, "dur":127, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
-,{ "pid":12345, "tid":13, "ts":1718305828495538, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828495595, "dur":103, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
-,{ "pid":12345, "tid":13, "ts":1718305828495698, "dur":110, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828495809, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
-,{ "pid":12345, "tid":13, "ts":1718305828495891, "dur":144, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496036, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.TLSModule.dll" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496107, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496166, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496246, "dur":131, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496378, "dur":107, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.HotReloadModule.dll" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496485, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496538, "dur":320, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.ARModule.dll" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496858, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496914, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.IO.Compression.FileSystem.dll" }}
-,{ "pid":12345, "tid":13, "ts":1718305828496968, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828497022, "dur":69, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Configuration.dll" }}
-,{ "pid":12345, "tid":13, "ts":1718305828497092, "dur":85, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828497178, "dur":48, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/globalgamemanagers" }}
-,{ "pid":12345, "tid":13, "ts":1718305828497282, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":13, "ts":1718305828497604, "dur":3742, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/globalgamemanagers" }}
-,{ "pid":12345, "tid":13, "ts":1718305828501469, "dur":124177, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":14, "ts":1718305828489676, "dur":964, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":14, "ts":1718305828490640, "dur":4779, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":14, "ts":1718305828495424, "dur":148, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
-,{ "pid":12345, "tid":14, "ts":1718305828495572, "dur":78, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":14, "ts":1718305828495651, "dur":821, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick.exe" }}
-,{ "pid":12345, "tid":14, "ts":1718305828496486, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":14, "ts":1718305828497473, "dur":4617, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick.exe" }}
-,{ "pid":12345, "tid":14, "ts":1718305828502180, "dur":123475, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828489728, "dur":918, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828490647, "dur":4756, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828495407, "dur":200, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
-,{ "pid":12345, "tid":15, "ts":1718305828495607, "dur":45, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828495653, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Resources/unity default resources" }}
-,{ "pid":12345, "tid":15, "ts":1718305828495724, "dur":144, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828495869, "dur":179, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496048, "dur":82, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496130, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.StreamingModule.dll" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496210, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496266, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496342, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496407, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.GameCenterModule.dll" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496473, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496525, "dur":321, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496846, "dur":46, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828496893, "dur":148, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Numerics.dll" }}
-,{ "pid":12345, "tid":15, "ts":1718305828497041, "dur":35, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828497076, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Resources/unity_builtin_extra" }}
-,{ "pid":12345, "tid":15, "ts":1718305828497149, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":15, "ts":1718305828497598, "dur":3878, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Resources/unity_builtin_extra" }}
-,{ "pid":12345, "tid":15, "ts":1718305828501556, "dur":124094, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828490193, "dur":467, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828490660, "dur":4755, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828495464, "dur":120, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
-,{ "pid":12345, "tid":16, "ts":1718305828495585, "dur":110, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828495696, "dur":142, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.VideoModule.dll" }}
-,{ "pid":12345, "tid":16, "ts":1718305828495839, "dur":214, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828496054, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
-,{ "pid":12345, "tid":16, "ts":1718305828496134, "dur":152, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828496287, "dur":65, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.LocalizationModule.dll" }}
-,{ "pid":12345, "tid":16, "ts":1718305828496352, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828496422, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
-,{ "pid":12345, "tid":16, "ts":1718305828496485, "dur":358, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828496844, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/UnityEngine.AIModule.dll" }}
-,{ "pid":12345, "tid":16, "ts":1718305828496923, "dur":88, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828497012, "dur":44, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/Managed/System.Core.dll" }}
-,{ "pid":12345, "tid":16, "ts":1718305828497056, "dur":43, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828497100, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/sharedassets0.assets.resS" }}
-,{ "pid":12345, "tid":16, "ts":1718305828497162, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":16, "ts":1718305828497548, "dur":7021, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick_Data/sharedassets0.assets.resS" }}
-,{ "pid":12345, "tid":16, "ts":1718305828504624, "dur":121016, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1718305828629188, "dur":1181, "ph":"X", "name": "ProfilerWriteOutput" }
-,{ "pid": 0, "tid": 1, "ts": 1718305828654439, "dur": 564, "ph": "X", "name": "backend_profiler0.traceevents", "args": {} },
-{ "pid": 0, "tid": 1, "ts": 1718305828654225, "dur": 797, "ph": "X", "name": "Write chrome-trace events", "args": {} },
+,{ "pid":12345, "tid":0, "ts":1718314335191160, "dur":2010, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335193178, "dur":37, "ph":"X", "name": "Tundra",  "args": { "detail":"RemoveStaleOutputs" }}
+,{ "pid":12345, "tid":0, "ts":1718314335193233, "dur":12, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
+,{ "pid":12345, "tid":0, "ts":1718314335193246, "dur":357, "ph":"X", "name": "Tundra",  "args": { "detail":"BuildQueueInit" }}
+,{ "pid":12345, "tid":0, "ts":1718314335193616, "dur":402, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335194018, "dur":1, "ph":"X", "name": "SortWorkingStack",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335533996, "dur":105, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534101, "dur":107, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534208, "dur":117, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534325, "dur":20, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534345, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534348, "dur":16, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534365, "dur":3, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534368, "dur":6, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534374, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534375, "dur":4, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534379, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534381, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534386, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534387, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534392, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534393, "dur":4, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534397, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534398, "dur":4, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534402, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534404, "dur":4, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534408, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534409, "dur":6, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534415, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534416, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534421, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534423, "dur":4, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534427, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534428, "dur":4, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534432, "dur":2, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534434, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534439, "dur":1, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534440, "dur":5, "ph":"X", "name": "ThreadStateDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534445, "dur":0, "ph":"X", "name": "SharedResourceDestroy",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534455, "dur":1, "ph":"X", "name": "BuildQueueDestroyTail",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335534458, "dur":1490, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
+,{ "pid":12345, "tid":1, "ts":1718314335199624, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1718314335199625, "dur":229, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":12345, "tid":1, "ts":1718314335199859, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1718314335199873, "dur":2620, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/web.config" }}
+,{ "pid":12345, "tid":1, "ts":1718314335202537, "dur":101, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335202641, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1718314335202646, "dur":11856, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335214557, "dur":132, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335214692, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1718314335214702, "dur":3568, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VehiclesModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335218320, "dur":100, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335218424, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1718314335218433, "dur":4780, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UNETModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335223247, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335223331, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1718314335223337, "dur":5430, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335228807, "dur":116, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335228932, "dur":7, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1718314335228948, "dur":5015, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ParticleSystemModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335234056, "dur":90, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335234172, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1718314335234178, "dur":4891, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.DirectorModule.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335239107, "dur":138129, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335377244, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1718314335377256, "dur":1383, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":1, "ts":1718314335378685, "dur":155327, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335195605, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335195606, "dur":2301, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335197909, "dur":132, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":2, "ts":1718314335198090, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335212887, "dur":1830, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":2, "ts":1718314335214764, "dur":163, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335214930, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335214938, "dur":3882, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335218891, "dur":134, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335219028, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335219035, "dur":4332, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335223410, "dur":84, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335223499, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335223505, "dur":4764, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335228320, "dur":202, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335228526, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335228533, "dur":4744, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335233322, "dur":81, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335233407, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335233413, "dur":5023, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.DSPGraphModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335238478, "dur":87, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335238568, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335238574, "dur":5667, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AIModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335244285, "dur":47, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Drawing.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335244335, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335244341, "dur":6104, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Drawing.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335250539, "dur":109, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Plugins/x86_64/steam_api64.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335250652, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1718314335251424, "dur":2076, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Plugins/x86_64/steam_api64.dll" }}
+,{ "pid":12345, "tid":2, "ts":1718314335253552, "dur":280431, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1718314335194251, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1718314335194252, "dur":3623, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1718314335197888, "dur":1, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"WriteText Library/Bee/artifacts/WinPlayerBuildProgram/Data/app.info" }}
+,{ "pid":12345, "tid":3, "ts":1718314335197889, "dur":311, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1718314335198204, "dur":1, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/app.info" }}
+,{ "pid":12345, "tid":3, "ts":1718314335198206, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1718314335240864, "dur":1254, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/app.info" }}
+,{ "pid":12345, "tid":3, "ts":1718314335242120, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Numerics.dll" }}
+,{ "pid":12345, "tid":3, "ts":1718314335242186, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1718314335242193, "dur":5934, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Numerics.dll" }}
+,{ "pid":12345, "tid":3, "ts":1718314335248180, "dur":113, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":3, "ts":1718314335248296, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1718314335248305, "dur":4622, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/netstandard.dll" }}
+,{ "pid":12345, "tid":3, "ts":1718314335253003, "dur":44, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":3, "ts":1718314335253050, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1718314335253057, "dur":2186, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":3, "ts":1718314335255322, "dur":278731, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1718314335196379, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1718314335196380, "dur":1523, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1718314335197903, "dur":193, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":4, "ts":1718314335198099, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1718314335224123, "dur":1254, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":4, "ts":1718314335225426, "dur":92, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1718314335225521, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1718314335225528, "dur":5386, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SpriteMaskModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1718314335230956, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1718314335231041, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1718314335231048, "dur":5653, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1718314335236748, "dur":92, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1718314335236844, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1718314335236850, "dur":6021, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AudioModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1718314335242915, "dur":41, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":4, "ts":1718314335242959, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1718314335242966, "dur":8024, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":4, "ts":1718314335251547, "dur":199, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":4, "ts":1718314335251750, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1718314335251758, "dur":3609, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/ScriptingAssemblies.json" }}
+,{ "pid":12345, "tid":4, "ts":1718314335255412, "dur":278612, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335195049, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335195050, "dur":2832, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335197888, "dur":123, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":5, "ts":1718314335198015, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335200031, "dur":2530, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":5, "ts":1718314335202616, "dur":110, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335202729, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335202734, "dur":22252, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335225036, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335225118, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335225124, "dur":6141, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.StreamingModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335231314, "dur":99, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335231416, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335231422, "dur":5298, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335236762, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335236843, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335236850, "dur":6251, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AssetBundleModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335243147, "dur":118, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335243269, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335243276, "dur":6072, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335249575, "dur":129755, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335379334, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1718314335379345, "dur":1163, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":5, "ts":1718314335380554, "dur":153447, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1718314335194634, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1718314335194634, "dur":3279, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1718314335197913, "dur":156, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":6, "ts":1718314335198100, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1718314335224394, "dur":1220, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":6, "ts":1718314335225658, "dur":76, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335225737, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1718314335225743, "dur":5286, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SharedInternalsModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335231071, "dur":110, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335231184, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1718314335231190, "dur":4813, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335236052, "dur":95, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335236150, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1718314335236157, "dur":5620, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335241819, "dur":44, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335241866, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1718314335241873, "dur":6478, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Runtime.Serialization.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335248397, "dur":48, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/mscorlib.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335248448, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1718314335248454, "dur":4792, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/mscorlib.dll" }}
+,{ "pid":12345, "tid":6, "ts":1718314335253291, "dur":280702, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335196931, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335196932, "dur":965, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335197898, "dur":133, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":7, "ts":1718314335198084, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335205275, "dur":3756, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":7, "ts":1718314335209083, "dur":100, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335209185, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335209191, "dur":6225, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VFXModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335215464, "dur":192, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335215661, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335215668, "dur":7189, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335222911, "dur":155, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335223069, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335223075, "dur":4135, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TilemapModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335227261, "dur":70, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335227334, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335227339, "dur":5865, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.PhysicsModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335233254, "dur":118, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335233375, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335233381, "dur":5353, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.GIModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335238792, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335238899, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335238912, "dur":5711, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AccessibilityModule.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335244675, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335244729, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335244735, "dur":7200, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.dll" }}
+,{ "pid":12345, "tid":7, "ts":1718314335252000, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/level0" }}
+,{ "pid":12345, "tid":7, "ts":1718314335252055, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1718314335252086, "dur":2613, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/level0" }}
+,{ "pid":12345, "tid":7, "ts":1718314335254744, "dur":279331, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1718314335195993, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1718314335195994, "dur":1916, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1718314335197910, "dur":159, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":8, "ts":1718314335198100, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1718314335224937, "dur":1134, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/settings.map" }}
+,{ "pid":12345, "tid":8, "ts":1718314335226119, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335226189, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1718314335226193, "dur":6727, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ScreenCaptureModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335232972, "dur":118, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335233093, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1718314335233102, "dur":5044, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.HotReloadModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335238197, "dur":89, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335238289, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1718314335238296, "dur":5660, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AnimationModule.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335244020, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335244075, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1718314335244081, "dur":5242, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335249395, "dur":283324, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/com.rlabrecque.steamworks.net.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335532725, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1718314335532737, "dur":1172, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/com.rlabrecque.steamworks.net.dll" }}
+,{ "pid":12345, "tid":8, "ts":1718314335533935, "dur":1, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"Player" }}
+,{ "pid":12345, "tid":8, "ts":1718314335533936, "dur":0, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335198455, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335198456, "dur":122, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":9, "ts":1718314335198582, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335199747, "dur":2857, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":9, "ts":1718314335202654, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":9, "ts":1718314335202753, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335202775, "dur":5564, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":9, "ts":1718314335208382, "dur":112, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335208497, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335208507, "dur":6356, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VideoModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335214915, "dur":377, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335215296, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335215328, "dur":5465, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335220839, "dur":134, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335220976, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335220985, "dur":3531, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UIModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335224559, "dur":87, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335224649, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335224655, "dur":5259, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335229968, "dur":151, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335230122, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335230129, "dur":4073, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335234238, "dur":73, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335234314, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335234320, "dur":5115, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335239481, "dur":41, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Xml.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335239524, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335239530, "dur":7040, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Xml.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335246617, "dur":56, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335246708, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335246715, "dur":4311, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":9, "ts":1718314335251076, "dur":833, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":9, "ts":1718314335251912, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1718314335251919, "dur":3080, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":9, "ts":1718314335255048, "dur":278937, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335197283, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335197283, "dur":612, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335197904, "dur":137, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":10, "ts":1718314335198095, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335222897, "dur":1927, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":10, "ts":1718314335224871, "dur":85, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335224960, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335224966, "dur":4967, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SubstanceModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335229984, "dur":104, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335230091, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335230129, "dur":5046, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335235219, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335235303, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335235309, "dur":5568, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ClusterInputModule.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335240924, "dur":46, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335240973, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335241001, "dur":5718, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335246773, "dur":49, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335246826, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335246832, "dur":5089, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":10, "ts":1718314335251977, "dur":12054, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":12345, "tid":10, "ts":1718314335264039, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1718314335264052, "dur":1315, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/RuntimeInitializeOnLoads.json" }}
+,{ "pid":12345, "tid":10, "ts":1718314335265413, "dur":268621, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335197818, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335197819, "dur":66, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335197888, "dur":116, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":12345, "tid":11, "ts":1718314335198006, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335200054, "dur":1951, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/settings.map" }}
+,{ "pid":12345, "tid":11, "ts":1718314335202052, "dur":112, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":11, "ts":1718314335202185, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335202196, "dur":1308, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":11, "ts":1718314335203533, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":11, "ts":1718314335203615, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335207050, "dur":9112, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Resources/unity default resources" }}
+,{ "pid":12345, "tid":11, "ts":1718314335216213, "dur":129, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335216346, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335216353, "dur":6509, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityCurlModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335222915, "dur":245, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335223163, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335223169, "dur":4847, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TextRenderingModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335228099, "dur":100, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335228203, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335228211, "dur":5055, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335233309, "dur":80, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335233393, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335233399, "dur":5016, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.GameCenterModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335238456, "dur":81, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335238540, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335238547, "dur":6268, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335244861, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Data.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335244919, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335244925, "dur":6311, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Data.dll" }}
+,{ "pid":12345, "tid":11, "ts":1718314335251287, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":11, "ts":1718314335251351, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1718314335251361, "dur":3084, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":11, "ts":1718314335254488, "dur":279494, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335199221, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335199222, "dur":103, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":12, "ts":1718314335199329, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335199940, "dur":2256, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":12, "ts":1718314335202286, "dur":91, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335202381, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335202592, "dur":1946, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335204578, "dur":95, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335204675, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335205379, "dur":11120, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VirtualTexturingModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335216543, "dur":95, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335216642, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335216648, "dur":6076, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityConnectModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335222782, "dur":176, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335222961, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335222968, "dur":3901, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TLSModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335226918, "dur":101, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335227022, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335227029, "dur":6924, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335234012, "dur":92, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335234107, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335234113, "dur":5188, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335239352, "dur":46, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335239401, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335239407, "dur":6190, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Xml.Linq.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335245996, "dur":170, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Core.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335246170, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1718314335246177, "dur":10089, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Core.dll" }}
+,{ "pid":12345, "tid":12, "ts":1718314335256313, "dur":277730, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1718314335200168, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1718314335200169, "dur":90, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":13, "ts":1718314335200262, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1718314335200283, "dur":1900, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":13, "ts":1718314335202252, "dur":166, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":12345, "tid":13, "ts":1718314335202422, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1718314335202428, "dur":2017, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/browscap.ini" }}
+,{ "pid":12345, "tid":13, "ts":1718314335204488, "dur":133, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":12345, "tid":13, "ts":1718314335204623, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1718314335205362, "dur":9574, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.VRModule.dll" }}
+,{ "pid":12345, "tid":13, "ts":1718314335214991, "dur":87, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":13, "ts":1718314335215082, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1718314335215091, "dur":7623, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":13, "ts":1718314335222772, "dur":184593, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":13, "ts":1718314335407369, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1718314335407376, "dur":1439, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":13, "ts":1718314335409067, "dur":124922, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335200716, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335200718, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":14, "ts":1718314335200802, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335200812, "dur":1806, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":14, "ts":1718314335202664, "dur":471, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick.exe" }}
+,{ "pid":12345, "tid":14, "ts":1718314335203138, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335203141, "dur":1102, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick.exe" }}
+,{ "pid":12345, "tid":14, "ts":1718314335204280, "dur":111, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335204395, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335208628, "dur":6738, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.WindModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335215412, "dur":264, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335215679, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335215685, "dur":5325, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335221053, "dur":118, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335221174, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335221180, "dur":3412, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UIElementsNativeModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335224642, "dur":91, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335224736, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335224743, "dur":5176, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SubsystemsModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335229972, "dur":133, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335230127, "dur":2, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335230136, "dur":4661, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335234844, "dur":90, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335234937, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335234944, "dur":6010, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.CoreModule.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335241003, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Security.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335241057, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335241062, "dur":5994, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Security.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335247097, "dur":160088, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/RiptideNetworking.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335407192, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1718314335407204, "dur":1190, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/RiptideNetworking.dll" }}
+,{ "pid":12345, "tid":14, "ts":1718314335408444, "dur":125553, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335194256, "dur":0, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335194257, "dur":3624, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335197888, "dur":117, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":15, "ts":1718314335198007, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335200055, "dur":1945, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":15, "ts":1718314335202062, "dur":104, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":15, "ts":1718314335202192, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335202210, "dur":1358, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":15, "ts":1718314335203604, "dur":104, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335203711, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335205391, "dur":10231, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.XRModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335215667, "dur":95, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335215766, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335215771, "dur":5556, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335221365, "dur":74, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335221442, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335221447, "dur":3748, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UIElementsModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335225242, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335225321, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335225326, "dur":5011, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335230376, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335230458, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335230463, "dur":4320, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.InputModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335234852, "dur":125, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335234981, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335234987, "dur":4993, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335240037, "dur":43, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Transactions.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335240084, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335240090, "dur":5669, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Transactions.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335245801, "dur":45, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335245849, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335245857, "dur":4630, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.Data.DataSetExtensions.dll" }}
+,{ "pid":12345, "tid":15, "ts":1718314335250543, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":15, "ts":1718314335250599, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335250610, "dur":1497, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":15, "ts":1718314335252155, "dur":79, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":15, "ts":1718314335252237, "dur":3, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1718314335252257, "dur":2462, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":15, "ts":1718314335254760, "dur":279327, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335194281, "dur":1, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335194282, "dur":3598, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335197889, "dur":199, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":16, "ts":1718314335198092, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335214313, "dur":2322, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":16, "ts":1718314335216679, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335216783, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335216790, "dur":6077, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.UnityAnalyticsModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335222916, "dur":212, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335223132, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335223138, "dur":3786, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335226966, "dur":81, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335227051, "dur":0, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335227056, "dur":6023, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ProfilerModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335233124, "dur":75, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335233202, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335233209, "dur":4801, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.GridModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335238069, "dur":162, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335238235, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335238243, "dur":5666, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/UnityEngine.ARModule.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335243949, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335244003, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335244033, "dur":5286, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/System.IO.Compression.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335249387, "dur":125, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335249515, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335249524, "dur":3688, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":16, "ts":1718314335253268, "dur":142, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/boot.config" }}
+,{ "pid":12345, "tid":16, "ts":1718314335253413, "dur":1, "ph":"X", "name": "StoreTimestampsOfNonGeneratedInputFiles",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1718314335253419, "dur":1935, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/arik4/OneDrive/Desktop/dropkick-build-storage/dropkick_Data/boot.config" }}
+,{ "pid":12345, "tid":16, "ts":1718314335255400, "dur":278665, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1718314335537216, "dur":1420, "ph":"X", "name": "ProfilerWriteOutput" }
+,{ "pid": 0, "tid": 1, "ts": 1718314335554067, "dur": 473, "ph": "X", "name": "backend_profiler1.traceevents", "args": {} },
+{ "pid": 0, "tid": 1, "ts": 1718314335553729, "dur": 828, "ph": "X", "name": "Write chrome-trace events", "args": {} },

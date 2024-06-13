@@ -75,6 +75,13 @@ public class ServerPlayer : MonoBehaviour
         ServerPlayer player = List[fromClientId];
         player.movement.SetMoveDir(message.GetVector2(), message.GetFloat());
     }
+
+    [MessageHandler((ushort)ClientToServerId.PlayerAirControl, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void PlayerAirControl(ushort fromClientId, Message message)
+    {
+        ServerPlayer player = List[fromClientId];
+        player.movement.AirControl(message.GetVector2().normalized);
+    }
     #endregion
 }
 
