@@ -3,27 +3,33 @@ using System.Collections;
 using UnityEngine;
 using Riptide;
 using Steamworks;
+using System;
+using UnityEngine.Events;
 
 public class ClientPlayer : MonoBehaviour
 {
     public static Dictionary<ushort, ClientPlayer> list = new Dictionary<ushort, ClientPlayer>();
 
+    [Header("Player Info")]
     [SerializeField] private ushort id;
     [SerializeField] private string username;
 
+    [Header("Camera")]
     [SerializeField] private Transform cam;
     [SerializeField] private float camSpeed = 2.5f;
 
+    [Header("Sprites")]
     [SerializeField] private SpriteRenderer playerSprite;
     [SerializeField] private SpriteRenderer faceSprite;
     [SerializeField] private Transform shadowSprite;
     private float verticalVelocity;
     private float gravity;
 
-    public bool isJumping { get; private set; }  = false;
+    public bool isJumping { get; private set; } = false;
     private Vector2 startPos;
     private Vector2 defaultScale;
 
+    [Header("Particles/Effects")]
     [SerializeField] private ParticleSystem jumpParticle;
     [SerializeField] private ParticleSystem checkpointParticle;
     [SerializeField] private ParticleSystem landParticle;
@@ -33,6 +39,15 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private Color color;
     private float colorDelay = 0f;
     private Rigidbody2D rb;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent onLandEvents;
+
+    //open variables the local player can check with
+    public bool dead { get; private set; }
+
+    public float GetSpriteDist() { return Math.Abs(startPos.y - playerSprite.transform.localPosition.y); }
+    public float GetVerticalVel() { return verticalVelocity; }
 
     private void Awake()
     {
@@ -45,6 +60,7 @@ public class ClientPlayer : MonoBehaviour
 
     private void OnDestroy()
     {
+        Destroy(cam);
         list.Remove(id);
     }
 
@@ -74,14 +90,13 @@ public class ClientPlayer : MonoBehaviour
         if (cam != null)
             cam.position = Vector3.Lerp(cam.position, new Vector3(transform.position.x, transform.position.y, -10), Time.deltaTime * camSpeed);
 
-        if(rb.velocity.sqrMagnitude > 1)
+        if (rb.velocity.sqrMagnitude > 1)
         {
             float x = defaultScale.x - Mathf.Log10(Mathf.Clamp(rb.velocity.magnitude * .1f, 1f, 3f));
             Vector2 scale = new Vector2(x, defaultScale.y * defaultScale.y / x);
             playerSprite.transform.localScale = scale;
             shadowSprite.localScale = scale;
         }
-
 
         if (playerSprite.color != color && colorDelay <= 0)
             playerSprite.color = new Color(Mathf.MoveTowards(playerSprite.color.r, color.r, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.g, color.g, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.b, color.b, Time.deltaTime * 2f), 1);
@@ -99,6 +114,7 @@ public class ClientPlayer : MonoBehaviour
 
         if (playerSprite.transform.localPosition.y <= startPos.y)
         {
+            onLandEvents.Invoke();
             isJumping = false;
             playerSprite.transform.localPosition = startPos;
             rb.velocity *= PlayerMovement.LandingFactor;
@@ -115,8 +131,9 @@ public class ClientPlayer : MonoBehaviour
     {
         shadowSprite.localScale = Vector2.zero;
         playerSprite.transform.localScale = defaultScale;
-        while(playerSprite.transform.localScale.x > 0.05f){
-            playerSprite.transform.Rotate(0,0, 500 * Time.deltaTime);
+        while (playerSprite.transform.localScale.x > 0.05f)
+        {
+            playerSprite.transform.Rotate(0, 0, 500 * Time.deltaTime);
             Vector2 scale = playerSprite.transform.localScale;
             playerSprite.transform.localScale = new Vector2(scale.x - 1.4f * Time.deltaTime, scale.y - 1.4f * Time.deltaTime);
             yield return new WaitForEndOfFrame();
@@ -124,7 +141,7 @@ public class ClientPlayer : MonoBehaviour
         playerSprite.transform.localScale = Vector2.zero;
     }
 
-    void Jump(float force) //the higher the force, the higher the jump
+    void TriggerJump(float force) //the higher the force, the higher the jump
     {
         verticalVelocity = force * PlayerMovement.JumpForceFactor + PlayerMovement.JumpOffset;
         gravity = PlayerMovement.Gravity * Mathf.Pow(PlayerMovement.GravityPow, verticalVelocity);
@@ -159,28 +176,33 @@ public class ClientPlayer : MonoBehaviour
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerJump, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
-    private static void PlayerJump(Message message)
+    private static void ReceiveJump(Message message)
     {
         ushort playerId = message.GetUShort(); //get player id
         if (!list.TryGetValue(playerId, out ClientPlayer player))
             return;
+        if (playerId == NetworkManager.Singleton.Client.Id)
+            return;
         player.transform.position = message.GetVector2(); //update player position
-        Vector2 dir = message.GetVector2();
-        float force = message.GetFloat();
-        player.rb.velocity = dir * force;
+        player.ClientJump(message.GetVector2(), message.GetFloat(), message.GetBool());
+    }
 
-        if (message.GetBool()) //check if the player was hit, or if they jumped willingly
+    public void ClientJump(Vector2 dir, float force, bool hit)
+    {
+        rb.velocity = dir * force;
+
+        TriggerJump(force);
+
+        if (hit) //check if the player was hit, or if they jumped willingly
         {
-            player.playerSprite.color = Color.white;
-            player.colorDelay = 0.1f;
-            player.hitParticle.Play();
+            playerSprite.color = Color.white;
+            colorDelay = 0.1f;
+            hitParticle.Play();
         }
 
-        player.Jump(force);
-
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
-        player.playerSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        player.shadowSprite.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        playerSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        shadowSprite.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerDeath, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -191,6 +213,7 @@ public class ClientPlayer : MonoBehaviour
             return;
         player.rb.velocity = Vector2.zero;
         player.DeathAnim();
+        player.dead = true;
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerRespawn, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -202,6 +225,7 @@ public class ClientPlayer : MonoBehaviour
         player.transform.position = message.GetVector2(); //update player position
         player.rb.velocity = Vector2.zero;
         player.playerSprite.transform.localScale = player.defaultScale;
+        player.dead = false;
     }
     #endregion
 }

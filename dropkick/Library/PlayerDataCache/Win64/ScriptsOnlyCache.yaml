@@ -16,15 +16,9 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
-    UnityEditor.TestRunner.dll:
-    - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
-    - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -45,6 +39,7 @@ ScriptsOnlyBuild:
     - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
+    - UnityEngine.Events.UnityEvent
     - UnityEngine.RectOffset
     UnityEngine.UI:
     - UnityEngine.UI.AnimationTriggers
@@ -60,6 +55,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Scrollbar/ScrollEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerInput
+    methodName: SetJumpCooldown
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: SetPlayerColor
@@ -157,49 +155,49 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1520}
+      Script: {instanceID: 1512}
     - Class: 114
-      Script: {instanceID: 1572}
+      Script: {instanceID: 1538}
     - Class: 114
-      Script: {instanceID: 1692}
+      Script: {instanceID: 1616}
     - Class: 114
-      Script: {instanceID: 1758}
+      Script: {instanceID: 1668}
     - Class: 114
-      Script: {instanceID: 1770}
+      Script: {instanceID: 1676}
     - Class: 114
-      Script: {instanceID: 2152}
+      Script: {instanceID: 1946}
     - Class: 114
-      Script: {instanceID: 2280}
+      Script: {instanceID: 2054}
     - Class: 114
-      Script: {instanceID: 2292}
+      Script: {instanceID: 2062}
     - Class: 114
-      Script: {instanceID: 2372}
+      Script: {instanceID: 2104}
     - Class: 114
-      Script: {instanceID: 2428}
+      Script: {instanceID: 2138}
     - Class: 114
-      Script: {instanceID: 2500}
+      Script: {instanceID: 2192}
     - Class: 114
-      Script: {instanceID: 2600}
+      Script: {instanceID: 2268}
     - Class: 114
-      Script: {instanceID: 2680}
+      Script: {instanceID: 2330}
     - Class: 114
-      Script: {instanceID: 2840}
+      Script: {instanceID: 2454}
     - Class: 114
-      Script: {instanceID: 2922}
+      Script: {instanceID: 2522}
     - Class: 114
-      Script: {instanceID: 3050}
+      Script: {instanceID: 2606}
     - Class: 114
-      Script: {instanceID: 3110}
+      Script: {instanceID: 2618}
     - Class: 114
-      Script: {instanceID: 3340}
+      Script: {instanceID: 2638}
     - Class: 114
-      Script: {instanceID: 3356}
+      Script: {instanceID: 2800}
     - Class: 114
-      Script: {instanceID: 3372}
+      Script: {instanceID: 2814}
     - Class: 114
-      Script: {instanceID: 3476}
+      Script: {instanceID: 2824}
     - Class: 114
-      Script: {instanceID: 22104}
+      Script: {instanceID: 2900}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -231,7 +229,7 @@ ScriptsOnlyBuild:
     className: PanelRaycaster
   - hash:
       serializedVersion: 2
-      Hash: a1bd4a6ab723eb3ba8c3fd0ef784d8c2
+      Hash: e8eb2d77deddc09606ddcfb986746f72
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -261,7 +259,7 @@ ScriptsOnlyBuild:
     className: Outline
   - hash:
       serializedVersion: 2
-      Hash: ff46bf5b4a55db7f6a760dc066d96ddc
+      Hash: 5da3f524587107e9fef44d60f6f1a64d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerInput
@@ -321,12 +319,6 @@ ScriptsOnlyBuild:
     className: HorizontalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.TestRunner.dll
-    namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
-    className: PlayerQuitHandler
-  - hash:
-      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -345,12 +337,6 @@ ScriptsOnlyBuild:
     className: Physics2DRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.TestRunner.dll
-    namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
-    className: PlayModeRunnerCallback
-  - hash:
-      serializedVersion: 2
       Hash: bd3cf68c8964d3c66d1c43f4f98508c9
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -367,12 +353,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AudioPlayableAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.TestRunner.dll
-    namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
-    className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
       Hash: 134322c9293c1896357cce271b819ce4
@@ -423,16 +403,10 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
-      Hash: 41097d434ac8b4f5094139a12632468e
+      Hash: 153054bb142b750a4e53a227b68e965d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientPlayer
-  - hash:
-      serializedVersion: 2
-      Hash: 91d258529db2b5060a913f2afcea1a21
-    assemblyName: UnityEngine.TestRunner.dll
-    namespaceName: UnityEngine.TestTools.TestRunner
-    className: PlaymodeTestsController
   - hash:
       serializedVersion: 2
       Hash: 08e2e9f73509673f63a90538d101ba29
@@ -537,28 +511,22 @@ ScriptsOnlyBuild:
     className: ServerPlayer
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.TestRunner.dll
-    namespaceName: UnityEngine.TestRunner.Utils
-    className: TestRunCallbackListener
-  - hash:
-      serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
+      Hash: cd92891db284c9742365b507fa556b40
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SpriteOutline
+  - hash:
+      serializedVersion: 2
       Hash: 8fbc134fd506d97c845cf2b715231396
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: InputField
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: UnityEngine.TestRunner.dll
-    namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
-    className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
       Hash: e09e8bebc0fcd32bb8af1287a6b44816
@@ -591,12 +559,6 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 8e6ceabfd38a184413d69b7db56c89cc
-    assemblyName: UnityEngine.TestRunner.dll
-    namespaceName: UnityEngine.TestTools
-    className: BeforeAfterTestCommandState
-  - hash:
-      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -625,13 +587,7 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: cd92891db284c9742365b507fa556b40
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SpriteOutline
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: C:/Users/arik4/Documents/GitHub/dropkick_builds/dropkick.exe
+  playerPath: C:/Users/arik4/OneDrive/Desktop/dropkick-0.1.0/dropkick.exe

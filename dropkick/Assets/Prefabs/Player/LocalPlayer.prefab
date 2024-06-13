@@ -20044,6 +20044,21 @@ MonoBehaviour:
   landParticle: {fileID: 1824403286}
   hitParticle: {fileID: 1743468401}
   color: {r: 0, g: 0, b: 0, a: 0}
+  onLandEvents:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9086514984413201289}
+        m_TargetAssemblyTypeName: PlayerInput, Assembly-CSharp
+        m_MethodName: SetJumpCooldown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9086514984413201289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20062,6 +20077,7 @@ MonoBehaviour:
   pointerSprite: {fileID: 3729426988303622555}
   holdTime: 0
   chargeSpeed: 2
+  jumpCooldown: 0.2
 --- !u!50 &365030442807813652
 Rigidbody2D:
   serializedVersion: 4

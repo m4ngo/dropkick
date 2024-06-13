@@ -8,16 +8,17 @@ public class PlayerMovement : MonoBehaviour
     public const float GravityPow = 1.025f;
     public const float JumpForceFactor = 1.75f;
     public const float JumpOffset = 10f;
-    public const float LandingFactor = 0.5f;
+    public const float LandingFactor = 1.0f;
     public const float DefaultDrag = 5.5f;
     public const float AirDrag = 1f;
+    public const float MaxJumpForce = 18f;
+    public const float MinJumpForceMultiplier = 0.25f;
 
-    [SerializeField] private float maxJumpForce;
-    [SerializeField] private float minJumpForceMultiplier = 0.2f;
-    [SerializeField] private float knockback;
+    [SerializeField] private float knockbackScale;
     [SerializeField] private float landRadius;
     [SerializeField] private LayerMask mask;
 
+    private float knockback;
     private float verticalVelocity;
     private float gravity;
     private bool isJumping = false;
@@ -33,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
     float groundTimer = 0;
 
     private void Awake()
-    {   
+    {
         player = GetComponent<ServerPlayer>();
         rb = GetComponent<Rigidbody2D>();
     }
@@ -63,11 +64,11 @@ public class PlayerMovement : MonoBehaviour
 
                 Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, landRadius, mask);
                 if (hits.Length > 0)
-                {
+                { //check hit players and send hits to all clients
                     foreach (Collider2D hit in hits)
                     {
                         if (hit.CompareTag("ServerPlayer") && hit.gameObject != this.gameObject)
-                            hit.GetComponent<PlayerMovement>().Hit((hit.transform.position - transform.position).normalized, knockback);
+                            hit.GetComponent<PlayerMovement>().Hit((hit.transform.position - transform.position).normalized, knockback * knockbackScale);
                     }
                 }
             }
@@ -96,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump(float force) //the higher the force, the higher the jump
     {
+        knockback = force;
         verticalVelocity = force * JumpForceFactor + JumpOffset;
         gravity = Gravity * Mathf.Pow(GravityPow, verticalVelocity);
         isJumping = true;
@@ -106,23 +108,22 @@ public class PlayerMovement : MonoBehaviour
         if (isJumping || groundTimer > 0.05 || deathTimer > 0)
             return;
 
-        jumpForce = Mathf.Clamp(jumpForce, minJumpForceMultiplier, 1.0f);
-        jumpForce *= maxJumpForce;
+        jumpForce = Mathf.Clamp(jumpForce, MinJumpForceMultiplier, 1.0f) * MaxJumpForce;
 
         rb.velocity = jumpDir.normalized * jumpForce;
         Jump(jumpForce);
 
-        PlayerJump(jumpDir.normalized, jumpForce, false);
+        SendJump(jumpDir.normalized, jumpForce, false);
     }
 
-    private void Hit(Vector2 dir, float knockback)
+    private void Hit(Vector2 dir, float hitKnockback)
     {
         if (isJumping || deathTimer > 0)
             return;
 
-        rb.velocity = dir * knockback;
-        Jump(knockback);
-        PlayerJump(dir, knockback, true);
+        rb.velocity = dir * hitKnockback;
+        Jump(hitKnockback);
+        SendJump(dir, hitKnockback, true);
     }
 
     void Death(int deathType)
@@ -156,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     #region Messages
-    private void PlayerJump(Vector2 dir, float force, bool hit)
+    private void SendJump(Vector2 dir, float force, bool hit)
     {
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.PlayerJump);
         message.AddUShort(player.Id);
