@@ -11,7 +11,7 @@ dropkick is a multiplayer party game by m4ngo about racing your friends to the f
 ## How to Download
 
 1. Check out the [latest release](https://github.com/m4ngo/dropkick/releases/latest/).
-2. Download the dropkick.zip file!
+2. Download the dropkick.zip file.
 3. Extract the file.
-4. **Important: make sure you have Steam open in the background! dropkick runs on Steamworks P2P networking, so it won't work otherwise.**
+4. **Important: make sure you have Steam open in the background. dropkick runs on Steamworks P2P networking, so it won't work otherwise.**
 5. Run dropkick.exe and start a game!
