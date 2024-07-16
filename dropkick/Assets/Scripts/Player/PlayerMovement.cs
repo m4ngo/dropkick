@@ -1,20 +1,24 @@
 ﻿using UnityEngine;
 using Riptide;
 
-
 public class PlayerMovement : MonoBehaviour
 {
-    public const float Gravity = -75f;
+    //player movement constants 
+    public const float Gravity = -50f;
     public const float GravityPow = 1.025f;
-    public const float JumpForceFactor = 1.65f;
+    public const float JumpForceFactor = 1.0f;
     public const float JumpOffset = 10f;
     public const float LandingFactor = 1.0f;
     public const float DefaultDrag = 5.5f;
     public const float AirDrag = 1f;
-    public const float MaxJumpForce = 18f;
-    public const float MinJumpForceMultiplier = 0.25f;
-    public const float AirControlSpeed = 5.25f;
+    public const float MaxJumpForce = 14f;
+    public const float MinJumpForceMultiplier = 0.2f;
+    public const float AirControlSpeed = 10.25f;
     public const float AirControlScale = 7f;
+
+    //environment constants
+    public const float IceDrag = 0f;
+    public const float SlimeDrag = 15f;
 
     [SerializeField] private float knockbackScale;
     [SerializeField] private float landRadius;
@@ -27,18 +31,18 @@ public class PlayerMovement : MonoBehaviour
     private float proxyY = 0f;
 
     private ServerPlayer player;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
 
     Vector2 checkpoint = Vector2.zero;
 
     float deathTimer = 0;
-    bool isGrounded = false;
+    public bool isGrounded = false;
     float groundTimer = 0;
 
     private void Awake()
     {
         player = GetComponent<ServerPlayer>();
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -77,7 +81,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //check resync
-        if(isGrounded && rb.velocity.sqrMagnitude > 0.2f){
+        if (isGrounded && rb.velocity.sqrMagnitude > 0.2f)
+        {
             SendResync();
         }
 
@@ -109,30 +114,33 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
     }
 
-    public void AirControl(Vector2 dir){
-        if(!isJumping || deathTimer > 0) return;
+    public void AirControl(Vector3 dir)
+    {
+        if (!isJumping || deathTimer > 0) return;
         rb.velocity += Time.fixedDeltaTime * dir * AirControlSpeed * (rb.velocity.magnitude / AirControlScale);
         SendAirControl();
     }
 
-    public void SetMoveDir(Vector2 jumpDir, float jumpForce)
+    public void SetMoveDir(Vector3 jumpDir, float jumpForce)
     {
         if (isJumping || groundTimer > 0.05 || deathTimer > 0)
             return;
 
         jumpForce = Mathf.Clamp(jumpForce, MinJumpForceMultiplier, 1.0f) * MaxJumpForce;
 
+        jumpDir.y = 0f;
         rb.velocity = jumpDir.normalized * jumpForce;
         Jump(jumpForce);
 
         SendJump(jumpDir.normalized, jumpForce, false);
     }
 
-    private void Hit(Vector2 dir, float hitKnockback)
+    private void Hit(Vector3 dir, float hitKnockback)
     {
         if (isJumping || deathTimer > 0)
             return;
 
+        dir.y = 0f;
         rb.velocity = dir * hitKnockback;
         Jump(hitKnockback);
         SendJump(dir, hitKnockback, true);
@@ -146,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerDeath();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Ground"))
             isGrounded = true;
@@ -154,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
             checkpoint = collision.transform.position;
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.CompareTag("Ground"))
             isGrounded = true;
@@ -162,7 +170,7 @@ public class PlayerMovement : MonoBehaviour
             checkpoint = collision.transform.position;
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.CompareTag("Ground"))
             isGrounded = false;
@@ -173,8 +181,8 @@ public class PlayerMovement : MonoBehaviour
     {
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.PlayerJump);
         message.AddUShort(player.Id);
-        message.AddVector2(transform.position);
-        message.AddVector2(dir);
+        message.AddVector3(transform.position);
+        message.AddVector3(dir);
         message.AddFloat(force);
         message.AddBool(hit);
         NetworkManager.Singleton.Server.SendToAll(message);
@@ -191,20 +199,23 @@ public class PlayerMovement : MonoBehaviour
     {
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.PlayerRespawn);
         message.AddUShort(player.Id);
-        message.AddVector2(transform.position);
+        message.AddVector3(transform.position);
         NetworkManager.Singleton.Server.SendToAll(message);
     }
 
-    void SendResync(){
+    void SendResync()
+    {
         Message message = Message.Create(MessageSendMode.Unreliable, ServerToClientId.ResyncPosition);
-        message.AddVector2(transform.position);
-        message.AddVector2(rb.velocity);
+        message.AddVector3(transform.position);
+        message.AddVector3(rb.velocity);
         NetworkManager.Singleton.Server.Send(message, player.Id);
     }
 
-    void SendAirControl(){
+    void SendAirControl()
+    {
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.ResyncAirControl);
-        message.AddVector2(rb.velocity);
+        message.AddUShort(player.Id);
+        message.AddVector3(rb.velocity);
         NetworkManager.Singleton.Server.SendToAll(message);
     }
     #endregion

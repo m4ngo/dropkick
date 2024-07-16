@@ -19982,8 +19982,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6296381778400844046}
   - component: {fileID: 4043196292420889292}
-  - component: {fileID: -3059812076095214745}
-  - component: {fileID: 5993136530624413443}
+  - component: {fileID: -5364410568861164407}
+  - component: {fileID: -1426806767695293903}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -20040,40 +20040,32 @@ MonoBehaviour:
   onLandEvents:
     m_PersistentCalls:
       m_Calls: []
---- !u!50 &-3059812076095214745
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!54 &-5364410568861164407
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6296381778400844037}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  serializedVersion: 2
   m_Mass: 1
-  m_LinearDrag: 5.5
+  m_Drag: 5.5
   m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_SleepingMode: 1
+  m_Constraints: 112
   m_CollisionDetection: 1
-  m_Constraints: 4
---- !u!58 &5993136530624413443
-CircleCollider2D:
+--- !u!135 &-1426806767695293903
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6296381778400844037}
-  m_Enabled: 1
-  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.45
+  m_Radius: 0.4
+  m_Center: {x: 0, y: 0, z: 0}

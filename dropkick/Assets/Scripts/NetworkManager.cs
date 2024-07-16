@@ -48,7 +48,7 @@ public class NetworkManager : MonoBehaviour
 
     [field:SerializeField] public DungeonGenerator clientGen { get; private set; }
     private DungeonGenerator gen;
-    private string dungeonSeed;
+    private int dungeonSeed;
 
     public GameObject ServerPlayerPrefab => serverPlayerPrefab;
     public GameObject PlayerPrefab => playerPrefab;
@@ -129,7 +129,7 @@ public class NetworkManager : MonoBehaviour
     private void NewPlayerConnected(object sender, ServerConnectedEventArgs e)
     {
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.DungeonGenerate);
-        message.AddString(dungeonSeed);
+        message.AddInt(dungeonSeed);
         Server.Send(message, e.Client.Id);
 
         foreach (ServerPlayer player in ServerPlayer.List.Values)
@@ -176,8 +176,8 @@ public class NetworkManager : MonoBehaviour
     public void GenerateDungeon()
     {
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.DungeonGenerate);
-        dungeonSeed = gen.StartGenerator();
-        message.AddString(dungeonSeed);
+        dungeonSeed = gen.StartGenerator(true);
+        message.AddInt(dungeonSeed);
         Server.SendToAll(message);
     }
 }

@@ -73,14 +73,14 @@ public class ServerPlayer : MonoBehaviour
     private static void PlayerInput(ushort fromClientId, Message message)
     {
         ServerPlayer player = List[fromClientId];
-        player.movement.SetMoveDir(message.GetVector2(), message.GetFloat());
+        player.movement.SetMoveDir(message.GetVector3(), message.GetFloat());
     }
 
     [MessageHandler((ushort)ClientToServerId.PlayerAirControl, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void PlayerAirControl(ushort fromClientId, Message message)
     {
         ServerPlayer player = List[fromClientId];
-        player.movement.AirControl(message.GetVector2().normalized);
+        player.movement.AirControl(message.GetVector3().normalized);
     }
     #endregion
 }

@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Color pointerStart;
     [SerializeField] private Color pointerEnd;
     [SerializeField] private Transform pointer;
+    [SerializeField] private Transform pointerHolder;
     [SerializeField] private SpriteRenderer pointerSprite;
 
     [Header("Clientside Jump")]
@@ -21,49 +22,56 @@ public class PlayerInput : MonoBehaviour
     private ClientPlayer player;
 
     bool up = true;
-    Vector2 dir;
+    Vector3 dir;
 
     private void Start()
     {
         player = GetComponent<ClientPlayer>();
     }
 
-    public void SetJumpCooldown(){
+    public void SetJumpCooldown()
+    {
         currentJumpCooldown = jumpCooldown;
+    }
+
+    private void FixedUpdate()
+    {
+        if (player.isJumping)
+        {
+            SendAirControl();
+        }
     }
 
     private void Update()
     {
-        pointer.gameObject.SetActive(!player.isJumping && Input.GetMouseButton(0) && !player.dead && currentJumpCooldown <= 0);
+        // pointer.gameObject.SetActive(!player.isJumping && Input.GetMouseButton(0) && !player.dead && currentJumpCooldown <= 0);
 
-        pointer.localScale = new Vector2(1f, Mathf.Clamp(holdTime, 0.2f, 1.0f));
+        pointerHolder.localScale = new Vector2(1f, Mathf.Clamp(holdTime, 0.2f, 1.0f));
         pointerSprite.color = Color.Lerp(pointerStart, pointerEnd, Mathf.Clamp(holdTime, 0.2f, 1.0f));
 
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         dir = mousePos - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        pointer.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
+        dir.y = 0;
+        float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+        pointer.rotation = Quaternion.Lerp(pointer.rotation, Quaternion.Euler(new Vector3(90, angle, 0)), Time.deltaTime * 25f);
 
         //handling cooldown between jumps
         //currently using clientside because its will prevent inconsistency from lag
         //may need to add checks later on serverside to prevent memory manipulation to hack the cooldown
         if (currentJumpCooldown > 0)
             currentJumpCooldown -= Time.deltaTime;
-        
+
         //queuing inputs for better responsiveness
-        if(jumpQueue > 0)
+        if (jumpQueue > 0)
             jumpQueue -= Time.deltaTime;
-        if(Input.GetMouseButtonUp(0)){
+        if (Input.GetMouseButtonUp(0))
+        {
             jumpQueue = clickQueueTime;
         }
 
         //don't execute movement logic if the player is dead
         if (player.dead || currentJumpCooldown > 0)
             return;
-
-        if(player.isJumping){
-            SendAirControl();
-        }
 
         if (Input.GetMouseButton(0))
         {
@@ -103,7 +111,7 @@ public class PlayerInput : MonoBehaviour
     private void SendInput(float jumpForce)
     {
         Message message = Message.Create(MessageSendMode.Reliable, ClientToServerId.PlayerInput);
-        message.AddVector2(dir);
+        message.AddVector3(dir);
         message.AddFloat(jumpForce);
         NetworkManager.Singleton.Client.Send(message);
     }
@@ -111,7 +119,7 @@ public class PlayerInput : MonoBehaviour
     private void SendAirControl()
     {
         Message message = Message.Create(MessageSendMode.Unreliable, ClientToServerId.PlayerAirControl);
-        message.AddVector2(dir);
+        message.AddVector3(dir);
         NetworkManager.Singleton.Client.Send(message);
     }
 
