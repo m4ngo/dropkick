@@ -49,8 +49,9 @@ public class PlayerInput : MonoBehaviour
         pointerHolder.localScale = new Vector2(1f, Mathf.Clamp(holdTime, 0.2f, 1.0f));
         pointerSprite.color = Color.Lerp(pointerStart, pointerEnd, Mathf.Clamp(holdTime, 0.2f, 1.0f));
 
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        dir = mousePos - transform.position;
+        dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        // print(dir);
+        dir.z = dir.y;
         dir.y = 0;
         float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
         pointer.rotation = Quaternion.Lerp(pointer.rotation, Quaternion.Euler(new Vector3(90, angle, 0)), Time.deltaTime * 25f);

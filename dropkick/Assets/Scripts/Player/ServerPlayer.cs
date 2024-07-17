@@ -29,7 +29,7 @@ public class ServerPlayer : MonoBehaviour
 
     public static void Spawn(ushort id, string username, int face, int color)
     {
-        ServerPlayer player = Instantiate(NetworkManager.Singleton.ServerPlayerPrefab, new Vector3(0.25f, 0.25f, 0f), Quaternion.identity).GetComponent<ServerPlayer>();
+        ServerPlayer player = Instantiate(NetworkManager.Singleton.ServerPlayerPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity).GetComponent<ServerPlayer>();
         player.name = $"Server Player {id} ({(username == "" ? "Guest" : username)})";
         player.face = face;
         player.color = color;

@@ -88,9 +88,9 @@ public class ClientPlayer : MonoBehaviour
     private void FixedUpdate()
     {
         if (cam != null)
-            cam.position = Vector3.Lerp(cam.position, new Vector3(transform.position.x, 10, transform.position.z), Time.deltaTime * camSpeed);
+            cam.position = Vector3.Lerp(cam.position, new Vector3(transform.position.x, 10, transform.position.z - 6.5f), Time.deltaTime * camSpeed);
 
-        if (rb.velocity.sqrMagnitude > 1)
+        if (rb.velocity.sqrMagnitude > 1 && !dead)
         {
             float x = defaultScale.x - Mathf.Log10(Mathf.Clamp(rb.velocity.magnitude * .1f, 1f, 3f));
             Vector3 scale = new Vector3(x, 1f, defaultScale.z * defaultScale.z / x);
@@ -146,9 +146,10 @@ public class ClientPlayer : MonoBehaviour
         playerSprite.transform.localScale = defaultScale;
         while (playerSprite.transform.localScale.x > 0.05f)
         {
+            rb.velocity = Vector2.zero;
             playerSprite.transform.Rotate(0, 500 * Time.deltaTime, 0);
             Vector3 scale = playerSprite.transform.localScale;
-            playerSprite.transform.localScale = new Vector3(scale.x - 3f * Time.deltaTime, scale.y - 3f * Time.deltaTime, scale.z - 3f * Time.deltaTime);
+            playerSprite.transform.localScale = new Vector3(scale.x - 4f * Time.deltaTime, scale.y - 4f * Time.deltaTime, scale.z - 4f * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
         playerSprite.transform.localScale = Vector2.zero;
@@ -231,7 +232,6 @@ public class ClientPlayer : MonoBehaviour
         ushort playerId = message.GetUShort(); //get player id
         if (!list.TryGetValue(playerId, out ClientPlayer player))
             return;
-        player.rb.velocity = Vector2.zero;
         player.DeathAnim();
         player.dead = true;
     }
