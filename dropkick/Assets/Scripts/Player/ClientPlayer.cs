@@ -19,7 +19,9 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private float camSpeed = 2.5f;
 
     [Header("Sprites")]
-    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private MeshRenderer[] playerModel;
+    [SerializeField] private Transform modelParent;
+    // [SerializeField] private SpriteRenderer playerSprite;
     // [SerializeField] private SpriteRenderer faceSprite;
     // [SerializeField] private Transform shadowSprite;
     private float verticalVelocity;
@@ -36,7 +38,8 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private ParticleSystem hitParticle;
     private Transform checkpoint;
 
-    [SerializeField] private Color color;
+    [SerializeField] private Material whiteMat;
+    [SerializeField] private Material color;
     private float colorDelay = 0f;
     private Rigidbody rb;
 
@@ -46,14 +49,14 @@ public class ClientPlayer : MonoBehaviour
     //open variables the local player can check with
     public bool dead { get; private set; }
 
-    public float GetSpriteDist() { return Math.Abs(startPos.y - playerSprite.transform.localPosition.y); }
+    public float GetSpriteDist() { return Math.Abs(startPos.y - modelParent.localPosition.y); }
     public float GetVerticalVel() { return verticalVelocity; }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        startPos = playerSprite.transform.localPosition;
-        defaultScale = playerSprite.transform.localScale;
+        startPos = modelParent.localPosition;
+        defaultScale = modelParent.localScale;
         if (cam != null)
             cam.SetParent(null);
     }
@@ -80,7 +83,7 @@ public class ClientPlayer : MonoBehaviour
         // player.faceSprite.sprite = UIManager.Singleton.faces[face].sprite;
         // player.faceSprite.color = UIManager.Singleton.faces[face].color;
         player.color = UIManager.Singleton.colors[color];
-        player.playerSprite.color = player.color;
+        player.SetModelMaterial(player.color);
         player.username = username;
         list.Add(player.id, player);
     }
@@ -94,13 +97,16 @@ public class ClientPlayer : MonoBehaviour
         {
             float x = defaultScale.x - Mathf.Log10(Mathf.Clamp(rb.velocity.magnitude * .1f, 1f, 3f));
             Vector3 scale = new Vector3(x, 1f, defaultScale.z * defaultScale.z / x);
-            playerSprite.transform.localScale = scale;
+            modelParent.localScale = scale;
             // shadowSprite.localScale = scale;
         }
 
-        if (playerSprite.color != color && colorDelay <= 0)
-            playerSprite.color = new Color(Mathf.MoveTowards(playerSprite.color.r, color.r, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.g, color.g, Time.deltaTime * 2f), Mathf.MoveTowards(playerSprite.color.b, color.b, Time.deltaTime * 2f), 1);
-        colorDelay -= Time.deltaTime;
+        if (playerModel[1].material != color){
+            colorDelay -= Time.deltaTime;
+            if(colorDelay <= 0){
+                SetModelMaterial(color);
+            }
+        }
 
         if (!isJumping)
         {
@@ -110,15 +116,21 @@ public class ClientPlayer : MonoBehaviour
 
         rb.drag = PlayerMovement.AirDrag;
         verticalVelocity += gravity * Time.fixedDeltaTime;
-        playerSprite.transform.localPosition += new Vector3(0, verticalVelocity, 0) * Time.fixedDeltaTime;
+        modelParent.localPosition += new Vector3(0, verticalVelocity, 0) * Time.fixedDeltaTime;
 
-        if (playerSprite.transform.localPosition.y <= startPos.y)
+        if (modelParent.localPosition.y <= startPos.y)
         {
             onLandEvents.Invoke();
             isJumping = false;
-            playerSprite.transform.localPosition = startPos;
+            modelParent.localPosition = startPos;
             rb.velocity *= PlayerMovement.LandingFactor;
             landParticle.Play();
+        }
+    }
+
+    void SetModelMaterial(Material mat){
+        foreach(MeshRenderer rend in playerModel){
+            rend.material = mat;
         }
     }
 
@@ -136,23 +148,23 @@ public class ClientPlayer : MonoBehaviour
     void RotateSprite(Vector3 dir)
     {
         float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
-        playerSprite.transform.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
+        modelParent.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
         // shadowSprite.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     private IEnumerator _DeathAnim()
     {
         // shadowSprite.localScale = Vector2.zero;
-        playerSprite.transform.localScale = defaultScale;
-        while (playerSprite.transform.localScale.x > 0.05f)
+        modelParent.localScale = defaultScale;
+        while (modelParent.localScale.x > 0.05f)
         {
             rb.velocity = Vector2.zero;
-            playerSprite.transform.Rotate(0, 500 * Time.deltaTime, 0);
-            Vector3 scale = playerSprite.transform.localScale;
-            playerSprite.transform.localScale = new Vector3(scale.x - 4f * Time.deltaTime, scale.y - 4f * Time.deltaTime, scale.z - 4f * Time.deltaTime);
+            modelParent.Rotate(0, 500 * Time.deltaTime, 0);
+            Vector3 scale = modelParent.localScale;
+            modelParent.localScale = new Vector3(scale.x - 4f * Time.deltaTime, scale.y - 4f * Time.deltaTime, scale.z - 4f * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
-        playerSprite.transform.localScale = Vector2.zero;
+        modelParent.localScale = Vector2.zero;
     }
 
     void TriggerJump(float force) //the higher the force, the higher the jump
@@ -219,7 +231,8 @@ public class ClientPlayer : MonoBehaviour
 
         if (hit) //check if the player was hit, or if they jumped willingly
         {
-            playerSprite.color = Color.white;
+            // playerSprite.color = Color.white;
+            SetModelMaterial(whiteMat);
             colorDelay = 0.1f;
             hitParticle.Play();
         }
@@ -244,7 +257,7 @@ public class ClientPlayer : MonoBehaviour
             return;
         player.transform.position = message.GetVector3(); //update player position
         player.rb.velocity = Vector2.zero;
-        player.playerSprite.transform.localScale = player.defaultScale;
+        player.modelParent.localScale = player.defaultScale;
         player.dead = false;
     }
 

@@ -26,11 +26,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private InputField roomIdField;
     [SerializeField] private InputField roomIdDisplayField;
 
-    [SerializeField] private Image proxyPlayer;
-    [SerializeField] private Image proxyPlayerFace;
+    [SerializeField] private MeshRenderer[] proxyPlayer;
+    [SerializeField] private GameObject proxyPlayerParent;
 
-    [field: SerializeField] public Face[] faces { get; private set; }
-    [field: SerializeField] public Color[] colors { get; private set; }
+    [field: SerializeField] public Material[] colors { get; private set; }
     public int face { get; private set; }
     public int color { get; private set; }
 
@@ -41,8 +40,7 @@ public class UIManager : MonoBehaviour
 
     public void HostClicked()
     {
-        mainMenu.SetActive(false);
-
+        EnterRoom();
         LobbyManager.Singleton.CreateLobby();
     }
 
@@ -67,7 +65,12 @@ public class UIManager : MonoBehaviour
         }
 
         LobbyManager.Singleton.JoinLobby(ulong.Parse(roomIdField.text));
+        EnterRoom();
+    }
+
+    void EnterRoom(){
         mainMenu.SetActive(false);
+        proxyPlayerParent.SetActive(false);
     }
 
     internal void LobbyEntered()
@@ -97,29 +100,19 @@ public class UIManager : MonoBehaviour
 
     public void SetPlayerColor(int i)
     {
-        proxyPlayer.color = colors[i];
+        foreach(MeshRenderer rend in proxyPlayer){
+            rend.material = colors[i];
+        }
         color = i;
-    }
-    public void SetPlayerFace(int i)
-    {
-        proxyPlayerFace.sprite = faces[i].sprite;
-        proxyPlayerFace.color = faces[i].color;
-        face = i;
     }
 
     internal void BackToMain()
     {
+        proxyPlayerParent.SetActive(true);
         EnableMain();
         foreach (Transform child in NetworkManager.Singleton.transform)
             Destroy(child.gameObject);
         foreach (Transform child in NetworkManager.Singleton.clientGen.transform)
             Destroy(child.gameObject); 
     }
-}
-
-[System.Serializable]
-public class Face
-{
-    public Sprite sprite;
-    public Color color;
 }

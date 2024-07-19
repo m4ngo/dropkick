@@ -68,10 +68,10 @@ public class PlayerMovement : MonoBehaviour
                 proxyY = 0f;
                 rb.velocity *= LandingFactor;
 
-                Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, landRadius, mask);
+                Collider[] hits = Physics.OverlapSphere(transform.position, landRadius, mask);
                 if (hits.Length > 0)
                 { //check hit players and send hits to all clients
-                    foreach (Collider2D hit in hits)
+                    foreach (Collider hit in hits)
                     {
                         if (hit.CompareTag("ServerPlayer") && hit.gameObject != this.gameObject)
                             hit.GetComponent<PlayerMovement>().Hit((hit.transform.position - transform.position).normalized, knockback * knockbackScale);

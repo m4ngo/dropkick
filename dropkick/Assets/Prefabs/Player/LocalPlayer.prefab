@@ -20013,12 +20013,17 @@ MonoBehaviour:
   username: 
   cam: {fileID: 3889486035196150811}
   camSpeed: 8.35
-  playerSprite: {fileID: 8149423178717822205}
+  playerModel:
+  - {fileID: 4422246159792378960}
+  - {fileID: 8415980558965876050}
+  - {fileID: 8542130289904937953}
+  modelParent: {fileID: 7007041899120538685}
   jumpParticle: {fileID: 8808969430629250896}
   checkpointParticle: {fileID: 3599738407405566266}
   landParticle: {fileID: 1824403286}
   hitParticle: {fileID: 1743468401}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  whiteMat: {fileID: 2100000, guid: 038351d2c1739e740a4e9533815ae7f5, type: 2}
+  color: {fileID: 0}
   onLandEvents:
     m_PersistentCalls:
       m_Calls:
@@ -20180,5 +20185,20 @@ PrefabInstance:
 --- !u!4 &419964627464398196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
+  m_PrefabInstance: {fileID: 170779341356253855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4422246159792378960 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4683669308469848369, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
+  m_PrefabInstance: {fileID: 170779341356253855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8415980558965876050 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -678588488315902003, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
+  m_PrefabInstance: {fileID: 170779341356253855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &8542130289904937953 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -804731622281664130, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
   m_PrefabInstance: {fileID: 170779341356253855}
   m_PrefabAsset: {fileID: 0}

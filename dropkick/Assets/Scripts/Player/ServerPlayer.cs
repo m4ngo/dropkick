@@ -57,7 +57,7 @@ public class ServerPlayer : MonoBehaviour
     {
         message.AddUShort(Id);
         message.AddString(Username);
-        message.AddInt(face);
+        // message.AddInt(face);
         message.AddInt(color);
         message.AddVector3(transform.position);
         return message;
