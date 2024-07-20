@@ -17,8 +17,9 @@ public class PlayerMovement : MonoBehaviour
     public const float AirControlScale = 7f;
 
     //environment constants
-    public const float IceDrag = 0f;
+    public const float IceDrag = 2f;
     public const float SlimeDrag = 15f;
+    public static readonly string[] GroundTags = { "Ground", "Ice", "Slime" };
 
     [SerializeField] private float knockbackScale;
     [SerializeField] private float landRadius;
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     float deathTimer = 0;
     public bool isGrounded = false;
     float groundTimer = 0;
+    Collider currentGround = null;
 
     private void Awake()
     {
@@ -55,8 +57,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!isJumping)
-            rb.drag = DefaultDrag;
+        if (!isJumping){
+            rb.drag = GetCurrentGroundType(currentGround);
+        }
         else
         {
             rb.drag = AirDrag;
@@ -156,24 +159,45 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Ground"))
-            isGrounded = true;
+        currentGround = collision;
+        isGrounded = GroundTagDetected(collision);
+
         if (collision.CompareTag("Checkpoint") && !isJumping)
             checkpoint = collision.transform.position;
     }
 
     private void OnTriggerStay(Collider collision)
     {
-        if (collision.CompareTag("Ground"))
-            isGrounded = true;
+        currentGround = collision;
+        isGrounded = GroundTagDetected(collision);
+
         if (collision.CompareTag("Checkpoint") && !isJumping)
             checkpoint = collision.transform.position;
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.CompareTag("Ground"))
-            isGrounded = false;
+        isGrounded = !GroundTagDetected(collision);
+    }
+
+    public static bool GroundTagDetected(Collider col){
+        // print(col.tag);
+        foreach(string s in GroundTags){
+            if(col.CompareTag(s)) return true;
+        }
+        return false;
+    }
+
+    public static float GetCurrentGroundType(Collider col){
+        if(col == null) return DefaultDrag;
+        switch (col.tag){
+            case "Ice":
+                return IceDrag;
+            case "Slime":
+                return SlimeDrag;
+            default:
+                return DefaultDrag;
+        }
     }
 
     #region Messages

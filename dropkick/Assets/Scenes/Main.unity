@@ -643,7 +643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: 0
   checkpoint: {fileID: 3231364700612569505, guid: 6e58fb9be01a97447a55aa962b437574, type: 3}
-  room: {fileID: 2711926132237952610, guid: 68e022e32e338b34fb13e42b268d5789, type: 3}
+  room: {fileID: 3894404099937357930, guid: f001ee02210a68a448aa0738fca8e384, type: 3}
   dungeonLength: 100
   roomSize: {x: 3, y: 3}
 --- !u!1 &377869762
@@ -1384,7 +1384,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3789,6 +3789,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: fbca968b52c7d214c8a5496913c7a24e, type: 2}
     - target: {fileID: -4683669308469848369, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4683669308469848369, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bc379d31e6d553540a83bce866f7d407, type: 2}
@@ -3801,9 +3805,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 2bdc0575449fd204987f381c9dcb0412, type: 2}
     - target: {fileID: -804731622281664130, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bc379d31e6d553540a83bce866f7d407, type: 2}
+    - target: {fileID: -678588488315902003, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -678588488315902003, guid: 43d00061a92dc8847a8e921dfea3d1a3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -3953,7 +3965,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: 0
   checkpoint: {fileID: 410493944837561735, guid: a45519e72ab095340985916c6bf6fbc6, type: 3}
-  room: {fileID: 863032330410941131, guid: fa1e9640f45f5c143a1d6020f83a0144, type: 3}
+  room: {fileID: 27177209610092365, guid: 57e066947f1fd2e4b821d7828dbe7fae, type: 3}
   dungeonLength: 100
   roomSize: {x: 3, y: 3}
 --- !u!1 &2089125763

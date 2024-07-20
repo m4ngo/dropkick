@@ -21,9 +21,6 @@ public class ClientPlayer : MonoBehaviour
     [Header("Sprites")]
     [SerializeField] private MeshRenderer[] playerModel;
     [SerializeField] private Transform modelParent;
-    // [SerializeField] private SpriteRenderer playerSprite;
-    // [SerializeField] private SpriteRenderer faceSprite;
-    // [SerializeField] private Transform shadowSprite;
     private float verticalVelocity;
     private float gravity;
 
@@ -45,6 +42,8 @@ public class ClientPlayer : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] private UnityEvent onLandEvents;
+
+    Collider currentGround = null;
 
     //open variables the local player can check with
     public bool dead { get; private set; }
@@ -80,8 +79,6 @@ public class ClientPlayer : MonoBehaviour
 
         player.name = $"Client Player {id} ({username})";
         player.id = id;
-        // player.faceSprite.sprite = UIManager.Singleton.faces[face].sprite;
-        // player.faceSprite.color = UIManager.Singleton.faces[face].color;
         player.color = UIManager.Singleton.colors[color];
         player.SetModelMaterial(player.color);
         player.username = username;
@@ -98,7 +95,6 @@ public class ClientPlayer : MonoBehaviour
             float x = defaultScale.x - Mathf.Log10(Mathf.Clamp(rb.velocity.magnitude * .1f, 1f, 3f));
             Vector3 scale = new Vector3(x, 1f, defaultScale.z * defaultScale.z / x);
             modelParent.localScale = scale;
-            // shadowSprite.localScale = scale;
         }
 
         if (playerModel[1].material != color){
@@ -110,7 +106,7 @@ public class ClientPlayer : MonoBehaviour
 
         if (!isJumping)
         {
-            rb.drag = PlayerMovement.DefaultDrag;
+            rb.drag = PlayerMovement.GetCurrentGroundType(currentGround);;
             return;
         }
 
@@ -149,12 +145,10 @@ public class ClientPlayer : MonoBehaviour
     {
         float angle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
         modelParent.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
-        // shadowSprite.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     private IEnumerator _DeathAnim()
     {
-        // shadowSprite.localScale = Vector2.zero;
         modelParent.localScale = defaultScale;
         while (modelParent.localScale.x > 0.05f)
         {
@@ -175,8 +169,9 @@ public class ClientPlayer : MonoBehaviour
         jumpParticle.Play();
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerStay(Collider collision)
     {
+        currentGround = collision;
         if (NetworkManager.Singleton.Client.Id != id)
             return;
 
@@ -194,11 +189,16 @@ public class ClientPlayer : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider collision)
+    {
+        currentGround = collision;
+    }
+
     #region Messages
     [MessageHandler((ushort)ServerToClientId.SpawnPlayer, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void SpawnPlayer(Message message)
     {
-        Spawn(message.GetUShort(), message.GetString(), /*message.GetInt(),*/ message.GetInt(), message.GetVector3());
+        Spawn(message.GetUShort(), message.GetString(), message.GetInt(), message.GetVector3());
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerJump, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -231,7 +231,6 @@ public class ClientPlayer : MonoBehaviour
 
         if (hit) //check if the player was hit, or if they jumped willingly
         {
-            // playerSprite.color = Color.white;
             SetModelMaterial(whiteMat);
             colorDelay = 0.1f;
             hitParticle.Play();
