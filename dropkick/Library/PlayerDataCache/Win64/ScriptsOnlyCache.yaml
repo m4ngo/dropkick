@@ -45,6 +45,8 @@ ScriptsOnlyBuild:
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Rendering.Universal.Bloom
     - UnityEngine.Rendering.Universal.ChromaticAberration
+    - UnityEngine.Rendering.Universal.DecalProjector
+    - UnityEngine.Rendering.Universal.DecalRendererFeature
     - UnityEngine.Rendering.Universal.LensDistortion
     - UnityEngine.Rendering.Universal.PostProcessData
     - UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
@@ -56,6 +58,14 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.Universal.XRSystemData
     Unity.ShaderGraph.Editor.dll:
     - UnityEditor.ShaderGraph.SubGraphAsset
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
@@ -75,8 +85,6 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Toggle
     - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
-    Assembly-CSharp:
-    - Face
     Unity.RenderPipelines.Core.Runtime:
     - UnityEngine.Rendering.BoolParameter
     - UnityEngine.Rendering.ClampedFloatParameter
@@ -87,6 +95,9 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.UI.DebugUIPrefabBundle
     - UnityEngine.Rendering.Vector2Parameter
     Unity.RenderPipelines.Universal.Runtime:
+    - UnityEngine.Rendering.Universal.DBufferSettings
+    - UnityEngine.Rendering.Universal.DecalScreenSpaceSettings
+    - UnityEngine.Rendering.Universal.DecalSettings
     - UnityEngine.Rendering.Universal.PostProcessData/ShaderResources
     - UnityEngine.Rendering.Universal.PostProcessData/TextureResources
     - UnityEngine.Rendering.Universal.ScriptableRendererData/DebugShaderResources
@@ -116,24 +127,18 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.SpriteState
     - UnityEngine.UI.Toggle/ToggleEvent
   methodsToPreserve:
+  - assembly: UnityEngine.AnimationModule
+    fullTypeName: UnityEngine.Animator
+    methodName: SetTrigger
   - assembly: Assembly-CSharp
     fullTypeName: PlayerInput
     methodName: SetJumpCooldown
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerColor
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerColor
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerColor
+  - assembly: UnityEngine.AnimationModule
+    fullTypeName: UnityEngine.Animator
+    methodName: SetTrigger
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: LeaveClicked
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerFace
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: SetPlayerColor
@@ -145,19 +150,10 @@ ScriptsOnlyBuild:
     methodName: SetPlayerColor
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
-    methodName: SetPlayerFace
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerColor
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
     methodName: SetPlayerColor
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: JoinClicked
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerColor
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: EnableMain
@@ -167,21 +163,6 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: SetPlayerColor
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerFace
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerFace
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerFace
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerColor
-  - assembly: Assembly-CSharp
-    fullTypeName: UIManager
-    methodName: SetPlayerFace
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: CustomizeCharacterClicked
@@ -239,8 +220,6 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 54
-      Script: {instanceID: 0}
-    - Class: 61
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
@@ -360,6 +339,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 5264}
     - Class: 114
       Script: {instanceID: 5312}
+    - Class: 114
+      Script: {instanceID: 5322}
     - Class: 114
       Script: {instanceID: 5492}
     - Class: 114
@@ -613,7 +594,7 @@ ScriptsOnlyBuild:
     className: ColorCurves
   - hash:
       serializedVersion: 2
-      Hash: e53616e7557048e653b4f79c4725e36f
+      Hash: 3cd0f87b5e9a3743a8dcb3ca28c61a31
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientPlayer
@@ -811,7 +792,7 @@ ScriptsOnlyBuild:
     className: Scrollbar
   - hash:
       serializedVersion: 2
-      Hash: a9a775b60bd339d514d9b1e1830bfde9
+      Hash: 06578149a3baa10954fd50dbe96ca23f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DungeonGenerator
@@ -859,7 +840,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerColor
   - hash:
       serializedVersion: 2
-      Hash: e762768f3734cd6bd7bd7ce9bd916f54
+      Hash: c29690cb269d3a180b32a421d4e41ce3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -1051,7 +1032,7 @@ ScriptsOnlyBuild:
     className: PostProcessData
   - hash:
       serializedVersion: 2
-      Hash: 4a8782d358c86c1bef386af19281a769
+      Hash: b0604fa223ecc2f33bada5a101fa5985
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager

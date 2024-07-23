@@ -1,14 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Riptide;
 
 public class DungeonGenerator : MonoBehaviour
 {
     [SerializeField] private int seed;
     [SerializeField] private GameObject checkpoint;
-    [SerializeField] private GameObject room;
+    [SerializeField] private GameObject[] rooms;
     [SerializeField] private int dungeonLength = 12;
 
     [SerializeField] private Vector2 roomSize;
@@ -32,6 +31,10 @@ public class DungeonGenerator : MonoBehaviour
     void GenerateMainBranch()
     {
         Vector2 prevDir = Vector2.zero;
+        float factor = Random.Range(0.8f, 2.0f);
+        int count = Random.Range(1, 4);
+        int roomType = 0;
+
         for (int i = 0; i < dungeonLength; i++)
         {
             Vector2 dir = Vector2.zero;
@@ -45,12 +48,20 @@ public class DungeonGenerator : MonoBehaviour
                 }
             }
             
-            Instantiate(room, pos, Quaternion.identity, transform);
+            Instantiate(rooms[roomType], pos, Quaternion.Euler(0, Random.Range(0, 90), 0), transform);
             //create checkpoints halfway through
             if(i % (dungeonLength / 3) == 0 || i == dungeonLength - 1)
                 Instantiate(checkpoint, pos, Quaternion.identity, transform);
+            
+            pos += new Vector3(dir.x * factor, Random.Range(-0.01f, 0.01f), dir.y * factor);
 
-            pos += new Vector3(dir.x, 0, dir.y);
+            count--;
+            if(count <= 0){
+                factor = Random.Range(0.5f, 1.5f);
+                count = Random.Range(1, 4);
+                roomType = Random.Range(0, rooms.Length);
+            }
+            
             prevDir = dir;
         }
     }

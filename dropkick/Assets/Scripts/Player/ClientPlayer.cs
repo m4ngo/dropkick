@@ -19,6 +19,7 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private float camSpeed = 2.5f;
 
     [Header("Sprites")]
+    [SerializeField] private Animator anim;
     [SerializeField] private MeshRenderer[] playerModel;
     [SerializeField] private Transform modelParent;
     private float verticalVelocity;
@@ -43,6 +44,9 @@ public class ClientPlayer : MonoBehaviour
     [Header("Events")]
     [SerializeField] private UnityEvent onLandEvents;
 
+    [Header("Ground Detection")]
+    [SerializeField] private float checkRadius;
+    [SerializeField] private LayerMask checkMask;
     Collider currentGround = null;
 
     //open variables the local player can check with
@@ -87,16 +91,24 @@ public class ClientPlayer : MonoBehaviour
 
     private void FixedUpdate()
     {
+        GroundChecks();
+
+        //animate
+        anim.SetBool("grounded", !isJumping);
+
+        //camera position
         if (cam != null)
             cam.position = Vector3.Lerp(cam.position, new Vector3(transform.position.x, 10, transform.position.z - 6.5f), Time.deltaTime * camSpeed);
 
+        //model squash and stretch
         if (rb.velocity.sqrMagnitude > 1 && !dead)
         {
             float x = defaultScale.x - Mathf.Log10(Mathf.Clamp(rb.velocity.magnitude * .1f, 1f, 3f));
             Vector3 scale = new Vector3(x, 1f, defaultScale.z * defaultScale.z / x);
-            modelParent.localScale = scale;
+            modelParent.localScale = isJumping ? scale : Vector3.one;
         }
 
+        //model color flash when hit
         if (playerModel[1].material != color){
             colorDelay -= Time.deltaTime;
             if(colorDelay <= 0){
@@ -104,12 +116,14 @@ public class ClientPlayer : MonoBehaviour
             }
         }
 
+        //set rb drag based on landing ground
         if (!isJumping)
         {
-            rb.drag = PlayerMovement.GetCurrentGroundType(currentGround);;
+            rb.drag = PlayerMovement.GetCurrentGroundType(currentGround);
             return;
         }
 
+        //if in air, set drag and velocities of model
         rb.drag = PlayerMovement.AirDrag;
         verticalVelocity += gravity * Time.fixedDeltaTime;
         modelParent.localPosition += new Vector3(0, verticalVelocity, 0) * Time.fixedDeltaTime;
@@ -169,29 +183,26 @@ public class ClientPlayer : MonoBehaviour
         jumpParticle.Play();
     }
 
-    private void OnTriggerStay(Collider collision)
-    {
-        currentGround = collision;
+    void GroundChecks(){
         if (NetworkManager.Singleton.Client.Id != id)
             return;
-
-        if (collision.CompareTag("ClientCheckpoint") && !isJumping)
-        {
-            if (checkpoint != collision.transform)
-            {
-                if (checkpoint != null)
-                    checkpoint.GetChild(0).GetComponent<ParticleSystem>().Stop();
-                checkpoint = collision.transform;
-                checkpoint.GetChild(0).GetComponent<ParticleSystem>().Play();
-                checkpointParticle.transform.position = checkpoint.position;
-                checkpointParticle.Play();
+        
+        Collider[] hits = Physics.OverlapSphere(transform.position, checkRadius, checkMask);
+        foreach(Collider col in hits){
+            if(col.CompareTag("ClientCheckpoint")){
+                if(!isJumping && checkpoint != col.transform){
+                    if (checkpoint != null)
+                        checkpoint.GetChild(0).GetComponent<ParticleSystem>().Stop();
+                    checkpoint = col.transform;
+                    checkpoint.GetChild(0).GetComponent<ParticleSystem>().Play();
+                    checkpointParticle.transform.position = checkpoint.position;
+                    checkpointParticle.Play();
+                }
+            }
+            else {
+                currentGround = col;
             }
         }
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        currentGround = collision;
     }
 
     #region Messages

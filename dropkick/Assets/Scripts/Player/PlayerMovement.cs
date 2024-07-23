@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float landRadius;
     [SerializeField] private LayerMask mask;
 
+    [Header("Ground Detection")]
+    [SerializeField] private float checkRadius;
+    [SerializeField] private LayerMask checkMask;
+
     private float knockback;
     private float verticalVelocity;
     private float gravity;
@@ -34,11 +38,10 @@ public class PlayerMovement : MonoBehaviour
     private ServerPlayer player;
     private Rigidbody rb;
 
-    Vector2 checkpoint = Vector2.zero;
+    Vector3 checkpoint = Vector3.zero;
 
     float deathTimer = 0;
     public bool isGrounded = false;
-    float groundTimer = 0;
     Collider currentGround = null;
 
     private void Awake()
@@ -47,16 +50,10 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    private void Update()
-    {
-        if (isGrounded)
-            groundTimer = 0;
-        else
-            groundTimer += Time.deltaTime;
-    }
-
     private void FixedUpdate()
     {
+        GroundChecks();
+
         if (!isJumping){
             rb.drag = GetCurrentGroundType(currentGround);
         }
@@ -93,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
         if (deathTimer > 0)
             rb.velocity = Vector2.zero;
 
-        if (groundTimer > 0.05 && !isJumping && deathTimer <= 0)
+        if (!isGrounded && !isJumping && deathTimer <= 0)
             Death(0);
 
         if (deathTimer <= 0)
@@ -106,6 +103,22 @@ public class PlayerMovement : MonoBehaviour
             transform.position = checkpoint;
             rb.velocity = Vector2.zero;
             PlayerRespawn();
+        }
+    }
+
+    void GroundChecks(){
+        Collider[] hits = Physics.OverlapSphere(transform.position, checkRadius, checkMask);
+        isGrounded = hits.Length > 0;
+        
+        foreach(Collider col in hits){
+            if(col.CompareTag("Checkpoint")){
+                if(!isJumping){
+                    checkpoint = col.transform.position;
+                }
+            }
+            else {
+                currentGround = col;
+            }
         }
     }
 
@@ -126,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetMoveDir(Vector3 jumpDir, float jumpForce)
     {
-        if (isJumping || groundTimer > 0.05 || deathTimer > 0)
+        if (isJumping || !isGrounded || deathTimer > 0)
             return;
 
         jumpForce = Mathf.Clamp(jumpForce, MinJumpForceMultiplier, 1.0f) * MaxJumpForce;
@@ -157,31 +170,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerDeath();
     }
 
-    private void OnTriggerEnter(Collider collision)
-    {
-        currentGround = collision;
-        isGrounded = GroundTagDetected(collision);
-
-        if (collision.CompareTag("Checkpoint") && !isJumping)
-            checkpoint = collision.transform.position;
-    }
-
-    private void OnTriggerStay(Collider collision)
-    {
-        currentGround = collision;
-        isGrounded = GroundTagDetected(collision);
-
-        if (collision.CompareTag("Checkpoint") && !isJumping)
-            checkpoint = collision.transform.position;
-    }
-
-    private void OnTriggerExit(Collider collision)
-    {
-        isGrounded = !GroundTagDetected(collision);
-    }
-
     public static bool GroundTagDetected(Collider col){
-        // print(col.tag);
         foreach(string s in GroundTags){
             if(col.CompareTag(s)) return true;
         }

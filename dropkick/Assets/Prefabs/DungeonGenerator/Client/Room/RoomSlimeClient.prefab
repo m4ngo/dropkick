@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3618084244221913948}
   - component: {fileID: 7823749594076109392}
   - component: {fileID: 6920369854159298635}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8371810074759031613}
   - component: {fileID: 8371810074759031611}
   - component: {fileID: 8371810074759031610}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: HitParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4923,7 +4923,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9211197954913388031}
-  m_Layer: 0
+  - component: {fileID: 8825740771698964109}
+  m_Layer: 8
   m_Name: RoomSlimeClient
   m_TagString: Slime
   m_Icon: {fileID: 0}
@@ -4947,3 +4948,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &8825740771698964109
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211197954913387968}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3, y: 1, z: 3}
+  m_Center: {x: 0, y: 0.5, z: 0}

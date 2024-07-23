@@ -335,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.59674263, g: 0.8490566, b: 0.8259354, a: 1}
+  m_Color: {r: 0.65913135, g: 0.8516015, b: 0.8679245, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -643,8 +643,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: 0
   checkpoint: {fileID: 3231364700612569505, guid: 6e58fb9be01a97447a55aa962b437574, type: 3}
-  room: {fileID: 3894404099937357930, guid: f001ee02210a68a448aa0738fca8e384, type: 3}
-  dungeonLength: 100
+  rooms:
+  - {fileID: 2711926132237952610, guid: 68e022e32e338b34fb13e42b268d5789, type: 3}
+  - {fileID: 3894404099937357930, guid: f001ee02210a68a448aa0738fca8e384, type: 3}
+  - {fileID: 7550027187864415991, guid: b64eb25ae4d73ec40a7e010e42d2f4bd, type: 3}
+  dungeonLength: 150
   roomSize: {x: 3, y: 3}
 --- !u!1 &377869762
 GameObject:
@@ -3965,8 +3968,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seed: 0
   checkpoint: {fileID: 410493944837561735, guid: a45519e72ab095340985916c6bf6fbc6, type: 3}
-  room: {fileID: 27177209610092365, guid: 57e066947f1fd2e4b821d7828dbe7fae, type: 3}
-  dungeonLength: 100
+  rooms:
+  - {fileID: 863032330410941131, guid: fa1e9640f45f5c143a1d6020f83a0144, type: 3}
+  - {fileID: 27177209610092365, guid: 57e066947f1fd2e4b821d7828dbe7fae, type: 3}
+  - {fileID: 9211197954913387968, guid: 08784ea880d5d4c44bb599063d788ced, type: 3}
+  dungeonLength: 150
   roomSize: {x: 3, y: 3}
 --- !u!1 &2089125763
 GameObject:
