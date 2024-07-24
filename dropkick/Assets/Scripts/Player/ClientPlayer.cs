@@ -184,19 +184,18 @@ public class ClientPlayer : MonoBehaviour
     }
 
     void GroundChecks(){
-        if (NetworkManager.Singleton.Client.Id != id)
-            return;
-        
         Collider[] hits = Physics.OverlapSphere(transform.position, checkRadius, checkMask);
         foreach(Collider col in hits){
             if(col.CompareTag("ClientCheckpoint")){
-                if(!isJumping && checkpoint != col.transform){
-                    if (checkpoint != null)
-                        checkpoint.GetChild(0).GetComponent<ParticleSystem>().Stop();
-                    checkpoint = col.transform;
-                    checkpoint.GetChild(0).GetComponent<ParticleSystem>().Play();
-                    checkpointParticle.transform.position = checkpoint.position;
-                    checkpointParticle.Play();
+                if (NetworkManager.Singleton.Client.Id == id){
+                    if(!isJumping && checkpoint != col.transform){
+                        if (checkpoint != null)
+                            checkpoint.GetChild(0).GetComponent<ParticleSystem>().Stop();
+                        checkpoint = col.transform;
+                        checkpoint.GetChild(0).GetComponent<ParticleSystem>().Play();
+                        checkpointParticle.transform.position = checkpoint.position;
+                        checkpointParticle.Play();
+                    }
                 }
             }
             else {
