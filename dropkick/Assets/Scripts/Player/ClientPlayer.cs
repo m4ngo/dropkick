@@ -33,7 +33,7 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField] private ParticleSystem jumpParticle;
     [SerializeField] private ParticleSystem checkpointParticle;
     [SerializeField] private ParticleSystem landParticle;
-    [SerializeField] private ParticleSystem hitParticle;
+    [SerializeField] private ParticleSystem[] hitParticle;
     private Transform checkpoint;
 
     [SerializeField] private Material whiteMat;
@@ -43,6 +43,7 @@ public class ClientPlayer : MonoBehaviour
 
     [Header("Events")]
     [SerializeField] private UnityEvent onLandEvents;
+    [SerializeField] private UnityEvent onHitEvents;
 
     [Header("Ground Detection")]
     [SerializeField] private float checkRadius;
@@ -221,31 +222,47 @@ public class ClientPlayer : MonoBehaviour
         Vector3 pos = message.GetVector3();
         Vector3 dir = message.GetVector3();
         float force = message.GetFloat();
-        bool hit = message.GetBool();
 
-        if (!hit)
-        {
-            if (playerId == NetworkManager.Singleton.Client.Id)
-                return;
-        }
+        if (playerId == NetworkManager.Singleton.Client.Id)
+            return;
 
         player.transform.position = pos; //update player position
-        player.ClientJump(dir, force, hit);
+        player.ClientJump(dir, force);
     }
 
-    public void ClientJump(Vector3 dir, float force, bool hit)
+    [MessageHandler((ushort)ServerToClientId.PlayerHit, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void ReceiveHit(Message message)
     {
-        rb.velocity = dir * force;
+        ushort playerId = message.GetUShort(); //get player id
+        if (!list.TryGetValue(playerId, out ClientPlayer player))
+            return;
 
+        Vector3 pos = message.GetVector3();
+        Vector3 dir = message.GetVector3();
+
+        player.transform.position = pos; //update player position
+        player.ClientHit(dir);
+    }
+
+    public void ClientJump(Vector3 dir, float force)
+    {
+        rb.velocity = dir.normalized * force;
         TriggerJump(force);
-
-        if (hit) //check if the player was hit, or if they jumped willingly
-        {
-            SetModelMaterial(whiteMat);
-            colorDelay = 0.1f;
-            hitParticle.Play();
-        }
         RotateSprite(dir);
+    }
+
+    void ClientHit(Vector3 dir)
+    {
+        rb.velocity = dir.normalized * PlayerMovement.Knockback;
+        SetModelMaterial(whiteMat);
+        colorDelay = 0.1f;
+
+        foreach(ParticleSystem particle in hitParticle){
+            particle.Play();
+        }
+
+        anim.SetTrigger("hit");
+        onHitEvents.Invoke();
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerDeath, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

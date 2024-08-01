@@ -130,12 +130,12 @@ ScriptsOnlyBuild:
   - assembly: UnityEngine.AnimationModule
     fullTypeName: UnityEngine.Animator
     methodName: SetTrigger
-  - assembly: Assembly-CSharp
-    fullTypeName: PlayerInput
-    methodName: SetJumpCooldown
   - assembly: UnityEngine.AnimationModule
     fullTypeName: UnityEngine.Animator
     methodName: SetTrigger
+  - assembly: Assembly-CSharp
+    fullTypeName: PlayerInput
+    methodName: SetHitLock
   - assembly: Assembly-CSharp
     fullTypeName: UIManager
     methodName: LeaveClicked
@@ -444,7 +444,7 @@ ScriptsOnlyBuild:
     className: FreeCamera
   - hash:
       serializedVersion: 2
-      Hash: 4ca0e1b72d134c9469a2d647688ec03b
+      Hash: 9f117df854452639934b45f5a90e56f0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerInput
@@ -594,7 +594,7 @@ ScriptsOnlyBuild:
     className: ColorCurves
   - hash:
       serializedVersion: 2
-      Hash: 3cd0f87b5e9a3743a8dcb3ca28c61a31
+      Hash: dbf21b0080c6311993d7e41b42391385
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ClientPlayer
@@ -840,7 +840,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerColor
   - hash:
       serializedVersion: 2
-      Hash: c29690cb269d3a180b32a421d4e41ce3
+      Hash: fcf4aba157639c4319a3813d92b28dba
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement

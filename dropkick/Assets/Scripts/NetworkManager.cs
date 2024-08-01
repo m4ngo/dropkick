@@ -11,10 +11,12 @@ public enum ServerToClientId : ushort
     PlayerJump,
     PlayerDeath,
     PlayerRespawn,
+    PlayerHit,
     ResyncPosition,
     ResyncAirControl,
     DungeonGenerate,
 }
+
 public enum ClientToServerId : ushort
 {
     PlayerName = 1,

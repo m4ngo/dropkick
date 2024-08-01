@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Riptide;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -9,19 +10,24 @@ public class PlayerMovement : MonoBehaviour
     public const float JumpForceFactor = 1.0f;
     public const float JumpOffset = 10f;
     public const float LandingFactor = 1.0f;
-    public const float DefaultDrag = 5.5f;
+    public const float DefaultDrag = 6.5f;
     public const float AirDrag = 1f;
     public const float MaxJumpForce = 14f;
     public const float MinJumpForceMultiplier = 0.2f;
     public const float AirControlSpeed = 10.25f;
     public const float AirControlScale = 7f;
+    public const float Knockback = 10;
+
+    //jump cooldowns
+    public const float MaxJumps = 3;
+    public const float JumpReloadTime = 0.3f;
 
     //environment constants
+    public const float SpeedDrag = 0f;
     public const float IceDrag = 2f;
     public const float SlimeDrag = 15f;
-    public static readonly string[] GroundTags = { "Ground", "Ice", "Slime" };
+    public static readonly string[] GroundTags = { "Ground", "Ice", "Slime", "Speed" };
 
-    [SerializeField] private float knockbackScale;
     [SerializeField] private float landRadius;
     [SerializeField] private LayerMask mask;
 
@@ -29,11 +35,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask checkMask;
 
-    private float knockback;
     private float verticalVelocity;
     private float gravity;
     private bool isJumping = false;
     private float proxyY = 0f;
+    private float hitLock = 0f; //freeze the player's movement when they're hit
+
+    // private int curJumps = 3;
+    // private float curReload = 0f; //reloading time for jumps
 
     private ServerPlayer player;
     private Rigidbody rb;
@@ -54,16 +63,32 @@ public class PlayerMovement : MonoBehaviour
     {
         GroundChecks();
 
+        if(hitLock > 0) hitLock -= Time.fixedDeltaTime;
+
         if (!isJumping){
+            //set player drag to whatever ground they're standing on
             rb.drag = GetCurrentGroundType(currentGround);
+
+            //jump reload handling
+            // if(curJumps < MaxJumps){
+            //     curReload += Time.fixedDeltaTime;
+            //     if(curReload >= JumpReloadTime){
+            //         curJumps++;
+            //         curReload = 0f;
+            //     }
+            // }
         }
         else
         {
+            // curReload = 0f;
+
             rb.drag = AirDrag;
             verticalVelocity += gravity * Time.fixedDeltaTime;
             proxyY += verticalVelocity * Time.fixedDeltaTime;
             if (proxyY <= 0f) //landed
             {
+                //ALWAYS RESYNC WHEN LANDING
+                SendResync();
                 isJumping = false;
                 proxyY = 0f;
                 rb.velocity *= LandingFactor;
@@ -74,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
                     foreach (Collider hit in hits)
                     {
                         if (hit.CompareTag("ServerPlayer") && hit.gameObject != this.gameObject)
-                            hit.GetComponent<PlayerMovement>().Hit((hit.transform.position - transform.position).normalized, knockback * knockbackScale);
+                            hit.GetComponent<PlayerMovement>().Hit((hit.transform.position - transform.position).normalized);
                     }
                 }
             }
@@ -124,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump(float force) //the higher the force, the higher the jump
     {
-        knockback = force;
+        // curJumps--;
         verticalVelocity = force * JumpForceFactor + JumpOffset;
         gravity = Gravity * Mathf.Pow(GravityPow, verticalVelocity);
         isJumping = true;
@@ -139,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetMoveDir(Vector3 jumpDir, float jumpForce)
     {
-        if (isJumping || !isGrounded || deathTimer > 0)
+        if (isJumping || !isGrounded || deathTimer > 0 || hitLock > 0f /*|| curJumps <= 0*/) //things that prevent jumping
             return;
 
         jumpForce = Mathf.Clamp(jumpForce, MinJumpForceMultiplier, 1.0f) * MaxJumpForce;
@@ -148,18 +173,18 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = jumpDir.normalized * jumpForce;
         Jump(jumpForce);
 
-        SendJump(jumpDir.normalized, jumpForce, false);
+        SendJump(jumpDir.normalized, jumpForce);
     }
 
-    private void Hit(Vector3 dir, float hitKnockback)
+    private void Hit(Vector3 dir)
     {
         if (isJumping || deathTimer > 0)
             return;
 
         dir.y = 0f;
-        rb.velocity = dir * hitKnockback;
-        Jump(hitKnockback);
-        SendJump(dir, hitKnockback, true);
+        rb.velocity = dir.normalized * Knockback;
+        SendHit(dir);
+        hitLock = 0.25f;
     }
 
     void Death(int deathType)
@@ -184,20 +209,29 @@ public class PlayerMovement : MonoBehaviour
                 return IceDrag;
             case "Slime":
                 return SlimeDrag;
+            case "Speed":
+                return SpeedDrag;
             default:
                 return DefaultDrag;
         }
     }
 
     #region Messages
-    private void SendJump(Vector2 dir, float force, bool hit)
+    private void SendJump(Vector3 dir, float force)
     {
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.PlayerJump);
         message.AddUShort(player.Id);
         message.AddVector3(transform.position);
         message.AddVector3(dir);
         message.AddFloat(force);
-        message.AddBool(hit);
+        NetworkManager.Singleton.Server.SendToAll(message);
+    }
+
+    private void SendHit(Vector3 dir){
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.PlayerHit);
+        message.AddUShort(player.Id);
+        message.AddVector3(transform.position);
+        message.AddVector3(dir);
         NetworkManager.Singleton.Server.SendToAll(message);
     }
 
