@@ -48,11 +48,11 @@ public class ClientPlayer : MonoBehaviour
     [Header("Ground Detection")]
     [SerializeField] private float checkRadius;
     [SerializeField] private LayerMask checkMask;
-    Collider currentGround = null;
+    Collider[] currentGround = null;
 
     //open variables the local player can check with
     public bool dead { get; private set; }
-
+    public string GetUsername(){return username;}
     public float GetSpriteDist() { return Math.Abs(startPos.y - modelParent.localPosition.y); }
     public float GetVerticalVel() { return verticalVelocity; }
 
@@ -69,9 +69,10 @@ public class ClientPlayer : MonoBehaviour
     {
         Destroy(cam);
         list.Remove(id);
+        UIManager.Singleton.RemoveEntry(id);
     }
 
-    public static void Spawn(ushort id, string username, /*int face,*/ int color, Vector3 position)
+    public static void Spawn(ushort id, string username, /*int face,*/ int color, Vector3 position, bool readyStatus)
     {
         ClientPlayer player;
         if (id == NetworkManager.Singleton.Client.Id)
@@ -88,6 +89,8 @@ public class ClientPlayer : MonoBehaviour
         player.SetModelMaterial(player.color);
         player.username = username;
         list.Add(player.id, player);
+        
+        UIManager.Singleton.AddEntry(id, readyStatus);
     }
 
     private void FixedUpdate()
@@ -186,6 +189,7 @@ public class ClientPlayer : MonoBehaviour
 
     void GroundChecks(){
         Collider[] hits = Physics.OverlapSphere(transform.position, checkRadius, checkMask);
+        currentGround = hits;
         foreach(Collider col in hits){
             if(col.CompareTag("ClientCheckpoint")){
                 if (NetworkManager.Singleton.Client.Id == id){
@@ -199,9 +203,6 @@ public class ClientPlayer : MonoBehaviour
                     }
                 }
             }
-            else {
-                currentGround = col;
-            }
         }
     }
 
@@ -209,7 +210,7 @@ public class ClientPlayer : MonoBehaviour
     [MessageHandler((ushort)ServerToClientId.SpawnPlayer, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void SpawnPlayer(Message message)
     {
-        Spawn(message.GetUShort(), message.GetString(), message.GetInt(), message.GetVector3());
+        Spawn(message.GetUShort(), message.GetString(), message.GetInt(), message.GetVector3(), message.GetBool());
     }
 
     [MessageHandler((ushort)ServerToClientId.PlayerJump, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

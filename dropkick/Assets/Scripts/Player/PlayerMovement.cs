@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public const float MinJumpForceMultiplier = 0.2f;
     public const float AirControlSpeed = 10.25f;
     public const float AirControlScale = 7f;
-    public const float Knockback = 10;
+    public const float Knockback = 15f;
 
     //jump cooldowns
     public const float MaxJumps = 3;
@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     float deathTimer = 0;
     public bool isGrounded = false;
-    Collider currentGround = null;
+    Collider[] currentGround = null;
 
     private void Awake()
     {
@@ -134,15 +134,13 @@ public class PlayerMovement : MonoBehaviour
     void GroundChecks(){
         Collider[] hits = Physics.OverlapSphere(transform.position, checkRadius, checkMask);
         isGrounded = hits.Length > 0;
+        currentGround = hits;
         
         foreach(Collider col in hits){
             if(col.CompareTag("Checkpoint")){
                 if(!isJumping){
                     checkpoint = col.transform.position;
                 }
-            }
-            else {
-                currentGround = col;
             }
         }
     }
@@ -202,8 +200,18 @@ public class PlayerMovement : MonoBehaviour
         return false;
     }
 
-    public static float GetCurrentGroundType(Collider col){
-        if(col == null) return DefaultDrag;
+    public static float GetCurrentGroundType(Collider[] cols){
+        if(cols == null) return DefaultDrag;
+        if(cols.Length <= 0) return DefaultDrag;
+        float drag = 0;
+        foreach(Collider col in cols){
+            float cur = GetGroundExtend(col);
+            drag = Mathf.Max(drag, cur);
+        }
+        return drag;
+    }
+
+    static float GetGroundExtend(Collider col){
         switch (col.tag){
             case "Ice":
                 return IceDrag;
@@ -211,6 +219,10 @@ public class PlayerMovement : MonoBehaviour
                 return SlimeDrag;
             case "Speed":
                 return SpeedDrag;
+            case "Checkpoint":
+                return 0f;
+            case "ClientCheckpoint":
+                return 0f;
             default:
                 return DefaultDrag;
         }

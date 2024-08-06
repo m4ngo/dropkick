@@ -15,6 +15,7 @@ public enum ServerToClientId : ushort
     ResyncPosition,
     ResyncAirControl,
     DungeonGenerate,
+    Ready,
 }
 
 public enum ClientToServerId : ushort
@@ -22,6 +23,7 @@ public enum ClientToServerId : ushort
     PlayerName = 1,
     PlayerInput,
     PlayerAirControl,
+    Ready,
 }
 
 public class NetworkManager : MonoBehaviour
@@ -51,6 +53,7 @@ public class NetworkManager : MonoBehaviour
     [field:SerializeField] public DungeonGenerator clientGen { get; private set; }
     private DungeonGenerator gen;
     private int dungeonSeed;
+    private bool started = false;
 
     public GameObject ServerPlayerPrefab => serverPlayerPrefab;
     public GameObject PlayerPrefab => playerPrefab;
@@ -71,6 +74,7 @@ public class NetworkManager : MonoBehaviour
         if (!SteamManager.Initialized)
         {
             Debug.LogError("Steam is not initialized!");
+            //TODO: add error display
             return;
         }
 
@@ -116,6 +120,8 @@ public class NetworkManager : MonoBehaviour
     internal void StopServer()
     {
         Server.Stop();
+        started = false;
+        UIManager.Singleton.SetReady(false);
         foreach (ServerPlayer player in ServerPlayer.List.Values)
             Destroy(player.gameObject);
     }
@@ -130,14 +136,17 @@ public class NetworkManager : MonoBehaviour
 
     private void NewPlayerConnected(object sender, ServerConnectedEventArgs e)
     {
-        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.DungeonGenerate);
-        message.AddInt(dungeonSeed);
-        Server.Send(message, e.Client.Id);
+        if(started){
+            Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.DungeonGenerate);
+            message.AddInt(dungeonSeed);
+            Server.Send(message, e.Client.Id);
+        }
 
         foreach (ServerPlayer player in ServerPlayer.List.Values)
         {
-            if (player.Id != e.Client.Id)
+            if (player.Id != e.Client.Id){
                 player.SendSpawn(e.Client.Id);
+            }
         }
     }
 
@@ -150,7 +159,6 @@ public class NetworkManager : MonoBehaviour
     {
         Message message = Message.Create(MessageSendMode.Reliable, ClientToServerId.PlayerName);
         message.AddString(Steamworks.SteamFriends.GetPersonaName());
-        message.AddInt(UIManager.Singleton.face);
         message.AddInt(UIManager.Singleton.color);
         Client.Send(message);
     }
@@ -181,6 +189,11 @@ public class NetworkManager : MonoBehaviour
         dungeonSeed = gen.StartGenerator(true);
         message.AddInt(dungeonSeed);
         Server.SendToAll(message);
+    }
+
+    public void StartGame(){
+        GenerateDungeon();
+        started = true;
     }
 }
 

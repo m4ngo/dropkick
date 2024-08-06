@@ -47,13 +47,13 @@ public class DungeonGenerator : MonoBehaviour
                     dir.y *= -1f;
                 }
             }
-            
-            Instantiate(rooms[roomType], pos, Quaternion.Euler(0, Random.Range(0, 90), 0), transform);
+            Vector3 yOffset = new Vector3(0,-0.01f * roomType,0);
+            Instantiate(rooms[roomType], pos+yOffset, Quaternion.Euler(0, Random.Range(0, 90), 0), transform);
             //create checkpoints halfway through
             if(i % (dungeonLength / 3) == 0 || i == dungeonLength - 1)
                 Instantiate(checkpoint, pos, Quaternion.identity, transform);
             
-            pos += new Vector3(dir.x * factor, Random.Range(-0.01f, 0.01f), dir.y * factor);
+            pos += new Vector3(dir.x * factor, 0, dir.y * factor);
 
             count--;
             if(count <= 0){
@@ -72,5 +72,6 @@ public class DungeonGenerator : MonoBehaviour
         int seed = message.GetInt();
         NetworkManager.Singleton.clientGen.SetSeed(seed);
         NetworkManager.Singleton.clientGen.StartGenerator(false);
+        UIManager.Singleton.GameStarted();
     }
 }

@@ -57,14 +57,14 @@ public class LobbyManager : MonoBehaviour
             UIManager.Singleton.LobbyCreationFailed();
             return;
         }
-
+        
         lobbyId = new CSteamID(callback.m_ulSteamIDLobby);
         SteamMatchmaking.SetLobbyData(lobbyId, HostAddressKey, SteamUser.GetSteamID().ToString());
         UIManager.Singleton.LobbyCreationSucceeded(callback.m_ulSteamIDLobby);
 
         NetworkManager.Singleton.Server.Start(0, 5, NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
         NetworkManager.Singleton.Client.Connect("127.0.0.1", messageHandlerGroupId: NetworkManager.PlayerHostedDemoMessageHandlerGroupId);
-        NetworkManager.Singleton.GenerateDungeon();
+        // NetworkManager.Singleton.GenerateDungeon();
     }
 
     internal void JoinLobby(ulong lobbyId)

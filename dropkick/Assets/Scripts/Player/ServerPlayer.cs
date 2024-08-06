@@ -11,10 +11,13 @@ public class ServerPlayer : MonoBehaviour
     public ushort Id { get; private set; }
     public string Username { get; private set; }
 
-    private int face;
     private int color;
+    public bool ready {get; private set;} = false;
+    public int crowns {get; private set;} = 0; //how many points they have
 
     [SerializeField] private PlayerMovement movement;
+
+    public void SetReady(bool read) {ready = read;}
 
     private void OnValidate()
     {
@@ -27,11 +30,10 @@ public class ServerPlayer : MonoBehaviour
         List.Remove(Id);
     }
 
-    public static void Spawn(ushort id, string username, int face, int color)
+    public static void Spawn(ushort id, string username, int color)
     {
         ServerPlayer player = Instantiate(NetworkManager.Singleton.ServerPlayerPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity).GetComponent<ServerPlayer>();
         player.name = $"Server Player {id} ({(username == "" ? "Guest" : username)})";
-        player.face = face;
         player.color = color;
         player.Id = id;
         player.Username = username;
@@ -60,13 +62,14 @@ public class ServerPlayer : MonoBehaviour
         // message.AddInt(face);
         message.AddInt(color);
         message.AddVector3(transform.position);
+        message.AddBool(ready);
         return message;
     }
 
     [MessageHandler((ushort)ClientToServerId.PlayerName, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void PlayerName(ushort fromClientId, Message message)
     {
-        Spawn(fromClientId, message.GetString(), message.GetInt(), message.GetInt());
+        Spawn(fromClientId, message.GetString(), message.GetInt());
     }
 
     [MessageHandler((ushort)ClientToServerId.PlayerInput, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
