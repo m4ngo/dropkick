@@ -1,26 +1,21 @@
-﻿<Project ToolsVersion="Current">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
-    <BaseIntermediateOutputPath>Temp\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-  </PropertyGroup>
-  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
-  <ItemGroup>
-    <ProjectCapability Include="Unity" />
-  </ItemGroup>
-  <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <EnableDefaultItems>false</EnableDefaultItems>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LangVersion>9.0</LangVersion>
-    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
+    <ProjectGuid>{EAED5DD5-B198-B2A6-3471-A1A6D7FAA5FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>UnityEditor.UI</AssemblyName>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -44,59 +39,60 @@
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <NoStandardLibraries>true</NoStandardLibraries>
-    <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
-    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
-    <MSBuildWarningsAsMessages>MSB3277</MSBuildWarningsAsMessages>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <PropertyGroup>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.22</UnityProjectGeneratorVersion>
-    <UnityProjectGeneratorStyle>SDK</UnityProjectGeneratorStyle>
+    <UnityProjectGeneratorStyle>Legacy</UnityProjectGeneratorStyle>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2021.3.6f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Users\arik4\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.0.2\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\RawImageEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\RectMask2DEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\PropertyDrawers\DropdownOptionListDrawer.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ContentSizeFitterEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\MenuOptions.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\PropertyDrawers\FontDataDrawer.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\EventSystem\Physics2DRaycasterEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\SelfControllerEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\MaskEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\PropertyDrawers\ColorBlockDrawer.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\InterceptedEventsPreview.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\InputFieldEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\Properties\AssemblyInfo.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\LayoutPropertiesPreview.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\EventSystem\EventSystemEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\CanvasScalerEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\SpriteDrawUtility.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\PrefabLayoutRebuilder.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\GraphicEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\SelectableEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\GridLayoutGroupEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\AspectRatioFitterEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ImageEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\SliderEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ScrollbarEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\LayoutElementEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ToggleEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\DropdownEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ButtonEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\EventSystem\PhysicsRaycasterEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\TextEditor.cs" />
-    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ScrollRectEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\PropertyDrawers\AnimationTriggersDrawer.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\EventSystem\EventTriggerEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\HorizontalOrVerticalLayoutGroupEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\RawImageEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\RectMask2DEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ContentSizeFitterEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\SelfControllerEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\MaskEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\PropertyDrawers\ColorBlockDrawer.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\InterceptedEventsPreview.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\Properties\AssemblyInfo.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\LayoutPropertiesPreview.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\SpriteDrawUtility.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\GraphicEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\GridLayoutGroupEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\AspectRatioFitterEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ScrollbarEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ToggleEditor.cs" />
+    <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\ScrollRectEditor.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\PropertyDrawers\SpriteStateDrawer.cs" />
     <Compile Include="Library\PackageCache\com.unity.ugui@1.0.0\Editor\UI\PropertyDrawers\NavigationDrawer.cs" />
   </ItemGroup>
@@ -970,20 +966,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UnityEngine.UI.csproj" />
-    <ProjectReference Include="UnityEditor.TestRunner.csproj" />
-    <ProjectReference Include="UnityEngine.TestRunner.csproj" />
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{62531AEB-DD24-071A-ABAC-D0BEC5E436B0}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.TestRunner.csproj">
+      <Project>{98CF63B9-C983-1A8C-8C63-65E7B86C25DB}</Project>
+      <Name>UnityEngine.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.TestRunner.csproj">
+      <Project>{84DC016B-1ECD-26DC-4D0E-AF38C6E4E70A}</Project>
+      <Name>UnityEditor.TestRunner</Name>
+    </ProjectReference>
   </ItemGroup>
-  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
-  <ItemGroup>
-    <ProjectCapability Remove="LaunchProfiles" />
-    <ProjectCapability Remove="SharedProjectReferences" />
-    <ProjectCapability Remove="ReferenceManagerSharedProjects" />
-    <ProjectCapability Remove="ProjectReferences" />
-    <ProjectCapability Remove="ReferenceManagerProjects" />
-    <ProjectCapability Remove="COMReferences" />
-    <ProjectCapability Remove="ReferenceManagerCOM" />
-    <ProjectCapability Remove="AssemblyReferences" />
-    <ProjectCapability Remove="ReferenceManagerAssemblies" />
-  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>

@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-
 internal class PlayerUIManager : MonoBehaviour
 {
     [SerializeField] private Text usernameText;

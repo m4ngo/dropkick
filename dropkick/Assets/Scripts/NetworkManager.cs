@@ -3,6 +3,8 @@ using Riptide.Utils;
 using Riptide;
 using System;
 using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
 
 public enum ServerToClientId : ushort
@@ -14,7 +16,7 @@ public enum ServerToClientId : ushort
     PlayerHit,
     ResyncPosition,
     ResyncAirControl,
-    DungeonGenerate,
+    InitializeGamemode,
     Ready,
 }
 
@@ -54,6 +56,10 @@ public class NetworkManager : MonoBehaviour
     private DungeonGenerator gen;
     private int dungeonSeed;
     private bool started = false;
+
+    [SerializeField] private GameObject[] gamemodeServerPrefabs;
+    [SerializeField] private GameObject[] gamemodeClientPrefabs;
+    [SerializeField] private List<int> gamemodeOrder = new List<int>();
 
     public GameObject ServerPlayerPrefab => serverPlayerPrefab;
     public GameObject PlayerPrefab => playerPrefab;
@@ -137,7 +143,7 @@ public class NetworkManager : MonoBehaviour
     private void NewPlayerConnected(object sender, ServerConnectedEventArgs e)
     {
         if(started){
-            Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.DungeonGenerate);
+            Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.InitializeGamemode);
             message.AddInt(dungeonSeed);
             Server.Send(message, e.Client.Id);
         }
@@ -183,16 +189,19 @@ public class NetworkManager : MonoBehaviour
         UIManager.Singleton.BackToMain();
     }
 
-    public void GenerateDungeon()
+    public void InitializeGamemode()
     {
-        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.DungeonGenerate);
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.InitializeGamemode);
         dungeonSeed = gen.StartGenerator(true);
         message.AddInt(dungeonSeed);
+        //TODO: add an int that defines what gamemode. Maybe also generate the gamemode order
         Server.SendToAll(message);
     }
 
-    public void StartGame(){
-        GenerateDungeon();
+    public void StartGame()
+    {
+        gamemodeOrder = Enumerable.Range(0, gamemodeServerPrefabs.Length).ToList().OrderBy(_ => Guid.NewGuid()).ToList(); ;
+        InitializeGamemode();
         started = true;
     }
 }

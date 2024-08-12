@@ -23,7 +23,7 @@ public class DungeonGenerator : MonoBehaviour
         Random.InitState(seed);
 
         //generate the dungeon here
-        GenerateMainBranch();
+        //GenerateMainBranch();
 
         return seed;
     }
@@ -47,10 +47,11 @@ public class DungeonGenerator : MonoBehaviour
                     dir.y *= -1f;
                 }
             }
+
             Vector3 yOffset = new Vector3(0,-0.01f * roomType,0);
             Instantiate(rooms[roomType], pos+yOffset, Quaternion.Euler(0, Random.Range(0, 90), 0), transform);
             //create checkpoints halfway through
-            if(i % (dungeonLength / 3) == 0 || i == dungeonLength - 1)
+            if(i % (dungeonLength / 2) == 0 || i == dungeonLength - 1)
                 Instantiate(checkpoint, pos, Quaternion.identity, transform);
             
             pos += new Vector3(dir.x * factor, 0, dir.y * factor);
@@ -66,7 +67,7 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
-    [MessageHandler((ushort)ServerToClientId.DungeonGenerate, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    [MessageHandler((ushort)ServerToClientId.InitializeGamemode, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void DungeonGenerate(Message message)
     {
         int seed = message.GetInt();

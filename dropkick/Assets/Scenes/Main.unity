@@ -908,6 +908,9 @@ MonoBehaviour:
   playerPrefab: {fileID: 6296381778400844037, guid: 5a6a86990adef69479093350a83ee83e, type: 3}
   localPlayerPrefab: {fileID: 9086514984413201294, guid: 8a2b46d9af4d6ea42a6a0c69e9c6d860, type: 3}
   <clientGen>k__BackingField: {fileID: 2083716307}
+  gamemodeServerPrefabs: []
+  gamemodeClientPrefabs: []
+  gamemodeOrder: 
 --- !u!4 &327629297
 Transform:
   m_ObjectHideFlags: 0
@@ -942,7 +945,7 @@ MonoBehaviour:
   - {fileID: 2711926132237952610, guid: 68e022e32e338b34fb13e42b268d5789, type: 3}
   - {fileID: 3894404099937357930, guid: f001ee02210a68a448aa0738fca8e384, type: 3}
   - {fileID: 7550027187864415991, guid: 61245b59c5f896f448b90988644930e0, type: 3}
-  dungeonLength: 100
+  dungeonLength: 50
   roomSize: {x: 3, y: 3}
 --- !u!1 &377869762
 GameObject:
@@ -5517,7 +5520,7 @@ MonoBehaviour:
   - {fileID: 863032330410941131, guid: fa1e9640f45f5c143a1d6020f83a0144, type: 3}
   - {fileID: 27177209610092365, guid: 57e066947f1fd2e4b821d7828dbe7fae, type: 3}
   - {fileID: 5096804297371112115, guid: 04bf01eb7eaf433479f1f5e5e3a2c33d, type: 3}
-  dungeonLength: 100
+  dungeonLength: 50
   roomSize: {x: 3, y: 3}
 --- !u!1 &2089125763
 GameObject:
