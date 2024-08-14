@@ -16,8 +16,10 @@ public enum ServerToClientId : ushort
     PlayerHit,
     ResyncPosition,
     ResyncAirControl,
-    InitializeGamemode,
+
     Ready,
+    InitializeMatch,
+    StartGamemode,
 }
 
 public enum ClientToServerId : ushort
@@ -60,6 +62,8 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] private GameObject[] gamemodeServerPrefabs;
     [SerializeField] private GameObject[] gamemodeClientPrefabs;
     [SerializeField] private List<int> gamemodeOrder = new List<int>();
+    private GameObject currentGamemodeClient;
+    private GameObject currentGamemodeServer;
 
     public GameObject ServerPlayerPrefab => serverPlayerPrefab;
     public GameObject PlayerPrefab => playerPrefab;
@@ -143,7 +147,7 @@ public class NetworkManager : MonoBehaviour
     private void NewPlayerConnected(object sender, ServerConnectedEventArgs e)
     {
         if(started){
-            Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.InitializeGamemode);
+            Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.InitializeMatch);
             message.AddInt(dungeonSeed);
             Server.Send(message, e.Client.Id);
         }
@@ -185,24 +189,43 @@ public class NetworkManager : MonoBehaviour
             Destroy(player.gameObject);
 
         ClientPlayer.list.Clear();
-
         UIManager.Singleton.BackToMain();
     }
 
-    public void InitializeGamemode()
+    public void StartGamemode()
     {
-        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.InitializeGamemode);
-        dungeonSeed = gen.StartGenerator(true);
-        message.AddInt(dungeonSeed);
-        //TODO: add an int that defines what gamemode. Maybe also generate the gamemode order
+        int mode = gamemodeOrder[0];
+        currentGamemodeServer = Instantiate(gamemodeServerPrefabs[mode]);
+
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.StartGamemode);
+        message.AddInt(mode);
         Server.SendToAll(message);
     }
 
     public void StartGame()
     {
-        gamemodeOrder = Enumerable.Range(0, gamemodeServerPrefabs.Length).ToList().OrderBy(_ => Guid.NewGuid()).ToList(); ;
-        InitializeGamemode();
+        gamemodeOrder = Enumerable.Range(0, gamemodeServerPrefabs.Length).ToList().OrderBy(_ => Guid.NewGuid()).ToList();
+
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.InitializeMatch);
+        dungeonSeed = gen.InitializeSeed(true);
+        message.AddInt(dungeonSeed);
+        Server.SendToAll(message);
+
         started = true;
+
+        StartGamemode();
+    }
+
+    public void EndGamemode()
+    {
+        //TODO
+    }
+
+    [MessageHandler((ushort)ServerToClientId.StartGamemode, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void StartGamemode(Message message)
+    {
+        int mode = message.GetInt();
+        Singleton.currentGamemodeClient = Instantiate(Singleton.gamemodeClientPrefabs[mode]);
     }
 }
 

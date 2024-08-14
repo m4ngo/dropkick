@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -27,6 +26,7 @@ public class Gamemode : MonoBehaviour
         foreach(ushort s in sortedPlayers)
         {
             if (count >= 3) break;
+            if (scores[s] <= 0) continue;
             tags.Add(s);
             count++;
         }

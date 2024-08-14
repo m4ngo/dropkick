@@ -15,17 +15,20 @@ public class DungeonGenerator : MonoBehaviour
 
     public void SetSeed(int seed) { this.seed = seed; }
 
-    public int StartGenerator(bool isServer)
+    public int InitializeSeed(bool isServer)
     {
-        pos = Vector3.zero;
-        if(isServer)
-            seed = Random.Range(0, 214748364);
+        if(isServer) seed = Random.Range(0, 214748364);
         Random.InitState(seed);
 
-        //generate the dungeon here
-        //GenerateMainBranch();
-
         return seed;
+    }
+
+    public void GenerateDungeon()
+    {
+        pos = Vector3.zero;
+        //generate the dungeon here
+        Random.InitState(seed);
+        GenerateMainBranch();
     }
 
     void GenerateMainBranch()
@@ -67,12 +70,12 @@ public class DungeonGenerator : MonoBehaviour
         }
     }
 
-    [MessageHandler((ushort)ServerToClientId.InitializeGamemode, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    [MessageHandler((ushort)ServerToClientId.InitializeMatch, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void DungeonGenerate(Message message)
     {
         int seed = message.GetInt();
         NetworkManager.Singleton.clientGen.SetSeed(seed);
-        NetworkManager.Singleton.clientGen.StartGenerator(false);
+        NetworkManager.Singleton.clientGen.InitializeSeed(false);
         UIManager.Singleton.GameStarted();
     }
 }
