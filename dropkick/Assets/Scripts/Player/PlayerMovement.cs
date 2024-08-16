@@ -185,6 +185,12 @@ public class PlayerMovement : MonoBehaviour
         hitLock = 0.25f;
     }
 
+    public void SetDeath(float time)
+    {
+        deathTimer = time;
+        PlayerDeath();
+    }
+
     void Death(int deathType)
     {
         //0 = fall

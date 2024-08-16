@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6892207122485133363}
   - component: {fileID: -5953846410175360827}
+  - component: {fileID: -8686869847267126625}
   m_Layer: 0
   m_Name: GamemodeClientRace
-  m_TagString: Undefined
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,3 +45,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd3b24e20ac5da45b3e5d83462be7a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8686869847267126625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892207122485133362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b467728f0344a054292d2ffdf56a2e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoint: {fileID: 410493944837561735, guid: a45519e72ab095340985916c6bf6fbc6, type: 3}
+  finishLine: {fileID: 410493944837561735, guid: a45519e72ab095340985916c6bf6fbc6, type: 3}
+  rooms:
+  - {fileID: 9211197954913387968, guid: 08784ea880d5d4c44bb599063d788ced, type: 3}
+  - {fileID: 863032330410941131, guid: fa1e9640f45f5c143a1d6020f83a0144, type: 3}
+  - {fileID: 27177209610092365, guid: 57e066947f1fd2e4b821d7828dbe7fae, type: 3}
+  - {fileID: 5096804297371112115, guid: 04bf01eb7eaf433479f1f5e5e3a2c33d, type: 3}
+  dungeonLength: 50
+  roomSize: {x: 3, y: 3}

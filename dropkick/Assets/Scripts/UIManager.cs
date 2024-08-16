@@ -143,8 +143,7 @@ public class UIManager : MonoBehaviour
         EnableMain();
         foreach (Transform child in NetworkManager.Singleton.transform)
             Destroy(child.gameObject);
-        foreach (Transform child in NetworkManager.Singleton.clientGen.transform)
-            Destroy(child.gameObject); 
+        NetworkManager.Singleton.DestroyGamemodes();
     }
 
     public void GameStarted(){

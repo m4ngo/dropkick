@@ -6,13 +6,15 @@ public class GamemodeServerRace : MonoBehaviour
 {
     [SerializeField] private float raceTime = 60f;
     private Gamemode mode;
+    private DungeonGenerator gen;
     private int score = 3;
 
     private void Start()
     {
         mode = GetComponent<Gamemode>();
+        gen = GetComponent<DungeonGenerator>();
         //initialize the dungeon gen
-        NetworkManager.Singleton.GetComponent<DungeonGenerator>().GenerateDungeon();
+        gen.GenerateDungeon();
     }
 
     private void Update()

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6892207122485133363}
   - component: {fileID: 6892207122485133360}
   - component: {fileID: -5535102026659660295}
+  - component: {fileID: 2490383612043130177}
   m_Layer: 0
   m_Name: GamemodeServerRace
-  m_TagString: Undefined
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,3 +59,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raceTime: 60
+--- !u!114 &2490383612043130177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892207122485133362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b467728f0344a054292d2ffdf56a2e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpoint: {fileID: 3231364700612569505, guid: 6e58fb9be01a97447a55aa962b437574, type: 3}
+  finishLine: {fileID: 3231364700612569505, guid: ac6aa437c63554f4b8551b6f4da8c017, type: 3}
+  rooms:
+  - {fileID: 7550027187864415991, guid: b64eb25ae4d73ec40a7e010e42d2f4bd, type: 3}
+  - {fileID: 2711926132237952610, guid: 68e022e32e338b34fb13e42b268d5789, type: 3}
+  - {fileID: 3894404099937357930, guid: f001ee02210a68a448aa0738fca8e384, type: 3}
+  - {fileID: 7550027187864415991, guid: 61245b59c5f896f448b90988644930e0, type: 3}
+  dungeonLength: 50
+  roomSize: {x: 3, y: 3}

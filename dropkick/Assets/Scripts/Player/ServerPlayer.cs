@@ -69,6 +69,10 @@ public class ServerPlayer : MonoBehaviour
     [MessageHandler((ushort)ClientToServerId.PlayerName, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void PlayerName(ushort fromClientId, Message message)
     {
+        if (NetworkManager.Singleton.started)
+        {
+            return;
+        }
         Spawn(fromClientId, message.GetString(), message.GetInt());
     }
 

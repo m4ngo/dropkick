@@ -7,6 +7,6 @@ public class GamemodeClientRace : MonoBehaviour
     private void Start()
     {
         //initialize the dungeon gen
-        GameObject.FindGameObjectWithTag("ClientDungeonGenerator").GetComponent<DungeonGenerator>().GenerateDungeon();
+        GetComponent<DungeonGenerator>().GenerateDungeon();
     }
 }

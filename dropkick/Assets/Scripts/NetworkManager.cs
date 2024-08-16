@@ -18,8 +18,9 @@ public enum ServerToClientId : ushort
     ResyncAirControl,
 
     Ready,
-    InitializeMatch,
+    SetSeed,
     StartGamemode,
+    GameStatus,
 }
 
 public enum ClientToServerId : ushort
@@ -54,16 +55,14 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     [SerializeField] private GameObject localPlayerPrefab;
 
-    [field:SerializeField] public DungeonGenerator clientGen { get; private set; }
-    private DungeonGenerator gen;
-    private int dungeonSeed;
-    private bool started = false;
+    public int seed { get; private set; }  = 0;
+    public bool started { get; private set; }  = false;
 
     [SerializeField] private GameObject[] gamemodeServerPrefabs;
     [SerializeField] private GameObject[] gamemodeClientPrefabs;
     [SerializeField] private List<int> gamemodeOrder = new List<int>();
     private GameObject currentGamemodeClient;
-    private GameObject currentGamemodeServer;
+    private Gamemode currentGamemodeServer;
 
     public GameObject ServerPlayerPrefab => serverPlayerPrefab;
     public GameObject PlayerPrefab => playerPrefab;
@@ -76,7 +75,6 @@ public class NetworkManager : MonoBehaviour
     {
         Singleton = this;
         Application.targetFrameRate = 60;
-        gen = GetComponent<DungeonGenerator>();
     }
 
     private void Start()
@@ -142,14 +140,29 @@ public class NetworkManager : MonoBehaviour
         foreach (ClientPlayer player in ClientPlayer.list.Values)
             Destroy(player.gameObject);
         Destroy(Camera.main.gameObject);
+        foreach (GameObject g in GameObject.FindGameObjectsWithTag("ClientPlayer"))
+        {
+            Destroy(g);
+        }
+    }
+
+    [MessageHandler((ushort)ServerToClientId.GameStatus, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void ReceiveGameStatus(Message message)
+    {
+        bool started = message.GetBool();
+        if(started)
+        {
+            //in the future, maybe add a way to spectate
+            NetworkManager.Singleton.DisconnectClient();
+        }
     }
 
     private void NewPlayerConnected(object sender, ServerConnectedEventArgs e)
     {
-        if(started){
-            Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.InitializeMatch);
-            message.AddInt(dungeonSeed);
-            Server.Send(message, e.Client.Id);
+        SendGameStatus(e.Client.Id);
+        if (started)
+        {
+            return;
         }
 
         foreach (ServerPlayer player in ServerPlayer.List.Values)
@@ -158,6 +171,13 @@ public class NetworkManager : MonoBehaviour
                 player.SendSpawn(e.Client.Id);
             }
         }
+    }
+
+    void SendGameStatus(ushort id)
+    {
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.GameStatus);
+        message.AddBool(started);
+        Server.Send(message, id);
     }
 
     private void ServerPlayerLeft(object sender, ServerDisconnectedEventArgs e)
@@ -176,6 +196,10 @@ public class NetworkManager : MonoBehaviour
     private void FailedToConnect(object sender, EventArgs e)
     {
         UIManager.Singleton.BackToMain();
+        foreach(GameObject g in GameObject.FindGameObjectsWithTag("ClientPlayer"))
+        {
+            Destroy(g);
+        }
     }
 
     private void ClientPlayerLeft(object sender, ClientDisconnectedEventArgs e)
@@ -192,24 +216,38 @@ public class NetworkManager : MonoBehaviour
         UIManager.Singleton.BackToMain();
     }
 
+
+
+    public void DestroyGamemodes()
+    {
+        if(currentGamemodeClient != null)
+        {
+            Destroy(currentGamemodeClient);
+        }
+
+        if(currentGamemodeServer != null)
+        {
+            Destroy(currentGamemodeServer);
+        }
+    }
+
     public void StartGamemode()
     {
         int mode = gamemodeOrder[0];
-        currentGamemodeServer = Instantiate(gamemodeServerPrefabs[mode]);
+        currentGamemodeServer = Instantiate(gamemodeServerPrefabs[mode]).GetComponent<Gamemode>();
+
+        seed = UnityEngine.Random.Range(0, 214748364);
 
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.StartGamemode);
         message.AddInt(mode);
+        message.AddInt(seed);
         Server.SendToAll(message);
     }
 
     public void StartGame()
     {
         gamemodeOrder = Enumerable.Range(0, gamemodeServerPrefabs.Length).ToList().OrderBy(_ => Guid.NewGuid()).ToList();
-
-        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.InitializeMatch);
-        dungeonSeed = gen.InitializeSeed(true);
-        message.AddInt(dungeonSeed);
-        Server.SendToAll(message);
+        UIManager.Singleton.GameStarted();
 
         started = true;
 
@@ -219,12 +257,17 @@ public class NetworkManager : MonoBehaviour
     public void EndGamemode()
     {
         //TODO
+        foreach(ushort id in currentGamemodeServer.EndGame())
+        {
+            print(id);
+        }
     }
 
     [MessageHandler((ushort)ServerToClientId.StartGamemode, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
     private static void StartGamemode(Message message)
     {
         int mode = message.GetInt();
+        Singleton.seed = message.GetInt();
         Singleton.currentGamemodeClient = Instantiate(Singleton.gamemodeClientPrefabs[mode]);
     }
 }
