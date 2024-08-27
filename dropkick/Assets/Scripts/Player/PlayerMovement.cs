@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 checkpoint = Vector3.zero;
 
     float deathTimer = 0;
+    private bool freeze = false;
     public bool isGrounded = false;
     Collider[] currentGround = null;
 
@@ -162,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetMoveDir(Vector3 jumpDir, float jumpForce)
     {
-        if (isJumping || !isGrounded || deathTimer > 0 || hitLock > 0f /*|| curJumps <= 0*/) //things that prevent jumping
+        if (isJumping || !isGrounded || deathTimer > 0 || hitLock > 0f || freeze /*|| curJumps <= 0*/) //things that prevent jumping
             return;
 
         jumpForce = Mathf.Clamp(jumpForce, MinJumpForceMultiplier, 1.0f) * MaxJumpForce;
@@ -183,6 +184,16 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = dir.normalized * Knockback;
         SendHit(dir);
         hitLock = 0.25f;
+    }
+
+    public void Freeze(bool freeze)
+    {
+        this.freeze = freeze;
+
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.Freeze);
+        message.AddUShort(player.Id);
+        message.AddBool(freeze);
+        NetworkManager.Singleton.Server.Send(message, player.Id);
     }
 
     public void SetDeath(float time)

@@ -2,6 +2,7 @@
 using Riptide.Utils;
 using Riptide;
 using System;
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,14 @@ public enum ServerToClientId : ushort
     ResyncPosition,
     ResyncAirControl,
 
+    Freeze,
+
     Ready,
     SetSeed,
     StartGamemode,
+    EndGamemode,
     GameStatus,
+    SetScore,
 }
 
 public enum ClientToServerId : ushort
@@ -256,11 +261,24 @@ public class NetworkManager : MonoBehaviour
 
     public void EndGamemode()
     {
+        int count = 3;
         //TODO
         foreach(ushort id in currentGamemodeServer.EndGame())
         {
-            print(id);
+            ServerPlayer.List[id].crowns += count;
+
+            Message scoreMsg = Message.Create(MessageSendMode.Reliable, ServerToClientId.SetScore);
+            scoreMsg.AddUShort(id);
+            scoreMsg.AddInt(ServerPlayer.List[id].crowns);
+            NetworkManager.Singleton.Server.SendToAll(scoreMsg);
+
+            count--;
         }
+
+        Destroy(Singleton.currentGamemodeServer);
+
+        Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.EndGamemode);
+        Server.SendToAll(message);
     }
 
     [MessageHandler((ushort)ServerToClientId.StartGamemode, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -269,6 +287,20 @@ public class NetworkManager : MonoBehaviour
         int mode = message.GetInt();
         Singleton.seed = message.GetInt();
         Singleton.currentGamemodeClient = Instantiate(Singleton.gamemodeClientPrefabs[mode]);
+        UIManager.Singleton.SetScoreMenu(false);
+    }
+
+    [MessageHandler((ushort)ServerToClientId.EndGamemode, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void EndGamemode(Message message)
+    {
+        Singleton.StartCoroutine(Singleton.DestroyClientGamemode());
+    }
+
+    IEnumerator DestroyClientGamemode()
+    {
+        yield return new WaitForSeconds(2.0f);
+        Destroy(Singleton.currentGamemodeClient);
+        UIManager.Singleton.SetScoreMenu(true);
     }
 }
 

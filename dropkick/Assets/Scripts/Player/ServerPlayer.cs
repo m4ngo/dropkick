@@ -13,11 +13,11 @@ public class ServerPlayer : MonoBehaviour
 
     private int color;
     public bool ready {get; private set;} = false;
-    public int crowns {get; private set;} = 0; //how many points they have
+    public int crowns = 0; //how many points they have
 
     [SerializeField] private PlayerMovement movement;
 
-    public void SetReady(bool read) {ready = read;}
+    public void SetReady(bool read) { ready = read; }
 
     private void OnValidate()
     {

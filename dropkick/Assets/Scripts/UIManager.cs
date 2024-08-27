@@ -39,6 +39,12 @@ public class UIManager : MonoBehaviour
     private bool ready = false;
     Dictionary<ushort, GameObject> entries = new Dictionary<ushort, GameObject>();
 
+    [Header("Score Menu")]
+    [SerializeField] private GameObject scoreMenu;
+    [SerializeField] private GameObject scoreEntryLayoutGroup;
+    [SerializeField] private GameObject playerScoreEntry;
+    Dictionary<ushort, GameObject> scoreEntries = new Dictionary<ushort, GameObject>();
+
     [field: SerializeField] public Material[] colors { get; private set; }
     public int color { get; private set; }
 
@@ -127,6 +133,7 @@ public class UIManager : MonoBehaviour
         lobbyMenu.SetActive(false);
         customMenu.SetActive(false);
         gameMenu.SetActive(false);
+        scoreMenu.SetActive(false);
     }
 
     public void SetPlayerColor(int i)
@@ -168,15 +175,33 @@ public class UIManager : MonoBehaviour
         entries.Add(id, entry);
         entry.transform.GetChild(1).GetChild(0).GetComponent<Text>().text = ClientPlayer.list[id].GetUsername();
         SetEntryStatus(id, status);
+
+        GameObject scoreEntry = Instantiate(playerScoreEntry, scoreEntryLayoutGroup.transform);
+        scoreEntries.Add(id, scoreEntry);
+        scoreEntry.transform.GetChild(0).GetComponent<Text>().text = ClientPlayer.list[id].GetUsername();
     }
 
     public void RemoveEntry(ushort id){
         Destroy(entries[id]); //destryo game object
         entries.Remove(id); //remove from dictionary
+
+        Destroy(scoreEntries[id]); //same for the score entries
+        scoreEntries.Remove(id);
     }
 
-    void SetEntryStatus(ushort id, bool status){
+    public void SetScoreMenu(bool active)
+    {
+        scoreMenu.SetActive(active);
+    }
+
+    void SetEntryStatus(ushort id, bool status)
+    {
         entries[id].transform.GetChild(0).GetChild(0).GetComponent<Text>().text = status ? "READY" : "";
+    }
+
+    void SetScoreEntryStatus(ushort id, int score)
+    {
+        scoreEntries[id].transform.GetChild(2).GetComponent<Text>().text = score.ToString();
     }
 
     void AllReady(){
@@ -209,5 +234,14 @@ public class UIManager : MonoBehaviour
         if (!ClientPlayer.list.TryGetValue(playerId, out ClientPlayer player))
             return;
         UIManager.Singleton.SetEntryStatus(playerId, message.GetBool());
+    }
+
+    [MessageHandler((ushort)ServerToClientId.SetScore, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void SetScore(Message message)
+    {
+        ushort playerId = message.GetUShort(); //get player id
+        if (!ClientPlayer.list.TryGetValue(playerId, out ClientPlayer player))
+            return;
+        UIManager.Singleton.SetScoreEntryStatus(playerId, message.GetInt());
     }
 }

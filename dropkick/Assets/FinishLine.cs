@@ -9,7 +9,7 @@ public class FinishLine : MonoBehaviour
         if (other.CompareTag("ServerPlayer"))
         {
             transform.parent.GetComponent<GamemodeServerRace>().FinishLineReached(other.GetComponent<ServerPlayer>().Id);
-            other.GetComponent<PlayerMovement>().SetDeath(100f);
+            other.GetComponent<PlayerMovement>().Freeze(true);
         }
     }
 }

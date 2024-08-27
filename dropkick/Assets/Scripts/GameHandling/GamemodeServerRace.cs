@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GamemodeServerRace : MonoBehaviour
@@ -8,6 +9,7 @@ public class GamemodeServerRace : MonoBehaviour
     private Gamemode mode;
     private DungeonGenerator gen;
     private int score = 3;
+    private int total = 0;
 
     private void Start()
     {
@@ -30,7 +32,8 @@ public class GamemodeServerRace : MonoBehaviour
     {
         mode.AddScore(id, score);
         score--;
-        if(score <= 0)
+        total++;
+        if(score <= 0 || total == ServerPlayer.List.Count)
         {
             NetworkManager.Singleton.EndGamemode();
         }

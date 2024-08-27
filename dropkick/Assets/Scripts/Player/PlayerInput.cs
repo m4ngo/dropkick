@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using Riptide;
+using System.Collections.Generic;
 
 
 public class PlayerInput : MonoBehaviour
@@ -21,6 +22,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private Slider[] jumpDisplays;
     private float jumpQueue = 0f;
     private float hitLock = 0f;
+    private bool freeze = false;
 
     private int curJumps = 3;
     private float curReload = 0f;
@@ -73,6 +75,11 @@ public class PlayerInput : MonoBehaviour
         hitLock = time;
     }
 
+    void Freeze(bool freeze)
+    {
+        this.freeze = freeze;
+    }
+
     private void Update()
     {
         //pointer indicator handling
@@ -96,7 +103,7 @@ public class PlayerInput : MonoBehaviour
         }
 
         //don't execute movement logic if the player is dead
-        if (player.dead || player.isJumping || hitLock > 0 || curJumps <= 0)
+        if (player.dead || player.isJumping || hitLock > 0 || curJumps <= 0 || freeze)
             return;
 
         if (Input.GetMouseButton(0))
@@ -141,6 +148,14 @@ public class PlayerInput : MonoBehaviour
         Message message = Message.Create(MessageSendMode.Unreliable, ClientToServerId.PlayerAirControl);
         message.AddVector3(dir);
         NetworkManager.Singleton.Client.Send(message);
+    }
+
+    [MessageHandler((ushort)ServerToClientId.Freeze, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void Freeze(Message message)
+    {
+        if (!ClientPlayer.list.TryGetValue(message.GetUShort(), out ClientPlayer player))
+            return;
+        player.GetComponent<PlayerInput>().Freeze(message.GetBool());
     }
     #endregion
 }
