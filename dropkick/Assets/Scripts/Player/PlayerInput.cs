@@ -75,7 +75,7 @@ public class PlayerInput : MonoBehaviour
         hitLock = time;
     }
 
-    void Freeze(bool freeze)
+    public void Freeze(bool freeze)
     {
         this.freeze = freeze;
     }
@@ -148,14 +148,6 @@ public class PlayerInput : MonoBehaviour
         Message message = Message.Create(MessageSendMode.Unreliable, ClientToServerId.PlayerAirControl);
         message.AddVector3(dir);
         NetworkManager.Singleton.Client.Send(message);
-    }
-
-    [MessageHandler((ushort)ServerToClientId.Freeze, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
-    private static void Freeze(Message message)
-    {
-        if (!ClientPlayer.list.TryGetValue(message.GetUShort(), out ClientPlayer player))
-            return;
-        player.GetComponent<PlayerInput>().Freeze(message.GetBool());
     }
     #endregion
 }

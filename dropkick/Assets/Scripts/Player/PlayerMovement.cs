@@ -266,6 +266,10 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerDeath()
     {
+        if (freeze)
+        {
+            return;
+        }
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.PlayerDeath);
         message.AddUShort(player.Id);
         NetworkManager.Singleton.Server.SendToAll(message);
@@ -273,6 +277,10 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerRespawn()
     {
+        if (freeze)
+        {
+            return;
+        }
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.PlayerRespawn);
         message.AddUShort(player.Id);
         message.AddVector3(transform.position);

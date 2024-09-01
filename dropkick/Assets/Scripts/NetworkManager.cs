@@ -23,9 +23,10 @@ public enum ServerToClientId : ushort
     Ready,
     SetSeed,
     StartGamemode,
-    EndGamemode,
+    EndGamemode, //for when each individual gamemode is done
     GameStatus,
     SetScore,
+    EndFullGame, //for when the game is entirely done
 }
 
 public enum ClientToServerId : ushort
@@ -66,8 +67,8 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] private GameObject[] gamemodeServerPrefabs;
     [SerializeField] private GameObject[] gamemodeClientPrefabs;
     [SerializeField] private List<int> gamemodeOrder = new List<int>();
-    private GameObject currentGamemodeClient;
-    private Gamemode currentGamemodeServer;
+    [SerializeField] private GameObject currentGamemodeClient;
+    [SerializeField] private Gamemode currentGamemodeServer;
 
     public GameObject ServerPlayerPrefab => serverPlayerPrefab;
     public GameObject PlayerPrefab => playerPrefab;
@@ -219,6 +220,14 @@ public class NetworkManager : MonoBehaviour
 
         ClientPlayer.list.Clear();
         UIManager.Singleton.BackToMain();
+        if (Singleton.currentGamemodeServer != null)
+        {
+            Destroy(Singleton.currentGamemodeServer.gameObject);
+        }
+        if (Singleton.currentGamemodeClient != null)
+        {
+            Destroy(Singleton.currentGamemodeClient);
+        }
     }
 
 
@@ -238,7 +247,21 @@ public class NetworkManager : MonoBehaviour
 
     public void StartGamemode()
     {
+        if(gamemodeOrder.Count <= 0)
+        {
+            //TODO: end the entire game
+            return;
+        }
+        
+        //reset all player positions
+        foreach(ServerPlayer p in ServerPlayer.List.Values)
+        {
+            p.transform.position = Vector3.zero;
+            p.GetComponent<PlayerMovement>().Freeze(false);
+        }
+
         int mode = gamemodeOrder[0];
+        gamemodeOrder.RemoveAt(0);
         currentGamemodeServer = Instantiate(gamemodeServerPrefabs[mode]).GetComponent<Gamemode>();
 
         seed = UnityEngine.Random.Range(0, 214748364);
@@ -275,10 +298,18 @@ public class NetworkManager : MonoBehaviour
             count--;
         }
 
-        Destroy(Singleton.currentGamemodeServer);
+        Destroy(Singleton.currentGamemodeServer.gameObject);
 
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.EndGamemode);
         Server.SendToAll(message);
+
+        Singleton.StartCoroutine(Singleton.StartNextGamemode());
+    }
+
+    IEnumerator StartNextGamemode()
+    {
+        yield return new WaitForSeconds(5.0f);
+        StartGamemode();
     }
 
     [MessageHandler((ushort)ServerToClientId.StartGamemode, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
@@ -288,6 +319,11 @@ public class NetworkManager : MonoBehaviour
         Singleton.seed = message.GetInt();
         Singleton.currentGamemodeClient = Instantiate(Singleton.gamemodeClientPrefabs[mode]);
         UIManager.Singleton.SetScoreMenu(false);
+
+        foreach (ClientPlayer p in ClientPlayer.list.Values)
+        {
+            p.transform.position = Vector3.zero;
+        }
     }
 
     [MessageHandler((ushort)ServerToClientId.EndGamemode, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]

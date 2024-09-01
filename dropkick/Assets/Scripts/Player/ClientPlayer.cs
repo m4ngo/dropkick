@@ -304,5 +304,13 @@ public class ClientPlayer : MonoBehaviour
             return;
         player.AirControl(message.GetVector3());
     }
+
+    [MessageHandler((ushort)ServerToClientId.Freeze, NetworkManager.PlayerHostedDemoMessageHandlerGroupId)]
+    private static void Freeze(Message message)
+    {
+        if (!ClientPlayer.list.TryGetValue(message.GetUShort(), out ClientPlayer player))
+            return;
+        player.GetComponent<PlayerInput>().Freeze(message.GetBool());
+    }
     #endregion
 }
