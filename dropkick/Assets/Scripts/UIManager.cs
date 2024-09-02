@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Riptide;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +21,14 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    [Header("Error Displays")]
+    [SerializeField] private GameObject errorBox;
+    [SerializeField] private Text errorText;
+    [SerializeField] private string steamError = "";
+    [SerializeField] private string gameAlreadyStarted = "";
+
+    [Header("Main Menus")]
 
     [SerializeField] private GameObject mainMenu;
     [SerializeField] private GameObject customMenu;
@@ -61,6 +70,26 @@ public class UIManager : MonoBehaviour
         if(!gameMenu.activeInHierarchy){
             menu.SetActive(false);
         }
+    }
+
+    public void GameAlreadyStartedNotif()
+    {
+        StartCoroutine(_GameAlreadyStartedNotif());
+    }
+
+    IEnumerator _GameAlreadyStartedNotif()
+    {
+        errorBox.SetActive(true);
+        errorText.text = gameAlreadyStarted;
+        yield return new WaitForSeconds(2f);
+        errorBox.SetActive(false);
+    }
+
+    public void SteamError()
+    {
+        errorBox.SetActive(true);
+        errorText.text = steamError;
+        mainMenu.SetActive(false);
     }
 
     public void HostClicked()

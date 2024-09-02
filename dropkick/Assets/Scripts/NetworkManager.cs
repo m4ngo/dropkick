@@ -87,6 +87,7 @@ public class NetworkManager : MonoBehaviour
     {
         if (!SteamManager.Initialized)
         {
+            UIManager.Singleton.SteamError();
             Debug.LogError("Steam is not initialized!");
             //TODO: add error display
             return;
@@ -145,7 +146,8 @@ public class NetworkManager : MonoBehaviour
         Client.Disconnect();
         foreach (ClientPlayer player in ClientPlayer.list.Values)
             Destroy(player.gameObject);
-        Destroy(Camera.main.gameObject);
+        if(Camera.main != null)
+            Destroy(Camera.main.gameObject);
         foreach (GameObject g in GameObject.FindGameObjectsWithTag("ClientPlayer"))
         {
             Destroy(g);
@@ -159,6 +161,7 @@ public class NetworkManager : MonoBehaviour
         if(started)
         {
             //in the future, maybe add a way to spectate
+            UIManager.Singleton.GameAlreadyStartedNotif();
             NetworkManager.Singleton.DisconnectClient();
         }
     }
@@ -197,6 +200,7 @@ public class NetworkManager : MonoBehaviour
         message.AddString(Steamworks.SteamFriends.GetPersonaName());
         message.AddInt(UIManager.Singleton.color);
         Client.Send(message);
+        UIManager.Singleton.SetReady(false);
     }
 
     private void FailedToConnect(object sender, EventArgs e)
@@ -319,6 +323,7 @@ public class NetworkManager : MonoBehaviour
         Singleton.seed = message.GetInt();
         Singleton.currentGamemodeClient = Instantiate(Singleton.gamemodeClientPrefabs[mode]);
         UIManager.Singleton.SetScoreMenu(false);
+        UIManager.Singleton.GameStarted();
 
         foreach (ClientPlayer p in ClientPlayer.list.Values)
         {

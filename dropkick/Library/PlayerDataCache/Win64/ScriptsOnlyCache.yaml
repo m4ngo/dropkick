@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - ClientPlayer
     - DungeonGenerator
+    - FinishLine
     - Gamemode
     - GamemodeClientRace
     - GamemodeServerRace
@@ -279,111 +280,113 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2694}
     - Class: 114
-      Script: {instanceID: 2804}
+      Script: {instanceID: 2752}
     - Class: 114
-      Script: {instanceID: 2950}
+      Script: {instanceID: 2806}
     - Class: 114
-      Script: {instanceID: 3014}
+      Script: {instanceID: 2952}
     - Class: 114
-      Script: {instanceID: 3080}
+      Script: {instanceID: 3016}
     - Class: 114
-      Script: {instanceID: 3136}
+      Script: {instanceID: 3082}
     - Class: 114
-      Script: {instanceID: 3162}
+      Script: {instanceID: 3138}
     - Class: 114
-      Script: {instanceID: 3206}
+      Script: {instanceID: 3164}
     - Class: 114
-      Script: {instanceID: 3310}
+      Script: {instanceID: 3208}
     - Class: 114
-      Script: {instanceID: 3388}
+      Script: {instanceID: 3312}
     - Class: 114
-      Script: {instanceID: 3594}
+      Script: {instanceID: 3390}
     - Class: 114
-      Script: {instanceID: 3628}
+      Script: {instanceID: 3596}
     - Class: 114
-      Script: {instanceID: 3654}
+      Script: {instanceID: 3630}
     - Class: 114
-      Script: {instanceID: 3704}
+      Script: {instanceID: 3656}
     - Class: 114
-      Script: {instanceID: 3836}
+      Script: {instanceID: 3706}
     - Class: 114
-      Script: {instanceID: 3870}
+      Script: {instanceID: 3838}
     - Class: 114
-      Script: {instanceID: 3934}
+      Script: {instanceID: 3872}
     - Class: 114
-      Script: {instanceID: 3954}
+      Script: {instanceID: 3936}
     - Class: 114
-      Script: {instanceID: 4140}
+      Script: {instanceID: 3956}
     - Class: 114
-      Script: {instanceID: 4470}
+      Script: {instanceID: 4142}
     - Class: 114
-      Script: {instanceID: 4620}
+      Script: {instanceID: 4472}
     - Class: 114
-      Script: {instanceID: 4630}
+      Script: {instanceID: 4622}
     - Class: 114
       Script: {instanceID: 4632}
     - Class: 114
-      Script: {instanceID: 4648}
+      Script: {instanceID: 4634}
     - Class: 114
-      Script: {instanceID: 4702}
+      Script: {instanceID: 4650}
     - Class: 114
-      Script: {instanceID: 4782}
+      Script: {instanceID: 4704}
     - Class: 114
-      Script: {instanceID: 4858}
+      Script: {instanceID: 4784}
     - Class: 114
       Script: {instanceID: 4860}
     - Class: 114
-      Script: {instanceID: 4880}
+      Script: {instanceID: 4862}
     - Class: 114
-      Script: {instanceID: 4944}
+      Script: {instanceID: 4882}
     - Class: 114
-      Script: {instanceID: 5068}
+      Script: {instanceID: 4946}
     - Class: 114
-      Script: {instanceID: 5104}
+      Script: {instanceID: 5070}
     - Class: 114
-      Script: {instanceID: 5202}
+      Script: {instanceID: 5106}
     - Class: 114
-      Script: {instanceID: 5316}
+      Script: {instanceID: 5204}
     - Class: 114
-      Script: {instanceID: 5378}
+      Script: {instanceID: 5318}
     - Class: 114
-      Script: {instanceID: 5384}
+      Script: {instanceID: 5380}
     - Class: 114
-      Script: {instanceID: 5476}
+      Script: {instanceID: 5386}
     - Class: 114
-      Script: {instanceID: 5512}
+      Script: {instanceID: 5478}
     - Class: 114
-      Script: {instanceID: 5556}
+      Script: {instanceID: 5514}
     - Class: 114
-      Script: {instanceID: 5610}
+      Script: {instanceID: 5558}
     - Class: 114
-      Script: {instanceID: 5620}
+      Script: {instanceID: 5612}
     - Class: 114
-      Script: {instanceID: 5712}
+      Script: {instanceID: 5622}
     - Class: 114
-      Script: {instanceID: 5810}
+      Script: {instanceID: 5714}
     - Class: 114
-      Script: {instanceID: 5814}
+      Script: {instanceID: 5812}
     - Class: 114
-      Script: {instanceID: 5916}
+      Script: {instanceID: 5816}
     - Class: 114
-      Script: {instanceID: 6228}
+      Script: {instanceID: 5918}
     - Class: 114
-      Script: {instanceID: 6238}
+      Script: {instanceID: 6230}
     - Class: 114
-      Script: {instanceID: 6446}
+      Script: {instanceID: 6240}
     - Class: 114
-      Script: {instanceID: 6458}
+      Script: {instanceID: 6448}
     - Class: 114
-      Script: {instanceID: 6506}
+      Script: {instanceID: 6460}
     - Class: 114
-      Script: {instanceID: 6512}
+      Script: {instanceID: 6508}
     - Class: 114
-      Script: {instanceID: 6754}
+      Script: {instanceID: 6514}
     - Class: 114
-      Script: {instanceID: 6878}
+      Script: {instanceID: 6756}
     - Class: 114
-      Script: {instanceID: 6978}
+      Script: {instanceID: 6880}
+    - Class: 114
+      Script: {instanceID: 6980}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -597,7 +600,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: a36fe1ca488833775cd0d9522b07d149
+      Hash: 23560e5a463b327f2273f4cb549e2de9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ServerPlayer
@@ -613,6 +616,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerWidget
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FinishLine
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -645,7 +654,7 @@ ScriptsOnlyBuild:
     className: ShadowCaster2D
   - hash:
       serializedVersion: 2
-      Hash: 02242009a283dfd245af1baf7bdc115c
+      Hash: d0ba4d022a62b1a4065d5d9e498063a8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DungeonGenerator
@@ -771,7 +780,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 6714d53bd8fb8f8287021e32e7693277
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GamemodeServerRace
@@ -1197,7 +1206,7 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
-      Hash: 202bcfe5718f1e87cd5515a53cde1774
+      Hash: ae96974f494056e1138d7394e8c9e49a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NetworkManager
@@ -1227,7 +1236,7 @@ ScriptsOnlyBuild:
     className: PostProcessData
   - hash:
       serializedVersion: 2
-      Hash: b8b3261cf22d3e227639d8bce40d32c2
+      Hash: 924649de397fb50f69753cdfbfebd161
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UIManager
@@ -1309,12 +1318,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: FinishLine
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main.unity
