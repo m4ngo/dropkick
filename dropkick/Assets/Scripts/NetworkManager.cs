@@ -27,6 +27,8 @@ public enum ServerToClientId : ushort
     GameStatus,
     SetScore,
     EndFullGame, //for when the game is entirely done
+
+    CrumbleTile,
 }
 
 public enum ClientToServerId : ushort
@@ -67,7 +69,7 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] private GameObject[] gamemodeServerPrefabs;
     [SerializeField] private GameObject[] gamemodeClientPrefabs;
     [SerializeField] private List<int> gamemodeOrder = new List<int>();
-    [SerializeField] private GameObject currentGamemodeClient;
+    public GameObject currentGamemodeClient;
     [SerializeField] private Gamemode currentGamemodeServer;
 
     public GameObject ServerPlayerPrefab => serverPlayerPrefab;
@@ -232,6 +234,8 @@ public class NetworkManager : MonoBehaviour
         {
             Destroy(Singleton.currentGamemodeClient);
         }
+
+        Singleton.StopAllCoroutines();
     }
 
 
@@ -255,13 +259,6 @@ public class NetworkManager : MonoBehaviour
         {
             //TODO: end the entire game
             return;
-        }
-        
-        //reset all player positions
-        foreach(ServerPlayer p in ServerPlayer.List.Values)
-        {
-            p.transform.position = Vector3.zero;
-            p.GetComponent<PlayerMovement>().Freeze(false);
         }
 
         int mode = gamemodeOrder[0];

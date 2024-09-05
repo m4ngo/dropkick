@@ -5,10 +5,26 @@ using UnityEngine;
 public class Gamemode : MonoBehaviour
 {
     public Dictionary<ushort, int> scores = new Dictionary<ushort, int>();
+    [SerializeField] private Vector3[] spawnPos;
 
     private void Start() {
         foreach(ushort id in ServerPlayer.List.Keys){
             scores.Add(id, 0);
+        }
+
+        //reset all player positions
+        int i = 0;
+        foreach (ServerPlayer p in ServerPlayer.List.Values)
+        {
+            p.transform.position = spawnPos[i];
+            i++;
+            if(i >= spawnPos.Length)
+            {
+                i = 0;
+            }
+            PlayerMovement move = p.GetComponent<PlayerMovement>();
+            move.Freeze(false);
+            move.SendResync();
         }
     }
 

@@ -60,12 +60,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Player\ServerPlayer.cs" />
-    <Compile Include="Assets\FinishLine.cs" />
+    <Compile Include="Assets\Scripts\FinishLine.cs" />
     <Compile Include="Assets\Scripts\SpriteOutline.cs" />
     <Compile Include="Assets\Scripts\DungeonGenerator.cs" />
     <Compile Include="Assets\Prefabs\Player\SteamTransport\SteamPeer.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerUIManager.cs" />
     <Compile Include="Assets\Scripts\GameHandling\GamemodeServerRace.cs" />
+    <Compile Include="Assets\Scripts\GameHandling\GamemodeServerIsland.cs" />
     <Compile Include="Assets\Scripts\LobbyManager.cs" />
     <Compile Include="Assets\Scripts\GameHandling\Gamemode.cs" />
     <Compile Include="Assets\Scripts\Player\ClientPlayer.cs" />
@@ -77,6 +78,9 @@
     <Compile Include="Assets\Prefabs\Player\SteamTransport\SteamManager.cs" />
     <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Prefabs\Player\SteamTransport\SteamServer.cs" />
+    <Compile Include="Assets\Scripts\IslandGenerator.cs" />
+    <Compile Include="Assets\RoomCrumbleClient.cs" />
+    <Compile Include="Assets\GamemodeClientIsland.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

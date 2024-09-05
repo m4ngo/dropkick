@@ -49,8 +49,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 checkpoint = Vector3.zero;
 
-    float deathTimer = 0;
-    private bool freeze = false;
+    public float deathTimer { get; private set; } = 0;
+    public bool freeze { get; private set;  } = false;
     public bool isGrounded = false;
     Collider[] currentGround = null;
 
@@ -58,6 +58,11 @@ public class PlayerMovement : MonoBehaviour
     {
         player = GetComponent<ServerPlayer>();
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        Freeze(true);
     }
 
     private void FixedUpdate()
@@ -116,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
         if (deathTimer > 0)
             rb.velocity = Vector2.zero;
 
-        if (!isGrounded && !isJumping && deathTimer <= 0)
+        if (!isGrounded && !isJumping && deathTimer <= 0 && !freeze)
             Death(0);
 
         if (deathTimer <= 0)
@@ -193,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
         Message message = Message.Create(MessageSendMode.Reliable, ServerToClientId.Freeze);
         message.AddUShort(player.Id);
         message.AddBool(freeze);
-        NetworkManager.Singleton.Server.Send(message, player.Id);
+        NetworkManager.Singleton.Server.SendToAll(message);
     }
 
     public void SetDeath(float time)
@@ -287,7 +292,7 @@ public class PlayerMovement : MonoBehaviour
         NetworkManager.Singleton.Server.SendToAll(message);
     }
 
-    void SendResync()
+    public void SendResync()
     {
         Message message = Message.Create(MessageSendMode.Unreliable, ServerToClientId.ResyncPosition);
         message.AddVector3(transform.position);

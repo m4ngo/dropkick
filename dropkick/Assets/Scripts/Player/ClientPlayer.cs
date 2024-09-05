@@ -51,6 +51,7 @@ public class ClientPlayer : MonoBehaviour
     Collider[] currentGround = null;
 
     //open variables the local player can check with
+    private bool frozen = false;
     public bool dead { get; private set; }
     public string GetUsername(){return username;}
     public float GetSpriteDist() { return Math.Abs(startPos.y - modelParent.localPosition.y); }
@@ -105,7 +106,7 @@ public class ClientPlayer : MonoBehaviour
             cam.position = Vector3.Lerp(cam.position, new Vector3(transform.position.x, 10, transform.position.z - 6.5f), Time.deltaTime * camSpeed);
 
         //model squash and stretch
-        if (rb.velocity.sqrMagnitude > 1 && !dead)
+        if (rb.velocity.sqrMagnitude > 1 && !dead && !frozen)
         {
             float x = defaultScale.x - Mathf.Log10(Mathf.Clamp(rb.velocity.magnitude * .1f, 1f, 3f));
             Vector3 scale = new Vector3(x, 1f, defaultScale.z * defaultScale.z / x);
@@ -310,7 +311,12 @@ public class ClientPlayer : MonoBehaviour
     {
         if (!ClientPlayer.list.TryGetValue(message.GetUShort(), out ClientPlayer player))
             return;
-        player.GetComponent<PlayerInput>().Freeze(message.GetBool());
+        player.frozen = message.GetBool();
+        if (player.TryGetComponent<PlayerInput>(out PlayerInput playerInput))
+        {
+            playerInput.Freeze(player.frozen);
+        }
+        player.modelParent.localScale = player.frozen ? Vector3.zero : player.defaultScale;
     }
     #endregion
 }
